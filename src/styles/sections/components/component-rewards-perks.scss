@@ -1,0 +1,132 @@
+.c-rewardsPerks {
+  @include angle($pseudo: after, $flip: true, $bg: $color-offwhite);
+  background-color: #27C7BA;
+  color: $color-white;
+  padding: 50px 0 80px;
+
+  @include media-tablet-up {
+    padding: 115px 0 140px;
+  }
+
+  &:not(.c-rewardsPerks__loggedIn) {
+    @include angle($pseudo: before, $bg: $color-offwhite);
+    padding-top: 80px;
+
+    @include media-tablet-up {
+      padding-top: 140px;
+    }
+  }
+
+  .tns-nav {
+    button {
+      background-color: $color-white;
+
+      &.tns-nav-active {
+        background-color: transparent;
+        border-color: $color-white;
+      }
+    }
+  }
+}
+
+.c-rewardsPerks__intro {
+  margin: 0 auto;
+  max-width: 498px;
+}
+
+.c-rewardsPerks__cards {
+  @include flex($align: stretch, $justify: space-around, $wrap: nowrap);
+  margin-top: 69px;
+  transition-property: all;
+
+  @include media-tablet-up {
+    justify-content: center;
+    margin-bottom: 64px;
+  }
+}
+
+.c-rewardsPerks__card {
+  @include flex($align: stretch, $direction: column, $wrap: nowrap);
+  background-color: $color-white;
+  border-radius: 20px;
+  color: $color-primary;
+  display: flex !important;
+  max-width: 371px;
+  overflow: hidden;
+  padding-top: 40px;
+  width: 100%;
+
+  @include media-tablet-up {
+    @include shadow-base;
+    margin-right: 20px;
+  }
+
+  @include media-desktop-up {
+    margin-right: 60px;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &.isActive {
+    border: 4px solid $color-secondary;
+  }
+}
+
+.c-rewardsPerks__cardHeading {
+  color: $color-black;
+  margin-bottom: 20px;
+}
+
+.c-rewardsPerks__cardPoints {
+  color: #9f9f9f;
+  font-family: $font-heading;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.c-rewardsPerks__cardList {
+  font-family: $font-heading;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 40px 0 60px;
+  padding: 0 24px;
+}
+
+.c-rewardsPerks__cardListItem {
+  @include flex($wrap: nowrap);
+  margin-bottom: 21px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .c-svg {
+    color: $color-secondary;
+    margin-right: 12px;
+    width: 22px;
+
+    svg {
+      display: block;
+    }
+  }
+}
+
+.c-rewardsPerks__cardImage {
+  margin-top: auto;
+
+  img {
+    display: block;
+  }
+}
+
+.c-rewardsPerks__actions {
+  @include flex($justify: center);
+
+  .c-button {
+    width: 272px;
+  }
+}

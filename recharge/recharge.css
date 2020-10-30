@@ -1,0 +1,364 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900&display=swap');
+
+html {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#payment > div:nth-child(1) > h3:nth-child(2), #secure-form > h5:nth-child(11) {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+#contact-information > div:nth-child(1) > h3:nth-child(1) {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  text-transform: capitalize;
+}
+
+.shop__logo {
+    max-width: 125px;
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
+}
+
+#account-login-message-header, #account-creation-message-header {
+  font-weight: 800;
+  font-size: 14px;
+  margin-top: -15px !important;
+}
+
+.order-summary-recap {
+  display: none;
+}
+
+.order-summary {
+  background: #ffffff;
+  border-radius: 20px;
+  color: #101f2d;
+  border: 1px solid #eaeaea !important;
+}
+
+.order-summary--hasTrial {
+  margin-bottom: 300px;
+}
+
+.summary-body {
+  position: relative;
+border-top: none;
+}
+
+.main {
+  background: #f7f7f7;
+}
+
+.footer {
+  background: #f7f7f7 !important;
+}
+
+.payment-due__price {
+  color: #101F2D;
+  font-weight: bold !important;
+}
+
+#continue-button {
+  border-radius: 200px;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  font-weight: bold;
+}
+
+.fieldset {
+  border: 1px solid #EAEAEA;
+}
+
+.field {
+  border-top: 1px solid #EAEAEA;
+}
+
+.call-to-action a {
+  color: #101F2d !important;
+  text-decoration: underline;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+#account-creation-button, #account-login-button {
+  border-radius: 200px;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  width: auto !important;
+  margin-bottom: 1rem;
+}
+
+.order-summary__section--header h3 {
+  font-weight: 900;
+  text-transform: capitalize;
+font-size: 24px;
+}
+
+.order-summary strong {
+  font-weight: bold;
+  color: #101F2D;
+}
+
+label {
+  color: #101f2d;
+}
+
+#discount-field {
+  display: block !important;
+border: 2px solid #101F2D;
+}
+
+#show-discount-form-link {
+  display: none;
+}
+
+#discount_error_div label {
+  width: 42%;
+}
+
+#checkout_discount_code {
+  width: 58%;
+}
+
+div.section__header:nth-child(5) > h3:nth-child(1) {
+  font-weight: 900;
+  font-size: 24px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#apply_discount {
+  background: none !important;
+  border: none !important;
+  padding-bottom: 1.25em;
+  padding-top: 1.25em;
+}
+
+#call-create-account label {
+  font-weight: 400;
+}
+
+#account-creation-button {
+  margin-bottom: 12px;
+}
+
+#call-create-account-login, #call-create-account-login label {
+  font-weight: 400;
+}
+
+.c-header__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.c-header__content--one, .c-header__content--two, .c-header__content--three {
+  width: 100%;
+  color: #fff;
+  font-weight: bold;
+}
+
+.c-header__content--three {
+  background-size: cover;
+  background-position: center;
+  background-image: url('https://cdn.shopify.com/s/files/1/1813/5651/t/44/assets/girl.png?v=1594848422');
+  clip-path: polygon(18% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.c-header__content--one {
+  padding: 0 5em;
+}
+
+.header {
+  padding-top: 0px !important;
+  background: #141E2B;
+  padding-bottom: 0px;
+}
+
+.admin-notice {
+  display: none;
+}
+
+.c-header__content--one, .c-header__content--two {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.c-header__content--one img {
+  width: 10rem;
+}
+
+.c-header__content--two {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  display: grid;
+  flex-direction: column;
+  align-items: center;
+  grid-gap: 1rem;
+  background: #141E2B;
+}
+
+.c-truck, .c-heart, .c-calendar {
+  display: flex;
+  align-items: center;
+}
+
+.c-header__content--two svg {
+  margin-right: 12px;
+}
+
+@media only screen and (max-width: 768px) {
+  .c-header__content--two, .c-header__content--three {
+    display: none;
+  }
+  .c-header__content {
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+  }
+
+  .c-header__content--one {
+    margin: 0 auto;
+    width: auto;
+  }
+  #discount_error_div label {
+    font-size: 12px;
+    width: 42%;
+  }
+  #checkout_discount_code {
+    width: 58%;
+  }
+  #apply_discount {
+    padding-top: .9em;
+  }
+  .wrap {
+    display: grid;
+  }
+  .order-summary {
+    order: 1;
+    margin-top: 3rem !important;
+  }
+  #checkout {
+    order: 2;
+  }
+  .section--additional-mobile-cta {
+    order: 3;
+  }
+}
+
+#additional-mobile-cta {
+  border-radius: 200px;
+font-weight: bold;
+}
+
+#edit_checkout_429553653 > h5:nth-child(17) {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 999px) {
+  .order-summary {
+    width: 91%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.section--additional-mobile-cta {
+  border-top: none !important;
+}
+
+.ongoing-sub {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #eaeaea;
+  box-sizing: border-box;
+  margin-top: 30px;
+  padding: 21px 17px;
+  position: absolute;
+  width: 100%;
+}
+
+.ongoing__title {
+  display: block;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.product--ongoing {
+  align-items: center;
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.product__info--ongoing {
+  line-height: 1.4;
+}
+
+.product__info__name--ongoing {
+  margin-bottom: 0;
+}
+
+.product__info__text--ongoing {
+  display: block;
+}
+
+.ongoing__disclaimer {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.order-summary .product-list .product--isChild {
+  border-top: 0 none;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.product--isChild .product__image {
+  width: 3.5em;
+  margin-left: -4.5em;
+}
+
+.product--isChild .product__info__name strong {
+  display: block;
+  font-weight: 400;
+}
+
+.product--isChild .product__info span:not(.product__info__name) {
+  display: none;
+}
+
+.product--isChild .product__price {
+  display: none;
+}
+.success .applied-discount__code {
+color: #ffa740;
+text-transform: uppercase;
+font-weight: bold;
+}
+.chrome input[type=radio]:checked, .safari input[type=radio]:checked {
+box-shadow: inset 0 0 0 10px #ffa740;
+}
+.product__info__name strong {
+font-size: medium;
+}
+.order-summary__section {
+border-top: none;
+}
+@media (max-width: 999px) {
+  .call-to-action--final {
+    display: none;
+  }
+}
+.product-4877360070758 .product_info_frequency {
+display: none;
+}
+.product__info__description {
+  display: none;
+}

@@ -1,0 +1,44 @@
+{% assign show = true %}
+{% if section.settings.type == "never" %}
+  {% assign show = false %}
+{% elsif section.settings.type == "new" and customer != empty and customer.orders_count > 0 %}
+  {% assign show = false %}
+{% elsif section.settings.type == "returning" and customer == blank or customer and customer.orders_count == 0 %}
+  {% assign show = false %}
+{% endif %}
+
+{% if show %}
+  <section class="c-split {% if section.settings.image_cutoff %}c-split--image-cutoff{% endif %}" style="background-color: {{ section.settings.background }}">
+    <div class="c-split__container">
+      <div class="c-split__content">
+        {% if section.settings.subheading != blank %}<p class="c-split__subheading c-h-subheading">{{ section.settings.subheading }}</p>{% endif %}
+        <h3 class="c-split__heading">{{ section.settings.title }}</h3>
+        <p class="c-split__description">{{ section.settings.description }}</p>
+        {% if type == 'bundle' %}
+          <button type="button" class="c-button c-button--isDefault c-button--isSecondaryAlt" data-bundle-trigger>{{ section.settings.cta_text }}{% if section.settings.cta_arrow %}{% render 'arrow.svg' %}{% endif %}</button>
+        {% elsif type == 'trial' %}
+          {% form 'product', product, class: 'c-split__form', data-trial-form: '' %}
+            <input type="hidden" name="id" value="{{ product.first_available_variant.id }}">
+            <input type="hidden" name="quantity" value="1">
+            <button type="submit" class="c-button c-button--isDefault c-button--isWhitePrimary">Start Your Trial{% if section.settings.cta_arrow %}{% render 'arrow.svg' %}{% endif %}</button>
+          {% endform %}
+        {% else %}
+          {% if section.settings.cta_link != blank %}<a class="c-button c-button--isDefault c-button--isWhitePrimary" href="{{ section.settings.cta_link }}">{{ section.settings.cta_text }}{% if section.settings.cta_arrow %}{% render 'arrow.svg' %}{% endif %}</a>{% endif %}
+        {% endif %}
+      </div>
+      <div class="c-split__image">
+        {% if section.settings.image_cutoff %}
+          <img srcset="{{ section.settings.image | img_url: '1400x' }} 2x,
+                      {{ section.settings.image | img_url: '700x' }} 1x"
+              src="{{ section.settings.image | img_url: '700x' }}"
+              alt="{{ section.settings.image.alt }}">
+        {% else %}
+          <img srcset="{{ section.settings.image | img_url: '1000x' }} 2x,
+                      {{ section.settings.image | img_url: '500x' }} 1x"
+              src="{{ section.settings.image | img_url: '500x' }}"
+              alt="{{ section.settings.image.alt }}">
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endif %}

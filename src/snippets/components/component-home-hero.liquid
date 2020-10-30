@@ -1,0 +1,27 @@
+<section class="c-home-hero">
+  <div class="c-home-hero__slider" data-home-hero-slider data-slider-speed="{{ section.settings.speed | times: 1000 }}">
+    {% for block in section.blocks %}
+      <div class="c-home-hero__item" style="background-color: {{ block.settings.background_color }}">
+        <div class="c-home-hero__item-container">
+          <div class="c-home-hero__item-content">
+            <h1 class="c-home-hero__item-heading">{{ block.settings.title }}</h1>
+            <p class="c-home-hero__item-description">{{ block.settings.description }}</p>
+            <div class="c-home-hero__item-image c-home-hero__item-image--small">
+              <img srcset="{{ block.settings.image_mobile | img_url: '750x440' }} 2x,
+                          {{ block.settings.image_mobile | img_url: '375x220' }} 1x"
+                  src="{{ block.settings.image_mobile | img_url: '375x220' }}"
+                  alt="{{ block.settings.image_mobile.alt }}">
+            </div>
+            <a class="c-button c-button--isDefault c-button--isWhitePrimary" href="{{ block.settings.cta_link }}">{{ block.settings.cta_text }} {% render 'arrow.svg' %}</a>
+          </div>
+          <div class="c-home-hero__item-image c-home-hero__item-image--large">
+            <img srcset="{{ block.settings.image | img_url: '1440x1584' }} 2x,
+                        {{ block.settings.image | img_url: '720x792' }} 1x"
+                src="{{ block.settings.image | img_url: '720x792' }}"
+                alt="{{ block.settings.image.alt }}">
+          </div>
+        </div>
+      </div>
+    {% endfor %} 
+  </div>
+</section>

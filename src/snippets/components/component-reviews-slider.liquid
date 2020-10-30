@@ -1,0 +1,29 @@
+<section class="c-reviews-slider">
+  <div class="c-reviews-slider__stars">{% for i in (1..5) %}{% render 'star.svg' %}{% endfor %}</div>
+  <h2 class="c-reviews-slider__heading">{{ section.settings.title }}</h2>
+  <p class="c-reviews-slider__description">{{ section.settings.description }}</p>
+  <div class="c-reviews-slider__cards" data-reviews-slider>
+    {% for block in section.blocks %}
+      <div class="c-reviews-slider__card-container">
+        <div class="c-reviews-slider__card">
+          <div class="c-reviews-slider__cart-image">
+            <img srcset="{{ block.settings.image | img_url: '580x580', crop: 'center' }} 2x,
+                         {{ block.settings.image | img_url: '290x290', crop: 'center' }} 1x"
+                 src="{{ block.settings.image | img_url: '290x290', crop: 'center' }}"
+                 alt="{{ block.settings.image.alt }}">
+          </div>
+          <blockquote class="c-reviews-slider__card-quote">
+            <div class="c-reviews-slider__stars c-reviews-slider__stars--card">{% for i in (1..5) %}{% render 'star.svg' %}{% endfor %}</div>
+            <p>{{ block.settings.quote }}</p>
+            <footer class="c-reviews-slider__cart-author">{{ block.settings.author }}</footer>
+          </blockquote>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  {% if section.settings.link != blank and section.settings.link_text != blank %}
+    <div class="c-reviews-slider__action">
+      <a class="c-button c-button--isHollow c-button--isPrimary" href="{{ section.settings.link }}">{{ section.settings.link_text }}</a>
+    </div>
+  {% endif %}
+</section>

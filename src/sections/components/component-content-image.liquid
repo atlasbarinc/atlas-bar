@@ -1,0 +1,45 @@
+{{ 'component-content-image.css' | asset_url | stylesheet_tag }}
+
+{% render 'component-content-image' %}
+
+{% schema %}
+  {
+    "name": "Image & Content",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image",
+        "info": "1200x1200"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description"
+      },
+      {
+        "type": "image_picker",
+        "id": "signature_image",
+        "label": "Signature Image",
+        "info": "Optional. At least 200x100."
+      },
+      {
+        "type": "textarea",
+        "id": "signature_text",
+        "label": "Signature Text",
+        "info": "Optional."
+      }
+    ],
+    "presets": [
+      {
+        "category": "Home",
+        "name": "Content with Image"
+      }
+    ]
+  }
+{% endschema %}

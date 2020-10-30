@@ -1,0 +1,86 @@
+{{ 'component-split-content.css' | asset_url | stylesheet_tag }}
+
+{% render 'component-split-content' %}
+
+{% schema %}
+  {
+    "name": "Split Content",
+    "settings": [
+      {
+        "type": "select",
+        "id": "type",
+        "label": "When to display?",
+        "options": [
+          {
+            "value": "always",
+            "label": "Always"
+          },
+          {
+            "value": "new",
+            "label": "New Customers"
+          },
+          {
+            "value": "returning",
+            "label": "Returning Customers"
+          },
+          {
+            "value": "never",
+            "label": "Never"
+          }
+        ],
+        "default": "always",
+        "info": "Returning Customers are customers that are logged in and have ordered at least once."
+      },
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Subheading"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description"
+      },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "cta_link",
+        "label": "Button Link"
+      },
+      {
+        "type": "checkbox",
+        "id": "cta_arrow",
+        "label": "Show Button Arrow?",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image",
+        "info": "1000px width"
+      },
+      {
+        "type": "checkbox",
+        "id": "image_cutoff",
+        "label": "Have Image Cutoff by Border",
+        "default": false
+      },
+      {
+        "type": "color",
+        "id": "background",
+        "label": "Background Color",
+        "info": "Choose color that works with white text",
+        "default": "#5aaad6"
+      }
+    ]
+  }
+{% endschema %}

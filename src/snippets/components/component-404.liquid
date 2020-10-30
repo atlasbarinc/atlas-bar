@@ -1,0 +1,26 @@
+<section class="c-404__wrapper">
+    <div class="c-404">
+        <div class="c-404__top">
+            <p class="c-404__top--textOne">{{ section.settings.text_one }}</p>
+            <p class="c-404__top--textTwo">{{ section.settings.text_two }}</p>
+            <p class="c-404__top--textThree">{{ section.settings.text_three }}</p>
+        </div>
+        <div class="c-404__products">
+            {% for block in section.blocks %}
+            {% assign product = all_products[block.settings.product] %}
+            <script>
+                console.log('{{ product.featured_image }}')
+            </script>
+            <div class="c-404__product">
+                <img class="c-404__product--image"  src="{{ product | img_url: 'original' }}" />
+                <img class="c-404__product--rating"  src="{{ block.settings.image | img_url: 'original' }}" />
+                <p class="c-404__product--title"> {{ product.title }}</p>
+                <p class="c-404__product--price"> {{ block.settings.priceText }} {% if block.settings.priceHide %} {{ product.price | money }} {% endif %}</p>
+                <a class="c-404__product--link" href="{{ product.url }}">
+                    <button class="c-404__product--button">{{ block.settings.button }}</button>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+  </section>

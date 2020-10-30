@@ -1,0 +1,80 @@
+.c-slider {
+  position: relative;
+}
+
+.c-slider__item {
+  &.tns-fadeOut {
+    z-index: 0;
+  }
+}
+
+.c-slider__nav,
+.tns-nav {
+  @include flex($justify: center, $wrap: nowrap);
+  padding: 34px;
+}
+
+.c-slider__nav-item,
+.tns-nav button {
+  appearance: none;
+  background-color: $color-secondary;
+  border: 0 none;
+  border-radius: 9999px;
+  height: 10px;
+  margin: 0 8px;
+  padding: 0;
+  width: 10px;
+
+  &.tns-nav-active {
+    background-color: transparent;
+    border: 3px solid $color-secondary;
+    height: 16px;
+    margin: 0 5px;
+    width: 16px;
+  }
+}
+
+.c-slider__control {
+  background-color: transparent;
+  border: 2px solid $color-primary;
+  border-radius: 9999px;
+  color: $color-primary;
+  height: 40px;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  z-index: 1;
+
+  &--prev {
+    left: -12%;
+
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  &--next {
+    right: -12%;
+  }
+
+  &--isWhite {
+    border-color: $color-white;
+    color: $color-white;
+  }
+
+  .c-svg {
+    font-size: 0;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  svg {
+    height: 13px;
+    padding-left: 2px;
+    width: 11px;
+  }
+}

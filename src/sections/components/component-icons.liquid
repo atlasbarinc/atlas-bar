@@ -1,0 +1,48 @@
+{{ 'component-icons.css' | asset_url | stylesheet_tag }}
+
+{% render 'component-icons' %}
+
+<script src="{{ 'component-hero.js' | asset_url }}"></script>
+
+{% schema %}
+  {
+    "name": "Icons",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "icon",
+        "name": "Icon",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Icon",
+            "info": "240x240. Height must be 240px, width should be equal or less than 240px."
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Alt text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "category": "Home",
+        "name": "Icons"
+      }
+    ]
+  }
+{% endschema %}

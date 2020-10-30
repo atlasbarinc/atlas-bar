@@ -1,0 +1,228 @@
+.c-button {
+  @include button-unset;
+  position: relative;
+  @include flex($display: inline-flex, $justify: center, $align: center);
+  width: auto;
+  font-family: $font-heading;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+  transition-property: background-color, border, color, box-shadow;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-in-out;
+  overflow: hidden;
+  user-select: none;
+  &:disabled {
+    opacity: .5;
+    pointer-events: none;
+  }
+  &:hover { cursor: pointer; }
+
+  .c-svg {
+    display: inline-block;
+    margin-left: 10px;
+  }
+}
+
+.c-button--isDefault, 
+.c-button--isHollow {
+  letter-spacing: 0;
+  text-transform: uppercase;
+  padding: 18px 15px;
+  border-radius: 200px;
+  .c-form--isNarrow & {
+    width: 100%;
+    max-width: 400px;
+    margin: 10px auto 0;
+  }
+}
+
+.c-button--isUnderline {
+  font-size: 16px;
+}
+
+.c-button--isSubmit {
+  margin-top: 20px;
+  @include media-mobile-down {
+    margin-top: 10px;
+  }
+}
+
+.c-button--isDefault {
+  &.c-button--isBlack {
+    background-color: $color-black;
+    border: 1px solid $color-black;
+    color: $color-white;
+    &:hover {
+      background-color: darken($color-black, 10%);
+      border-color: darken($color-black, 10%);
+      color: $color-white;
+    }
+  }
+  &.c-button--isWhite {
+    background-color: $color-white;
+    border: 1px solid $color-white;
+    color: $color-black;
+    &:hover {
+      background-color: darken($color-white, 10%);
+      border-color: darken($color-white, 10%);
+      color: $color-black;
+    }
+  }
+  &.c-button--isWhitePrimary {
+    background-color: $color-white;
+    border: 2px solid $color-white;
+    color: $color-primary;
+    &:hover {
+      background-color: $color-primary;
+      border-color: $color-primary;
+      color: $color-white;
+    }
+  }
+  &.c-button--isWhiteSecondary {
+    background-color: $color-white;
+    border: 2px solid $color-white;
+    color: $color-secondary;
+    &:hover {
+      background-color: $color-secondary;
+      border-color: $color-secondary;
+      color: $color-white;
+    }
+  }
+  &.c-button--isWhitePrimaryAlt {
+    background-color: $color-white;
+    border: 2px solid $color-white;
+    color: $color-primary;
+    &:hover {
+      background-color: $color-secondary;
+      border-color: $color-secondary;
+      color: $color-white;
+    }
+  }
+  &.c-button--isPrimary {
+    background-color: $color-primary;
+    border: 2px solid $color-primary;
+    color: $color-white;
+    &:hover {
+      background-color: lighten($color-primary, 20%);
+      border-color: lighten($color-primary, 20%);
+      color: $color-white;
+    }
+  }
+  &.c-button--isSecondary {
+    background-color: $color-secondary;
+    border: 1px solid $color-secondary;
+    color: $color-white;
+    &:hover {
+      background-color: lighten($color-secondary, 10%);
+      border-color: lighten($color-secondary, 10%);
+      color: $color-white;
+    }
+  }
+  &.c-button--isPrimaryAlt {
+    background-color: $color-primary;
+    border: 1px solid $color-primary;
+    color: $color-white;
+    &:hover {
+      background-color: $color-secondary;
+      border-color: $color-secondary;
+    }
+  }
+  &.c-button--isSecondaryAlt {
+    background-color: $color-secondary;
+    border: 1px solid $color-secondary;
+    color: $color-white;
+    &:hover {
+      background-color: $color-primary;
+      border-color: $color-primary;
+    }
+  }
+}
+
+.c-button--isHollow {
+  &.c-button--isBlack {
+    border: 2px solid $color-black;
+    color: $color-black;
+    &:hover {
+      background-color: $color-black;
+      color: $color-white;
+    }
+  }
+  &.c-button--isWhite {
+    border: 2px solid $color-white;
+    color: $color-white;
+    &:hover {
+      background-color: $color-secondary;
+      border-color: $color-secondary;
+      color: $color-white;
+    }
+  }
+  &.c-button--isPrimary {
+    border: 2px solid $color-primary;
+    color: $color-primary;
+    &:hover {
+      background-color: $color-primary;
+      color: $color-white;
+    }
+  }
+  &.c-button--isSecondary {
+    border: 2px solid $color-secondary;
+    color: $color-secondary;
+    &:hover {
+      background-color: $color-secondary;
+      color: $color-white;
+    }
+  }
+}
+
+.c-button--isText {
+  &.c-button--isPrimary {
+    border-bottom: 2px solid transparent;
+    &:hover {
+      border-color: $color-secondary;
+      color: $color-secondary;
+    }
+  }
+  &.c-button--isWhite {
+    border-bottom: 2px solid transparent;
+    color: $color-white;
+    &:hover {
+      border-color: $color-secondary;
+      color: $color-secondary;
+    }
+  }
+}
+
+.c-button--isUnderline {
+  appearance: none;
+  background-color: transparent;
+  border: 0 none;
+  padding-left: 0;
+  padding-right: 0;
+
+  &.c-button--isWhite {
+    border-bottom: 2px solid $color-white;
+    color: $color-white;
+    &:hover {
+      border-color: $color-secondary;
+      color: $color-secondary;
+    }
+  }
+  &.c-button--isPrimary {
+    border-bottom: 2px solid $color-primary;
+    color: $color-primary;
+    &:hover {
+      border-color: $color-secondary;
+      color: $color-secondary;
+    }
+  }
+  &.c-button--isSecondary {
+    border-bottom: 1px solid $color-secondary;
+    color: $color-secondary;
+    &:hover {
+      border-color: lighten($color-secondary, 20%);
+      color: lighten($color-secondary, 20%);
+    }
+  }
+}

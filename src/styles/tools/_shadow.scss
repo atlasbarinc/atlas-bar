@@ -1,0 +1,23 @@
+@mixin shadow-card($opacity: .1) {
+  box-shadow: 0px 20px 50px rgba(0, 0, 0, $opacity);
+}
+
+@mixin shadow-input($opacity: .05) {
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, $opacity);
+}
+
+@mixin shadow-input-focus($opacity: .07) {
+  box-shadow: 0px 2px 19px rgba(0, 0, 0, $opacity);
+}
+
+@mixin shadow-base($opacity: .1) {
+  box-shadow: 0px 20px 50px rgba(0, 0, 0, $opacity);
+}
+
+@mixin shadow-small($opacity: 0.05) {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, $opacity);
+}
+
+@mixin shadow-small-reverse($opacity: 0.05) {
+  box-shadow: 0px -4px 10px rgba(0, 0, 0, $opacity);
+}

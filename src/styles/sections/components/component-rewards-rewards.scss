@@ -1,0 +1,217 @@
+.c-rewardsRedeem {
+  background-color: $color-offwhite;
+  padding: 74px 0;
+}
+
+.c-rewardsRedeem__intro {
+  margin: 0 auto;
+  max-width: 498px;
+}
+
+.c-rewardsRedeem__grid {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(0, 157px));
+  justify-content: center;
+  margin: 40px auto 0; 
+  max-width: 924px;
+
+  @include media-tablet-up {
+    grid-gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(0, 288px));
+  }
+}
+
+.c-rewardsRedeem__gridItem {
+  @include flex($direction: column, $justify: center, $wrap: nowrap);
+  @include shadow-base;
+  background-color: $color-white;
+  border-radius: 20px;
+  padding: 20px 8px;
+
+  @include media-tablet-up {
+    padding: 40px 25px 20px;
+  }
+
+  h3 {
+    font-size: 16px;
+    margin: 10px 0 0;
+
+    @include media-tablet-up {
+      font-size: 20px;
+      margin: 20px 0 0;
+    }
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 8px 0 auto;
+
+    @include media-tablet-up {
+      font-size: 18px;
+    }
+  }
+}
+
+.c-rewardsRedeem__gridItemIcon {
+  @include flex($justify: center);
+  height: 35px;
+  width: 35px;
+
+  @include media-tablet-up {
+    height: 65px;
+    width: 65px;
+  }
+
+  img {
+    display: block;
+    height: 100%;
+    object-fit: contain;
+    width: 100%;
+  }
+}
+
+.c-rewardsRedeem__actions {
+  @include flex($justify: center);
+  margin-top: 57px;
+
+  .c-button {
+    width: 272px;
+  }
+}
+
+.lion-rewards-list {
+  @extend .c-rewardsRedeem__grid;
+  padding: 0;
+
+  .lion-reward-item {
+    padding: 0;
+    width: auto;
+  }
+
+  .lion-reward-item--disabled.lion-reward-item--cart-discount-voucher .lion-reward-item__content:before {
+    filter: grayscale(1);
+  }
+
+  .lion-reward-item__content {
+    @extend .c-rewardsRedeem__gridItem;
+  }
+
+  .lion-reward-item__title {
+    @include text-heading; 
+    font-size: 16px;
+    margin: 10px 0 0;
+
+    @include media-tablet-up {
+      font-size: 20px;
+      margin: 20px 0 0;
+    }
+  }
+
+  .lion-reward-item__meta {
+    flex-grow: 0;
+  }
+
+  .lion-reward-item__cost {
+    color: $color-primary;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 8px 0 auto;
+    padding: 0;
+
+    @include media-tablet-up {
+      font-size: 18px;
+    }
+  }
+
+  .lion-reward-item--product-cart {
+    .lion-reward-item__percent-off {
+      display: none;
+    }
+
+    .lion-reward-item__cost:before {
+      content: none;
+    }
+
+    .lion-reward-item__links {
+      display: none;
+    }
+
+    .lion-reward-item__product-image {
+      display: block;
+      order: -1;
+      width: 60px;
+
+      @include media-tablet-up {
+        width: 120px;
+      }
+
+      img {
+        display: block;
+      }
+    }
+  }
+
+  .lion-action-button {
+    @include button-unset;
+    @include flex($display: inline-flex, $justify: center, $align: center);
+    background-color: $color-secondary;
+    border: 2px solid $color-secondary;
+    border-radius: 200px;
+    color: $color-white;
+    font-family: $font-heading;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: 14px;
+    padding: 3px 15px;
+    position: relative;
+    text-align: center;
+    transition-property: background-color, border, color, box-shadow;
+    transition-duration: 0.15s;
+    transition-timing-function: ease-in-out;
+    overflow: hidden;
+    user-select: none;
+    width: 100%;
+
+    @include media-tablet-up {
+      font-size: 16px;
+      min-width: 190px;
+      padding: 12px 15px;
+      width: auto;
+    }
+
+    &:disabled,
+    &.lion-reward-item__redeem-button--disabled {
+      pointer-events: none;
+      background-color: #C0C0C0;
+      border-color: #C0C0C0;
+    }
+
+    &:hover {
+      background-color: lighten($color-secondary, 20%);
+      border-color: lighten($color-secondary, 20%);
+      color: $color-white;
+      cursor: pointer;
+    }
+
+    .lion-reward-item__fill {
+      display: none;
+    }
+  }
+}
+
+.lion-reward-item--cart-discount-voucher .lion-reward-item__content:before {
+  background-position: center;
+  background-size: contain;
+  content: '';
+  height: 35px;
+  width: 35px;
+
+  @include media-tablet-up {
+    height: 65px;
+    width: 65px;
+  }
+}

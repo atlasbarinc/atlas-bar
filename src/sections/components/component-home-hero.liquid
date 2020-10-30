@@ -1,0 +1,75 @@
+{{ 'component-home-hero.css' | asset_url | stylesheet_tag }}
+
+{% render 'component-home-hero' %}
+
+<script src="{{ 'component-home-hero.js' | asset_url }}"></script>
+
+{% schema %}
+  {
+    "name": "Hero",
+    "settings": [
+      {
+        "type": "range",
+        "id": "speed",
+        "label": "Slider Speed",
+        "min": 1,
+        "max": 15,
+        "step": 1,
+        "unit": "sec",
+        "default": 5
+      }
+    ],
+    "blocks": [
+      {
+        "type": "slide",
+        "name": "Slide",
+        "settings": [
+          {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background Color",
+            "info": "Font color will be white."
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading"
+          },
+          {
+            "type": "textarea",
+            "id": "description",
+            "label": "Description"
+          },
+          {
+            "type": "url",
+            "id": "cta_link",
+            "label": "CTA Link"
+          },
+          {
+            "type": "text",
+            "id": "cta_text",
+            "label": "CTA Text"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "1440x1584"
+          },
+          {
+            "type": "image_picker",
+            "id": "image_mobile",
+            "label": "Image (Mobile)",
+            "info": "664x358"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "category": "Home",
+        "name": "Hero"
+      }
+    ]
+  }
+{% endschema %}

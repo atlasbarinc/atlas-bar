@@ -1,0 +1,20 @@
+<script>
+  var header = {};
+
+  header = {{ section.settings | json }};
+
+  window.Scoutside.bundle.header = header;
+</script>
+
+{% schema %}
+  {
+    "name": "Build A Box - Header",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      }
+    ]
+  }
+{% endschema %}

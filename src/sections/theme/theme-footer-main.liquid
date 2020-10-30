@@ -1,0 +1,92 @@
+{{ 'theme-footer-main.css' | asset_url | stylesheet_tag }}
+
+<div class="c-footerMain o-containerLarge" data-footer-main>
+  <div class="c-footerMain__image">
+    <img srcset="{{ section.settings.image | img_url: '250x' }} 2x,
+                 {{ section.settings.image | img_url: '125x' }} 1x"
+         src="{{ section.settings.image | img_url: '125x' }}"
+         alt="{{ section.settings.image.alt }}">
+  </div>
+  {% if section.settings.footer_menu %}
+    {% assign footer_menu = linklists[section.settings.footer_menu] %}
+    <div class="c-footerMain__block">
+      <p class="c-footerMain__block-title">{{ footer_menu.title }}</p>
+      <ul>
+        {% for link in footer_menu.links %}
+          <li><a class="c-footerMain__block-link" href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+  <div class="c-footerMain__block">
+    <p class="c-footerMain__block-title">{{ section.settings.connect_title }}</p>
+    <div class="c-footerMain__block-text">{{ section.settings.connect_text }}</div>
+  </div>
+  <div class="c-footerMain__block">
+    <p class="c-footerMain__block-title">{{ section.settings.social_title }}</p>
+    <form id="footerNewsletter" class="c-footerMain__newsletter" method="get" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" data-footer-newsletter>
+      <input type="hidden" name="g" value="TCSi5V">
+      <div class="c-footerMain__newsletter-container">
+        <input class="c-footerMain__newsletter-field" type="email" name="email" placeholder="Your email address" value="">
+        <button class="c-footerMain__newsletter-button" type="submit" aria-label="Submit">{% render 'arrow.svg' %}</button>
+      </div>
+      <div class="c-footerMain__newsletter-messages klaviyo_messages" data-footer-newsletter-messages>
+        <div class="success_message" style="display:none;" data-type="success"></div>
+        <div class="error_message" style="display:none;" data-type="error"></div>
+      </div>
+    </form>
+    <script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
+    <script type="text/javascript">
+      KlaviyoSubscribe.attachToForms('#footerNewsletter', {
+        hide_form_on_success: false,
+        success_message: "Thank you for subscribing!"
+      });
+    </script>
+    <div class="c-footerMain__social">
+      {% if settings.social_facebook != blank %}
+        <a class="c-footerMain__social-icon" href="{{ settings.social_facebook }}">{% render 'facebook.svg' %}</a>
+      {% endif %}
+      {% if settings.social_twitter != blank %}
+        <a class="c-footerMain__social-icon" href="{{ settings.social_twitter }}">{% render 'twitter.svg' %}</a>
+      {% endif %}
+      {% if settings.social_instagram != blank %}
+        <a class="c-footerMain__social-icon" href="{{ settings.social_instagram }}">{% render 'instagram.svg' %}</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<script src="{{ 'theme-footer-main.js' | asset_url }}"></script>
+
+{% schema %}
+  {
+    "name": "Footer Main",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Logo"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_menu",
+        "label": "Footer Menu"
+      },
+      {
+        "type": "text",
+        "id": "connect_title",
+        "label": "Connect Title"
+      },
+      {
+        "type": "richtext",
+        "id": "connect_text",
+        "label": "Connect Text"
+      },
+      {
+        "type": "text",
+        "id": "social_title",
+        "label": "Social Title"
+      }
+    ]
+  }
+{% endschema %}

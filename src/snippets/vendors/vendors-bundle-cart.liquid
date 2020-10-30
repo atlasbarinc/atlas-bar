@@ -1,0 +1,67 @@
+{%- capture items -%}
+  {%- for item in cart.items -%}
+    {%- assign bundle_type = false -%}
+    {%- for property in item.properties -%}
+      {%- if property[0] == 'bundle_type' -%}
+        {%- assign bundle_type = property[1] -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {
+      {%- if bundle_type == "parent" -%}
+        {%- assign parent = item.product -%}
+        {%- if parent.metafields.subscriptions.original_handle != blank -%}
+          {%- assign parent = all_products[parent.metafields.subscriptions.original_handle] -%}
+        {%- endif -%}
+        {%- assign bundle_groups = '' -%}
+        {%- for tag in parent.tags -%}
+          {%- if tag contains 'bundle_group_' and tag contains '_qty' -%}
+            {%- assign qty_array = tag | split: '::' -%}
+            {%- assign key_array = qty_array | first | split: '_' -%}
+            {%- capture key -%}bundle_group_{{- key_array[2] -}}_id{%- endcapture -%}
+            {%- assign ids = '' -%}
+            {%- for tag in parent.tags -%}
+              {%- if tag contains key -%}
+                {%- assign id = tag | split: '::' | last -%}
+                {%- assign ids = ids | append: ',' | append: id -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- assign qty_array_last = qty_array | last -%}
+            {%- assign bundle_groups = bundle_groups | append: '||' | append: qty_array_last | append: '|' | append: ids -%}
+          {%- endif -%}
+        {%- endfor -%}
+        "bundle": [
+          {%- assign bundle_groups_array = bundle_groups | remove_first: '||' | split: '||' -%}
+          {%- for group in bundle_groups_array -%}
+            {%- assign group_array = group | split: '|' -%}
+            {%- assign qty = group_array | first -%}
+            {%- assign ids = group_array | last | remove_first: ',' | split: ',' -%}
+            {
+              "qty": {{- qty -}},
+              "ids": {{- ids | json -}}
+            }{%- unless forloop.last -%},{%- endunless -%}
+          {%- endfor -%}
+        ],
+        "product_id": {{- parent.id -}},
+        "variant_id": {{- parent.variants[0].id -}},
+      {%- else -%}
+        "product_id": {{- item.product_id -}},
+        "variant_id": {{- item.variant_id -}},
+      {%- endif -%}
+      "quantity": {{- item.quantity -}},
+      "price": "{{- item.price | money_without_currency -}}",
+      "properties": {
+        {%- for property in item.properties -%}
+          "{{- property[0] -}}": "{{- property[1] -}}"{%- unless forloop.last -%},{%- endunless -%}
+        {%- endfor -%}
+      }
+    }{%- unless forloop.last -%},{%- endunless -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- assign cart_string = '{"items":[' | append: items | append: ']}' | strip_newlines | remove: ' ' -%}
+{%- assign cart_hash = cart_string | hmac_sha256: shop.metafields.bundle.key -%}
+{
+  "cart": {{- cart_string -}},
+  "hash": "{{- cart_hash -}}",
+  "domain": "{{- shop.permanent_domain -}}"
+}

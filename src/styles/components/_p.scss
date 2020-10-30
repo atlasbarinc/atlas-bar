@@ -1,0 +1,45 @@
+.c-p1 {
+  display: block;
+  @include text-body;
+  font-size: 18px;
+  margin: 0 0 20px;
+
+  @include media-tablet-up {
+    font-size: 22px;
+  }
+
+  &.c-p1--isBolder { font-weight: 600; }
+}
+
+.c-p2 {
+  display: block;
+  @include text-body;
+  font-size: 18px;
+  margin: 0 0 15px;
+  &.c-p2--isBolder { font-weight: 600; }
+}
+
+.c-p3 {
+  display: block;
+  @include text-body;
+  font-size: 16px;
+  margin: 0 0 12px;
+  line-height: 1.5;
+  &.c-p3--isBolder { font-weight: 600; }
+}
+
+.c-p4 {
+  @include text-body;
+  font-size: 14px;
+  margin: 0 0 10px;
+  line-height: 1.5;
+  &.c-p4--isBolder { font-weight: 600; }
+}
+
+.c-p5 {
+  @include text-body;
+  font-size: 12px;
+  margin: 0 0 8px;
+  line-height: 1.25;
+  &.c-p5--isBolder { font-weight: 600; }
+}

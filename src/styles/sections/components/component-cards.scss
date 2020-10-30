@@ -1,0 +1,144 @@
+.c-cards {
+  background-color: $color-white;
+  padding: 50px 0 0;
+
+  @include media-tablet-up {
+    padding-top: 95px;
+  }
+}
+
+.c-cards__container {
+  position: relative;
+
+  .tns-nav {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+.c-cards__header {
+  @include flex($direction: column, $wrap: nowrap);
+  margin-bottom: 20px;
+  padding: 0 20px;
+
+  @include media-tablet-up {
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 660px;
+  }
+}
+
+.c-cards__header-icon {
+  @include media-mobile-down {
+    text-align: center;
+    img {
+      width: 50%;
+    }
+  }
+  @include media-tablet-up {
+    flex-shrink: 0;
+  }
+}
+
+.c-cards__header-text {
+  font-size: 30px;
+  margin-bottom: 0;
+  text-align: center;
+
+  @include media-tablet-up {
+    font-size: 48px;
+  }
+}
+
+.c-cards__description {
+  padding: 0 20px;
+  text-align: center;
+
+  @include media-tablet-up {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 760px;
+  }
+}
+
+.c-cards__list {
+  display: inline-flex;
+  transition-property: all;
+
+  @include media-tablet-up {
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    margin: 0 auto;
+    max-width: 1240px;
+    width: calc(100% - 60px);
+  }
+}
+
+.c-cards__item-container {
+  padding: 25px 13px 80px;
+
+  @include media-mobile-down {
+    display: flex !important; 
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.c-cards__item {
+  @include shadow-base();
+  background-color: $color-white;
+  border-radius: 3px;
+  overflow: hidden;
+  width: 100%;
+
+  @include media-tablet-up {
+    @include flex($direction: column, $wrap: nowrap);
+    height: 100%;
+  }
+}
+
+.c-cards__item-image {
+  @include flex();
+
+  img {
+    width: 100%;
+  }
+}
+
+.c-cards__item-content {
+  padding: 28px 20px 33px;
+  position: relative;
+  text-align: center;
+  
+  @include media-tablet-up {
+    padding: 48px 50px;
+  }
+}
+
+.c-cards__item-icon {
+  @include shadow-small($opacity: 0.15);
+  background-color: $color-white;
+  border-radius: 9999px;
+  height: 39px;
+  left: 50%;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%) translateY(-50%);
+  width: 39px;
+
+  @include media-tablet-up {
+    height: 52px;
+    width: 52px;
+  }
+}
+
+.c-cards__item-heading {
+  font-size: 20px;
+  margin: 0 0 10px;
+}
+
+.c-cards__item-description {
+  margin: 0;
+}

@@ -1,0 +1,30 @@
+<section class="c-rewardsRefer">
+  <div class="c-rewardsRefer__container o-containerLarge">
+    <div class="c-rewardsRefer__content">
+      {% if section.settings.subheading != blank %}<p class="c-h-subheading">{{ section.settings.subheading }}</p>{% endif %}
+      <h2 class="c-h3">{{ section.settings.title }}</h2>
+      <p class="c-rewardsRefer__description">{{ section.settings.description }}</p>
+      {% if customer %}
+        <a class="c-button c-button--isDefault c-button--isWhitePrimary" href="#" data-lion-refer>Your Referral Link</a>
+      {% else %}
+        <a class="c-button c-button--isDefault c-button--isWhitePrimary" href="{{ section.settings.cta_link }}">{{ section.settings.cta_text }}</a>
+      {% endif %}
+    </div>
+    <div class="c-rewardsRefer__image">
+      <img srcset="{{ section.settings.image | img_url: '1600x' }} 2x,
+                   {{ section.settings.image | img_url: '800x' }} 1x"
+           src="{{ section.settings.image | img_url: '800x' }}"
+           alt="{{ section.settings.image.alt }}">
+    </div>
+  </div>
+</section>
+
+{% if customer %}
+  <style>
+    @media only screen and (min-width: 768px) {
+      #loyaltylion .lion-referral-widget-main__intro {
+        background-image: url("{{ section.settings.background | img_url: '1240x520' }}");
+      }
+    }
+  </style>
+{% endif %}

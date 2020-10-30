@@ -1,0 +1,131 @@
+h1,
+.c-h1 {
+  display: block;
+  @include text-heading;
+  font-size: 36px;
+  margin: 0 0 24px;
+  @include media-tablet-up {
+    font-size: 56px;
+  }
+
+  &.c-h1--isLabel {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  &.c-h1--isBolder { font-weight: 900; }
+}
+
+h2,
+.c-h2 {
+  display: block;
+  @include text-heading;
+  font-size: 34px;
+  margin: 0 0 20px;
+
+  @include media-tablet-up {
+    font-size: 48px;
+  }
+
+  &.c-h2--isLabel {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  &.c-h2--isBolder { font-weight: 900; }
+}
+
+h3,
+.c-h3 {
+  display: block;
+  @include text-heading;
+  font-size: 30px;
+  margin: 0 0 16px;
+
+  @include media-tablet-up {
+    font-size: 40px;
+  }
+
+  &.c-h3--isLabel {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  &.c-h3--isBolder { font-weight: 900; }
+}
+
+h4,
+.c-h4 {
+  display: block;
+  @include text-heading;
+  font-size: 26px;
+  margin: 0 0 12px;
+
+  @include media-tablet-up {
+    font-size: 30px;
+  }
+
+  &.c-h4--isLabel {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  &.c-h4--isBolder { font-weight: 900; }
+}
+
+h5,
+.c-h5 {
+  display: block;
+  @include text-heading;
+  font-size: 22px;
+  margin: 0 0 10px;
+
+  @include media-tablet-up {
+    font-size: 24px;
+  }
+
+  &.c-h5--isLabel {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  &.c-h5--isBolder { font-weight: 900; }
+}
+
+h6,
+.c-h6 {
+  display: block;
+  @include text-heading;
+  font-size: 20px;
+  margin: 0 0 8px;
+  &.c-h6--isSeven {
+    font-size: 16px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  &.c-h6--isEyebrow {
+    font-size: 14px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+}
+
+.c-h-hero {
+  display: block;
+  @include text-heading;
+  font-size: 40px;
+  margin: 0 0 28px;
+
+  @include media-tablet-up {
+    font-size: 76px;
+  }
+}
+
+.c-h--isAlt {
+  font-weight: 700;
+}
+
+.c-h-subheading {
+  font-family: $font-heading;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}

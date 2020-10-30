@@ -1,0 +1,78 @@
+{% assign first = all_products[section.blocks[0].settings.product] %}
+<section class="c-bars">
+  <div class="c-bars__background" style="background-color: {{ first.metafields.details.primary_color }}" data-bars>
+    <div class="c-bars__container">
+      <button type="button" class="c-slider__control c-slider__control--isWhite c-slider__control--prev" data-bars-slider-prev>{% render 'chevron.svg' %}</button>
+      <div class="c-bars__slider" data-bars-slider>
+        {% for block in section.blocks %}
+          {% assign product = all_products[block.settings.product] %}
+          <div class="c-slider__item {% if forloop.first %}active-slide{% endif %}" data-item-color="{{ product.metafields.details.primary_color }}" data-item-id="{{ product.id }}">
+            <div class="c-bars__bar-image">
+              {% assign image = product.metafields.images.wrapper | first %}
+              {% assign image_2 = product.metafields.images.bar | first %}
+              <img srcset="{{ image.cloudinary_src | append: 'w_348' }} 2x,
+                           {{ image.cloudinary_src | append: 'w_174' }} 1x"
+                   src="{{ image.cloudinary_src | append: 'w_174' }}"
+                   class="c-bars__image-wrapper"
+                   alt="{{ image.alt }}">
+              <img srcset="{{ image_2.cloudinary_src | append: 'w_348' }} 2x,
+                           {{ image_2.cloudinary_src | append: 'w_174' }} 1x"
+                   src="{{ image_2.cloudinary_src | append: 'w_174' }}"
+                   class="c-bars__image-bar"
+                   alt="{{ image_2.alt }}">
+            </div>
+            <p class="c-bars__bar-description">{{ block.settings.description }}</p>
+          </div>
+        {% endfor %}
+      </div>
+      <button type="button" class="c-slider__control c-slider__control--isWhite c-slider__control--next" data-bars-slider-next>{% render 'chevron.svg' %}</button>
+      <button type="button" class="c-bars__nutritional-button c-button c-button--isDefault c-button--isWhitePrimary" data-lightbox-trigger="bars-{{ first.id }}" data-bars-button>View Nutritional Facts</button>
+    </div>
+  </div>
+</section>
+
+{% for block in section.blocks %}
+  {% assign product = all_products[block.settings.product] %}
+  <div class="c-lightbox__container" data-lightbox="bars-{{ product.id }}">
+    <div class="c-lightbox">
+      <button type="button" class="c-lightbox__close" data-lightbox-close>{% render 'plus.svg' %}</button>
+      <h2 class="c-lightbox__subheading">Nutritional Info</h2>
+      <h3 class="c-lightbox__heading">{{ product.title }}</h3>
+      <div class="c-bars__modal-description">{{ product.description }}</div>
+      <div class="c-bars__modal-meta">
+        <div class="c-bars__modal-meta-column c-bars__modal-meta-column--carbs">
+          <p class="c-bars__modal-meta-heading">Net Carb Calculation</p>
+          <div class="c-bars__modal-meta-carb-row">
+            <span class="c-bars__modal-meta-carb-sign"></span>
+            <span class="c-bars__modal-meta-carb-value">{{ product.metafields.details.total_carbs }}</span>
+            <span class="c-bars__modal-meta-carb-title">Total Carbs</span>
+          </div>
+          {% for item in product.metafields.details.carb_details %}
+            {% assign item_details = item | split: ',' %}
+            <div class="c-bars__modal-meta-carb-row">
+              <span class="c-bars__modal-meta-carb-sign">-</span>
+              <span class="c-bars__modal-meta-carb-value">{{ item_details | first }}</span>
+              <span class="c-bars__modal-meta-carb-title">{{ item_details | last }}</span>
+            </div>
+          {% endfor %}
+          <div class="c-bars__modal-meta-carb-row">
+            <span class="c-bars__modal-meta-carb-sign">=</span>
+            <span class="c-bars__modal-meta-carb-value">{{ product.metafields.details.net_carbs }}</span>
+            <span class="c-bars__modal-meta-carb-title">Net Carbs</span>
+          </div>
+        </div>
+        <div class="c-bars__modal-meta-column c-bars__modal-meta-column--nutrition">
+          {% assign label_image = product.metafields.images.nutrition_label | first %}
+          <img srcset="{{ label_image.cloudinary_src | append: 'w_900' }} 2x,
+                       {{ label_image.cloudinary_src | append: 'w_450' }} 1x"
+                src="{{ label_image.cloudinary_src | append: 'w_450' }}"
+                alt="{{ label_image.alt }}">
+        </div>
+        <div class="c-bars__modal-meta-column c-bars__modal-meta-column--ingredients">
+          <p class="c-bars__modal-meta-ingredients-heading">Ingredients:</p>
+          <p class="c-bars__modal-meta-ingredients-content">{{ product.metafields.details.ingredients }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}

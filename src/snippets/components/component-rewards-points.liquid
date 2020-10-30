@@ -1,0 +1,70 @@
+<section class="c-rewardsPoints" id="rewards-points">
+  <div class="o-containerLarge">
+    <h2 class="c-h3 u-textCenter">{{ section.settings.title }}</h2>
+    <div class="c-rewardsPoints__info">
+      <div class="c-rewardsPoints__tag">
+        <img srcset="{{ 'points-tag.png' | asset_img_url: '70x70' }} 2x,
+                     {{ 'points-tag.png' | asset_img_url: '35x35' }} 1x"
+             src="{{ 'points-tag.png' | asset_img_url: '35x35' }}"
+             alt=""
+        >
+      </div>
+      <p class="u-textCenter">{{ section.settings.points | newline_to_br }}</p>
+    </div>
+    {% if customer %}
+      <div data-lion-rules-list></div>
+    {% else %}
+      <div class="c-rewardsPoints__grid">
+        {% for block in section.blocks %}
+          <div class="c-rewardsPoints__gridItem">
+            <div class="c-rewardsPoints__gridItemIcon">
+              <img srcset="{{ block.settings.icon | img_url: '130x130' }} 2x,
+                          {{ block.settings.icon | img_url: '65x65' }} 1x"
+                  src="{{ block.settings.icon | img_url: '65x65' }}"
+                  alt=""
+              >
+            </div>
+            <h3 class="u-textCenter">{{ block.settings.title }}</h3>
+            <p class="u-textCenter">{{ block.settings.description }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% if customer %}
+<style>
+  {% for block in section.blocks %}
+    .lion-rule-item:nth-child({{ forloop.index }}) .lion-rule-item__icon {
+      background-image: url('{{ block.settings.icon | img_url: '130x130' }}');
+    }
+    .lion-rule-item:nth-child({{ forloop.index }}).lion-rule-item--completed-forever .lion-rule-item__content {
+      background-color: {{ block.settings.color }};
+    }
+  {% endfor %}
+</style>
+
+<script id="rulesButtons" type="application/json">
+  {%- capture buttonsString -%}
+    {%- for block in section.blocks -%}
+      {%- unless block.settings.cta_label == blank or block.settings.cta_link == blank -%}
+        ||{{ forloop.index0 }}|{{ block.settings.cta_label }}|{{ block.settings.cta_link }}
+      {%- endunless -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+  {%- assign buttons = buttonsString | strip_newlines | remove_first: '||' | split: '||' %}
+  {
+    "buttons": [
+      {%- for button in buttons -%}
+        {%- assign array = button | split: '|' %}
+        {
+          "index": {{ array[0] }},
+          "label": "{{ array[1] }}",
+          "link": "{{ array[2] }}"
+        }{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    ]
+  }
+</script>
+{% endif %}

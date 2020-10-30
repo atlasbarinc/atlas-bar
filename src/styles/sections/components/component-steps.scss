@@ -1,0 +1,250 @@
+.c-steps__wrapper {
+  background-color: $color-white;
+}
+
+.c-steps__background {
+  @include angle(after, true);
+  background-color: $color-offwhite;
+  padding: 60px 0;
+
+  @include media-up(1024px) {
+    padding: 110px 0;
+  }
+
+  &:after {
+    @include media-up(1024px) {
+      transform: skewY(-4deg);
+      transform-origin: 0;
+    }
+  }
+}
+
+.c-steps {
+  @include media-up(1024px) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1220px;
+    width: calc(100% - 60px);
+  }
+}
+
+.c-steps__heading {
+  padding: 0 20px;
+  text-align: center;
+
+  @include media-up(1024px) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 708px;
+  }
+}
+
+.c-steps__description {
+  display: none;
+  
+  @include media-up(1024px) {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 758px;
+    text-align: center;
+  }
+}
+
+.c-steps__slider-wrapper {
+  @include media-up(1024px) {
+    margin: 0 auto;
+    position: relative;
+    width: 70%;
+  }
+
+  .tns-nav button {
+    @include media-up(1024px) {
+      background-color: $color-primary;
+    }
+
+    &.tns-nav-active {
+      @include media-up(1024px) {
+        background-color: transparent;
+        border-color: $color-primary;
+      }
+    }
+  }
+}
+
+.c-steps__control {
+  display: none;
+
+  @include media-up(1024px) {
+    display: block;
+  }
+}
+
+.c-steps__slider {
+  transition: transform 0.4s;
+
+  @include media-down(1023px) {
+    display: inline-flex;
+  }
+}
+
+.c-steps__slider-item {
+  padding: 0 10px 38px;;
+  width: 80vw;
+
+  @include media-up(1024px) {
+    padding: 0;
+    width: 100%;
+  }
+}
+
+.c-steps__slider-item-wrapper {
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.15);
+
+  @include media-down(1023px) {
+    @include flex($direction: column, $wrap: nowrap);
+    height: 100%;
+  }
+
+  @include media-up(1024px) {
+    box-shadow: none;
+    overflow: hidden;
+    position: relative;
+  }
+}
+
+.c-steps__slider-item-image {
+  display: block;
+  flex-shrink: 0;
+  max-width: none;
+  width: 100%;
+
+  &--small {
+    @include media-up(1024px) {
+      display: none;
+    }
+  }
+
+  &--large {
+    @include media-down(1023px) {
+      display: none;
+    }
+  }
+}
+
+.c-steps__slider-item-content {
+  @include flex($direction: column);
+  background-color: $color-primary;
+  height: 100%;
+  padding: 0 20px 28px;
+  position: relative;
+  width: 100%;
+
+  @include media-up(1024px) {
+    align-items: flex-start;
+    height: 100%;
+    left: 0;
+    max-width: 180px;
+    padding: 30px 0 0 30px;
+    position: absolute;
+    top: 0;
+    width: 25%;
+    z-index: 1;
+  }
+
+  &:after {
+    @include media-up(1024px) {
+      background-color: inherit;
+      content: '';
+      height: 100%;
+      right: 0;
+      position: absolute;
+      top: 0;
+      transform: skewX(-20deg);
+      transform-origin: 100% 100%;
+      width: 100%;
+      z-index: -1;
+    }
+  }
+
+  &--large {
+    background-color: $color-white;
+    height: 100%;
+    justify-content: center;
+    padding-top: 0;
+
+    @include media-up(1024px) {
+      max-width: none;
+      width: 40%;
+    }
+  }
+}
+
+.c-steps__slider-item-step {
+  @include flex($justify: center);
+  background-color: $color-secondary;
+  border: 2px solid $color-white;
+  border-radius: 9999px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  color: $color-white;
+  font-family: $font-heading;
+  font-size: 14px;
+  font-weight: 600;
+  height: 40px;
+  margin-top: -20px;
+  text-align: center;
+  width: 40px;
+
+  @include media-up(1024px) {
+    border: 0 none;
+    box-shadow: none;
+    margin-bottom: 20px;
+    margin-top: 0;
+  }
+}
+
+.c-steps__slider-item-subheading {
+  color: $color-secondary;
+  margin: 20px 0 0;
+
+  @include media-up(1024px) {
+    margin: 0;
+  }
+}
+
+.c-steps__slider-item-heading {
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 4px 0 0;
+  text-align: center;
+
+  @include media-up(1024px) {
+    font-size: 30px;
+    text-align: left;
+    margin-top: 11px;
+  }
+}
+.c-steps__slider-item-description {
+  color: $color-white;
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 14px 0 0 0;
+  text-align: center;
+
+  @include media-up(1024px) {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-top: 18px;
+    text-align: left;
+  }
+
+  .c-steps__slider-item-content--large & {
+    color: $color-primary;
+
+    @include media-up(1024px) {
+      font-size: 18px;
+      max-width: 250px;
+    }
+  }
+}

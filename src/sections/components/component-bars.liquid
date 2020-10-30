@@ -1,0 +1,36 @@
+{{ 'component-bars.css' | asset_url | stylesheet_tag }}
+
+{% render 'component-bars' %}
+
+<script src="{{ 'component-bars.js' | asset_url }}"></script>
+
+{% schema %}
+  {
+    "name": "Bars Slider",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "bar",
+        "name": "Bar",
+        "settings": [
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Bar"
+          },
+          {
+            "type": "textarea",
+            "id": "description",
+            "label": "Description"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "category": "Home",
+        "name": "Bars Slider"
+      }
+    ]
+  }
+{% endschema %}

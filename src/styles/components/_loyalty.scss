@@ -1,0 +1,412 @@
+#loyaltylion {
+  .lion-modal {
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .lion-modal--small {
+    max-width: 600px;
+  }
+
+  .lion-modal__header {
+    background-color: $color-primary;
+    border-bottom: 0 none;
+    border-radius: 0;
+    position: relative;
+  }
+
+  .lion-modal__title {
+    color: $color-white;
+    font-family: $font-heading;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 15px 30px;
+  }
+
+  .lion-modal__close-button {
+    color: $color-white;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .lion-modal__content {
+    color: $color-black;
+    font-family: $font-body;  
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+    padding: 10px;
+    text-align: center;;
+
+    @include media-tablet-up {
+      padding: 40px;
+    }
+  }
+
+  .lion-redeem-reward-modal__button-container {
+    @include flex($direction: column);
+  }
+
+  .lion-redeem-reward-modal__button--cancel {
+    background-color: transparent;
+    border-bottom: 1px solid $color-primary;
+    border-radius: 0; 
+    color: $color-primary;
+    font-size: 16px;
+    min-width: 0;
+    order: 1;
+    padding: 0;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  .lion-redeem-reward-modal__button--confirm {
+    @include button-unset;
+    @include flex($display: inline-flex, $justify: center, $align: center);
+    background-color: $color-secondary;
+    border: 2px solid $color-secondary;
+    border-radius: 200px;
+    color: $color-white;
+    font-family: $font-heading;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: 14px;
+    overflow: hidden;
+    padding: 18px 15px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    transition-property: background-color, border, color, box-shadow;
+    transition-duration: 0.15s;
+    transition-timing-function: ease-in-out;
+    user-select: none;
+    width: 100%;
+
+    @include media-tablet-up {
+      font-size: 16px;
+      min-width: 190px;
+      padding: 18px 15px;
+      width: auto;
+    }
+
+    &:disabled {
+      opacity: .5;
+      pointer-events: none;
+    }
+
+    &:hover {
+      background-color: lighten($color-secondary, 20%);
+      border-color: lighten($color-secondary, 20%);
+      color: $color-white;
+      cursor: pointer;
+    } 
+  }
+
+  .lion-reward-code {
+    @include flex($justify: center, $wrap: nowrap);
+  }
+
+  .lion-reward-code__code {
+    background-color: $color-secondary;
+    border: 2px dashed $color-primary;
+    border-radius: 20px;
+    color: $color-black;
+    font-size: 22px;
+    max-width: 280px;
+    padding: 16px;
+    width: 100%;
+  }
+
+  .lion-copy-to-clipboard-button {
+    appearance: none;
+    background-color: transparent;
+    border: 0 none;
+    margin-left: 20px;
+  }
+
+  .lion-history-info-modal-content__state-bubble {
+    border-radius: 5px;
+    font-size: 20px;
+    text-transform: none;
+    padding: 6px 18px;
+  }
+
+  .lion-history-state-bubble {
+    &--approved {
+      background-color: #27c7ba;
+    }
+
+    &--void {
+      background-color: #d9534f;
+    }
+  }
+
+  .lion-manage-subscriptions-link {
+    display: none;
+  }
+
+  .lion-referral-widget-modal {
+    max-width: 620px;
+  }
+
+  .lion-referral-widget-main {
+    padding: 0;
+  }
+
+  .lion-referral-widget-main__intro {
+    @include flex($align: center, $wrap: nowrap);
+    background-color: #33AAD8;
+    color: $color-white;
+    font-family: $font-heading;
+    font-size: 16px;
+    height: 160px;
+
+    & > span {
+      line-height: 1.6;
+    }
+
+    @include media-tablet-up {
+      background-position: center;
+      background-size: cover;
+      height: 260px;
+      padding-right: 50%;
+      text-align: left;
+    }
+  }
+
+  .lion-referral-widget-main__share-controls {
+    font-family: $font-body;
+    padding: 20px;
+  }
+
+  .lion-referral-widget-main__share-buttons {
+    border: 0 none;
+    margin: 26px 0;
+    padding: 0;  
+  }
+
+  .lion-referral-share-button {
+    background-color: $color-primary;
+    font-size: 14px;
+
+    &:hover {
+      background-color: lighten($color-primary, 20%);
+    }
+  }
+
+  .lion-referral-widget-main__share-link-text {
+    font-size: 17px;
+    margin-bottom: 21px;
+  }
+
+  .lion-referral-widget-main__share-link-container {
+    @include flex($align: stretch, $wrap: nowrap);
+    background-color: transparent;
+    border: 0 none;
+    margin: 0 auto;
+    max-width: 420px;
+    padding: 0;
+    width: 100%;
+
+    .lion-copy-to-clipboard-button {
+      background-color: $color-primary;
+      border-radius: 0 200px 200px 0;
+      color: $color-white;
+      margin-left: auto;
+      padding: 20px;
+      width: 100px;
+    }
+  }
+
+  .lion-referral-widget-main__share-link-url {
+    @include flex($justify: center, $wrap: nowrap);
+    border: 2px solid #101f2d;
+    border-radius: 200px 0 0 200px;
+    font-family: $font-heading;
+    font-size: 16px;
+    font-weight: 700;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .lion-referral-email-form__label {
+    color: $color-primary;
+    font-family: $font-body;
+    font-size: 17px;
+    font-weight: 800;
+  }
+
+  .lion-referral-email-form__input {
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 10px;
+    box-shadow: none;
+    color: $color-primary;
+    font-family: $font-body;
+    font-size: 16px;
+    font-weight: 600;
+    height: auto;
+    padding: 16px 20px;
+
+    &:focus {
+      border-color: $color-primary;
+      box-shadow: none;
+      outline: 0 none;
+    }
+  }
+
+  .lion-referral-email-form__textarea {
+    height: 150px;
+  }
+
+  .lion-referral-email-form__buttons {
+    align-items: center;
+  }
+
+  .lion-referral-email-form__submit-button {
+    @include button-unset;
+    @include flex($display: inline-flex, $justify: center, $align: center);
+    background-color: $color-secondary;
+    border: 2px solid $color-secondary;
+    border-radius: 200px;
+    color: $color-white;
+    flex-shrink: 0;
+    font-family: $font-heading;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    overflow: hidden;
+    padding: 18px 15px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    transition-property: background-color, border, color, box-shadow;
+    transition-duration: 0.15s;
+    transition-timing-function: ease-in-out;
+    user-select: none;
+    width: 120px;
+
+    @include media-tablet-up {
+      font-size: 16px;
+      padding: 18px 15px;
+    }
+
+    &:disabled {
+      opacity: .5;
+      pointer-events: none;
+    }
+
+    &:hover {
+      background-color: lighten($color-secondary, 20%);
+      border-color: lighten($color-secondary, 20%);
+      color: $color-white;
+      cursor: pointer;
+    }  
+  }
+
+  .lion-referral-email-form__button.lion-action-button--neutral {
+    background-color: transparent;
+    border-bottom: 1px solid $color-primary;
+    border-radius: 0; 
+    color: $color-primary;
+    flex-shrink: 0;
+    font-size: 16px;
+    margin: 0 20px;
+    min-width: 0;
+    padding: 0;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
+
+.c-lightboxLoyalty {
+  height: 470px;
+  max-width: 1028px;
+  overflow: hidden;
+  padding: 0;
+
+  @include media-tablet-up {
+    width: 90%;
+  }
+}
+
+.c-lightboxLoyalty__header {
+  @include flex;
+  background-color: $color-primary;
+  position: relative;
+
+  .c-lightbox__close {
+    color: $color-white;
+    font-family: 'Source Sans Pro',Helvetica,Arial,sans-serif;
+    font-size: 33px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.c-lightboxLoyalty__title {
+  color: $color-white;
+  font-family: $font-heading;
+  font-size: 24px;
+  font-weight: 700;
+  padding: 15px 30px;
+}
+
+.c-lightboxLoyalty__content {
+  padding: 40px 20px 20px;
+}
+
+.c-lightboxLoyalty__table {
+  margin: 30px auto 0;
+  overflow-y: auto;
+  max-height: 240px;
+  max-width: 900px;
+
+  .lion-history-state-bubble {
+    border-radius: 5px;
+    color: $color-white;
+    font-size: 14px;
+    text-transform: none;
+    padding: 3px 6px;
+
+    @include media-tablet-up {
+      font-size: 20px;
+      padding: 6px 18px;
+    }
+
+    &--approved {
+      background-color: #27c7ba;
+    }
+
+    &--pending {
+      background-color: #ababab;
+    }
+
+    &--void {
+      background-color: #d9534f;
+    }
+  }
+
+  th {
+    border-bottom: 0 none;
+    font-weight: 700;
+  }
+
+  th:first-child,
+  td:first-child {
+    border-radius: 5px 0 0 5px;
+  }
+
+  th:last-child,
+  td:last-child {
+    border-radius: 0 5px 5px 0;
+  }
+}

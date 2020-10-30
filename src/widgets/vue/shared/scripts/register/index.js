@@ -1,0 +1,1 @@
+export { _registerClick } from './_registerClick'

@@ -1,0 +1,59 @@
+<section class="c-rewardsRedeem" id="rewards-redeem">
+  <div class="o-containerLarge">
+    <h2 class="c-h3 u-textCenter">{{ section.settings.title }}</h2>
+    <p class="c-rewardsRedeem__intro u-textCenter">{% if customer %}{{ section.settings.logged_in_description }}{% else %}{{ section.settings.description }}{% endif %}</p>
+    {% if customer %}
+      <div data-lion-rewards-list></div>
+      <div class="c-rewardsRedeem__actions">
+        <button class="c-button c-button--isHollow c-button--isPrimary" data-lightbox-trigger="rewards-history">Rewards History</button>
+      </div>
+      <div class="c-lightbox__container" data-lightbox="rewards-history">
+        <div class="c-lightbox c-lightboxLoyalty">
+          <div class="c-lightboxLoyalty__header">
+            <div class="c-lightboxLoyalty__title">Account Activity</div>
+            <button type="button" class="c-lightbox__close" data-lightbox-close>×</button>
+          </div>
+          <div class="c-lightboxLoyalty__content">
+            <div class="c-h4 u-textCenter">Your Recent Activity</div>
+            <div class="c-lightboxLoyalty__table" data-lion-history-table></div>
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <div class="c-rewardsRedeem__grid">
+        {% for block in section.blocks %}
+          <div class="c-rewardsRedeem__gridItem">
+            <div class="c-rewardsRedeem__gridItemIcon">
+              <img srcset="{{ block.settings.icon | img_url: '130x130' }} 2x,
+                          {{ block.settings.icon | img_url: '65x65' }} 1x"
+                  src="{{ block.settings.icon | img_url: '65x65' }}"
+                  alt=""
+              >
+            </div>
+            <h3 class="u-textCenter">{{ block.settings.title }}</h3>
+            <p class="u-textCenter">{{ block.settings.description }}</p>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="c-rewardsRedeem__actions">
+        <a href="{{ section.settings.cta_link }}" class="c-button c-button--isDefault c-button--isPrimaryAlt">{{ section.settings.cta_text }} {% render 'arrow.svg' %}</a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% if customer %}
+  <style>
+    .lion-reward-item--cart-discount-voucher .lion-reward-item__content:before {
+      background-image: url('{{ section.settings.icon | img_url: '130x130' }}');
+    }
+    .lion-reward-item--cart-discount-voucher .lion-action-button {
+      background-color: {{ section.settings.color }};
+      border-color: {{ section.settings.color }};
+    }
+    .lion-reward-item--cart-discount-voucher .lion-action-button:hover {
+      background-color: {{ section.settings.color | color_lighten: 20 }};
+      border-color: {{ section.settings.color | color_lighten: 20 }};
+    }
+  </style>
+{% endif %}

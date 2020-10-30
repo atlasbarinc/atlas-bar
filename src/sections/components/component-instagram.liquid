@@ -1,0 +1,42 @@
+{{ 'component-instagram.css' | asset_url | stylesheet_tag }}
+
+{% render 'component-instagram' %}
+
+{% schema %}
+  {
+    "name": "Instagram",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "hashtag",
+        "label": "Hashtag"
+      },
+      {
+        "type": "text",
+        "id": "handle",
+        "label": "handle"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "description"
+      },
+      {
+        "type": "html",
+        "id": "code",
+        "label": "Instagram Code Snippet"
+      }
+    ],
+    "presets": [
+      {
+        "category": "Home",
+        "name": "Instagram"
+      }
+    ]
+  }
+{% endschema %}

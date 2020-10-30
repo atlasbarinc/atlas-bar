@@ -1,0 +1,30 @@
+<section class="c-content-image__wrapper">
+  <h2 class="c-content-image__heading u-hideDesktopUp">{{ section.settings.title }}</h2>
+  <div class="c-content-image">
+    <div class="c-content-image__image-container">
+      <img srcset="{{ section.settings.image | img_url: '1200x1200' }} 2x,
+                   {{ section.settings.image | img_url: '600x600' }} 1x"
+           src="{{ section.settings.image | img_url: '600x600' }}"
+           alt="{{ section.settings.image.alt }}">
+    </div>
+    <div class="c-content-image__content">
+      {% if section.settings.signature_image != blank or section.settings.signature_text != blank %}
+        <div class="c-content-image__signature">
+          {% if section.settings.signature_image != blank %}
+            <div class="c-content-image__signature-image">
+              <img srcset="{{ section.settings.signature_image | img_url: '200x100' }} 2x,
+                          {{ section.settings.signature_image | img_url: '100x50' }} 1x"
+                  src="{{ section.settings.signature_image | img_url: '100x50' }}"
+                  alt="{{ section.settings.signature_image.alt }}">
+            </div>
+          {% endif %}
+          {% if section.settings.signature_text != blank %}
+            <p class="c-content-image__signature-text">{{ section.settings.signature_text | newline_to_br }}</p>
+          {% endif %}
+        </div>
+      {% endif %}
+      <h2 class="c-content-image__heading u-hideTabletDown">{{ section.settings.title }}</h2>
+      <p class="c-content-image__description">{{ section.settings.description }}</p>
+    </div>
+  </div>
+</section>

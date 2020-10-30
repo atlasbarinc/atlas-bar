@@ -1,0 +1,82 @@
+{{ 'component-rewards-perks.css' | asset_url | stylesheet_tag }}
+
+{% render 'component-rewards-perks' %}
+
+<script src="{{ 'component-rewards-perks.js' | asset_url }}"></script>
+
+{% schema %}
+  {
+    "name": "Rewards Perks",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Logged Out"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description"
+      },
+      {
+        "type": "url",
+        "id": "cta_link",
+        "label": "CTA Link"
+      },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "CTA Text",
+        "default": "Get Started"
+      },
+      {
+        "type": "header",
+        "content": "Logged In"
+      },
+      {
+        "type": "text",
+        "id": "logged_in_title",
+        "label": "Heading"
+      },
+      {
+        "type": "textarea",
+        "id": "logged_in_description",
+        "label": "Description"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "tier",
+        "name": "Tier",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "points",
+            "label": "Points Text"
+          },
+          {
+            "type": "textarea",
+            "id": "perks",
+            "label": "Perks",
+            "info": "New line per perk."
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "744x494"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

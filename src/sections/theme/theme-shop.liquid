@@ -1,0 +1,92 @@
+<script>
+  window.Scoutside = window.Scoutside || {}
+  window.Scoutside.shop = window.Scoutside.shop || {}
+
+  var shop = {}
+
+  shop = {{ section.settings | json }}
+
+  {% for block in section.blocks %}
+    shop['{{ block.type }}'] = shop['{{ block.type }}'] || []
+    shop['{{ block.type }}'].push({{ block.settings | json }})
+  {% endfor %}
+
+  window.Scoutside.shop.domain = '{{ shop.permanent_domain }}'
+
+  window.Scoutside.shop = shop
+</script>
+
+{% schema %}
+  {
+    "name": "Shop Settings",
+    "settings": [
+      {
+        "type": "header",
+        "content": "General"
+      },
+      {
+        "type": "text",
+        "id": "shop_name",
+        "label": "Shop Name",
+        "default": "{{ shop_name }}"
+      },
+      {
+        "type": "text",
+        "id": "currency_name",
+        "label": "Currency Name",
+        "default": "USD"
+      },
+      {
+        "type": "text",
+        "id": "currency_symbol",
+        "label": "Currency Symbol",
+        "default": "$"
+      },
+      {
+        "type": "header",
+        "content": "Images"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_logo",
+        "label": "Image Logo"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "intervals",
+        "name": "Intervals",
+        "settings": [
+          {
+            "id": "frequency",
+            "type": "text",
+            "label": "Interval Frequency",
+            "info": "Must match recharge setting"
+          },
+          {
+            "id": "unit",
+            "type": "text",
+            "label": "Interval Unit",
+            "info": "Must match recharge setting"
+          },
+          {
+            "id": "text",
+            "type": "text",
+            "label": "Interval Display Text"
+          }
+        ]
+      },
+      {
+        "type": "cancel_reasons",
+        "name": "Cancel Reasons",
+        "settings": [
+          {
+            "id": "reason",
+            "type": "text",
+            "label": "Cancel Reason"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

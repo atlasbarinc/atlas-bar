@@ -1,0 +1,55 @@
+.c-rewardsRefer {
+  @include angle(before, $bg: $color-offwhite);
+  background-color: #5AAAD6;
+  color: $color-white;
+  padding-top: 80px;
+  text-align: center;
+
+  @include media-desktop-up {
+    padding-top: 140px;
+    text-align: left;
+  }
+}
+
+.c-rewardsRefer__container {
+  @include media-desktop-up {
+    @include flex($justify: space-around);
+  }
+}
+
+.c-rewardsRefer__content {
+  @include media-desktop-up {
+    max-width: 500px;
+    order: 1;
+    width: 50%;
+    z-index: 1;
+  }
+}
+
+.c-rewardsRefer__subheading {
+  margin: 0 0 30px;  
+}
+
+.c-rewardsRefer__heading {
+  @include media-desktop-up {
+    margin-bottom: 40px;
+  }
+}
+
+.c-rewardsRefer__description {
+  @include media-desktop-up {
+    margin-bottom: 40px;
+    margin-top: 0;
+  }
+}
+
+.c-rewardsRefer__image {
+  @include flex($justify: center);
+  margin-top: 65px;
+
+  @include media-desktop-up {
+    margin-top: 0;
+    max-width: 800px;
+    width: 50%;
+  }
+}

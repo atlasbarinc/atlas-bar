@@ -1,0 +1,25 @@
+<script>
+  window.Scoutside = window.Scoutside || {};
+  window.Scoutside.bundle = window.Scoutside.bundle || {
+    header: {},
+    sizes: {},
+    items: {},
+    prebuilts: {},
+    frequency: {}
+  };
+
+</script>
+
+{% section 'widget-bundle-header' %}
+{% section 'widget-bundle-sizes' %}
+{% section 'widget-bundle-items' %}
+{% section 'widget-bundle-prebuilts' %}
+{% section 'widget-bundle-frequency' %}
+
+<v-bundle id="v-bundle"
+  class="v-widget"
+  data-vue-bundle
+></v-bundle>
+
+{{ 'widget-bundle.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'widget-bundle.js' | asset_url }}"></script>

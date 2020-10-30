@@ -1,0 +1,17 @@
+.c-headerBar {
+  background-color: $color-primary;
+}
+
+.c-headerBar__wrapper {
+  padding: 10px 0;
+}
+
+.c-headerBar__message {
+  color: $color-white;
+  font-family: $font-heading;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-align: center;
+  text-transform: capitalize;
+}

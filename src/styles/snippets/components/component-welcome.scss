@@ -1,0 +1,95 @@
+.c-welcome {
+  background-color: $color-white;
+}
+
+.c-welcome__container {
+  @include flex($justify: space-between);
+  padding: 20px 0;
+
+  @include media-tablet-up {
+    min-height: 107px;
+  }
+}
+
+.c-welcome__heading {
+  @include text-heading;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin: 0;
+
+  @include media-tablet-up {
+    font-size: 21px;
+  }
+}
+
+.c-welcome__headingPoints {
+  display: none;
+
+  @include media-tablet-up {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    margin-top: 7px;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+}
+
+.c-welcome__account {
+  margin: 0;
+
+  @include media-tablet-up {
+    display: none;
+  }
+}
+
+.c-welcome__accountLink {
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+.c-welcome__nextCharge {
+  @include shadow-small;
+  border: 2px solid $color-primary;
+  border-radius: 9px;
+  display: none;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 14px 40px 14px 14px;
+  position: relative;
+  transition: border-color 0.3s;
+
+  @include media-tablet-up {
+    @include flex($direction: column, $align: flex-start);
+  }
+
+  &:hover {
+    border-color: $color-secondary;
+  }
+
+  .c-svg {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+
+    svg {
+      display: block;
+    }
+  }
+}
+
+.c-welcome__nextChargeDate {
+  @include text-heading;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}

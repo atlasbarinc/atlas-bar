@@ -1,0 +1,32 @@
+.c-instagram__container {
+  background-color: $color-white;
+  padding: 53px 0;
+}
+
+.c-instagram__handle {
+  color: $color-secondary;
+  margin-bottom: 23px;
+}
+
+.c-instagram__title {
+  font-weight: 800;
+  margin-bottom: 0;
+}
+
+.c-instagram__hashtag {
+  color: $color-secondary;
+}
+
+.c-instagram__description {
+  margin-bottom: 0;
+
+  @include media-tablet-up {
+    margin-bottom: 34px;
+    margin-top: 0;
+  }
+}
+
+.c-instagram__buttonContainer {
+  @include flex($justify: center);
+  margin-top: 23px;
+}

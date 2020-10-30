@@ -1,0 +1,97 @@
+.c-press__wrapper {
+  background-color: $color-white;
+}
+
+.c-press__background {
+  @include angle(before);
+  transition: background-color 0.4s;
+  padding: 90px 20px 60px;
+
+  @include media-tablet-up {
+    padding: 160px 0 100px;
+  }
+
+  &--reverse {
+    @include angle(before, $flip: true);
+  }
+}
+
+.c-press {
+  color: $color-white;
+}
+
+.c-press__heading {
+  text-align: center;
+}
+
+.c-press__stars {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 2px;
+  margin: 30px auto;
+  max-width: 153px;
+
+  @include media-tablet-up {
+    max-width: 181px;
+  }
+
+  svg {
+    width: 100%;
+  }
+
+  &--secondary {
+    color: $color-secondary;
+  }
+}
+
+.c-press__quotes {
+  margin: 0 auto 42px;
+  max-width: 700px;
+}
+
+.c-press__quote {
+  font-family: $font-heading;
+  font-size: 16px !important;
+  font-weight: 700;
+  text-align: center;
+
+  @include media-tablet-up {
+    font-size: 24px !important;
+  }
+}
+
+.c-press__icons {
+  display: grid;
+  grid-gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(0px, 65px));
+  justify-content: center;
+  margin-top: 42px;
+
+  @include media-tablet-up {
+    grid-gap: 60px;
+    grid-template-columns: repeat(auto-fit, minmax(0px, 93px));
+  }
+}
+
+.c-press__icon {
+  border: 2px solid $color-white;
+  border-radius: 9999px;
+  cursor: pointer;
+  overflow: hidden;
+
+  &.tns-nav-active {
+    @include shadow-base();
+    border-color: $color-primary;
+
+    > img {
+      opacity: 1;
+    }
+  }
+
+  img { 
+    background-color: $color-white;
+    border-radius: 9999px;
+    display: block;
+    opacity: 0.5;
+  }
+}

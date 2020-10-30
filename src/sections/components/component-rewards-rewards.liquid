@@ -1,0 +1,80 @@
+{{ 'component-rewards-rewards.css' | asset_url | stylesheet_tag }}
+
+{% render 'component-rewards-rewards' %}
+
+<script src="{{ 'component-rewards-rewards.js' | asset_url }}"></script>
+
+{% schema %}
+  {
+    "name": "Rewards Redeem",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description"
+      },
+      {
+        "type": "textarea",
+        "id": "logged_in_description",
+        "label": "Logged In Description",
+        "default": "Redeeming your points is easy! Simply apply your points at checkout or redeem below."
+      },
+      {
+        "type": "header",
+        "content": "Voucher Icon & Color",
+        "info": "Used to display icon and color on vouchers when logged in."
+      },
+      {
+        "type": "image_picker",
+        "id": "icon",
+        "label": "Icon",
+        "info": "130x130 maximium"
+      },
+      {
+        "type": "color",
+        "id": "color",
+        "label": "Color"
+      },
+      {
+        "type": "url",
+        "id": "cta_link",
+        "label": "CTA Link"
+      },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "CTA Text",
+        "default": "Let's Do This"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "reward",
+        "name": "Reward",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon",
+            "info": "130x130 maximium"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "textarea",
+            "id": "description",
+            "label": "Description"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

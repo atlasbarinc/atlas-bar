@@ -1,0 +1,161 @@
+<section class="c-hero {% if type == 'trial' %}c-hero--isTrial{% endif %}" data-hero {% if type == 'trial' %}style="background-color: {{ section.settings.background_color }}"{% endif %}>
+
+  <div class="c-hero__scroll">
+    <div class="c-hero__scroll-container">
+      <div class="c-hero__scroll-details">
+        <h1 class="c-hero__scroll-heading">{{ product.title }}</h1>
+        <div class="c-hero__scroll-reviews c-reviews">
+          <div class="yotpo bottomLine"
+              data-appkey="NO7AhBX8YkIFbH5sXErLDYGfZuFYziaC09azR4tm"
+              data-domain="{{shop.permanent_domain | escape }}"
+              data-product-id="{{ product.id }}"
+              data-product-models="{{ product.id }}"
+              data-name="{{ product.title | escape }}"
+              data-url="{{ shop.url }}{{ product.url }}"
+              data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
+              data-description="{{ product.description | escape }}"
+              data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
+            {%- assign yotpo_offload_content = shop.metafields.yotpo.yotpo_offload_content %}
+            {%- assign time_now = 'now' | date: '%s' %}
+            {%- assign yotpo_live_time = shop.metafields.yotpo.yotpo_live | date: '%s' %}
+            {%- assign diff_seconds_from_live = time_now | minus: yotpo_live_time %}
+            {%- assign yotpo_bottomline_last_updated = product.metafields.yotpo.bottomline_update_time | date: '%s' %}
+            {%- assign diff_seconds_from_last_bottomline_update = time_now | minus: yotpo_bottomline_last_updated %}
+            {%- if yotpo_live_time and diff_seconds_from_live < 86400 or yotpo_bottomline_last_updated and diff_seconds_from_last_bottomline_update < 86400 -%}
+              {%- assign yotpo_bottomline_obsolete = false %}
+            {%- else %}
+              {%- assign yotpo_bottomline_obsolete = true %}
+            {%- endif %}
+            {%- if yotpo_offload_content == 'yes' and yotpo_bottomline_obsolete != true -%}
+              {{ product.metafields.yotpo.bottomline }}
+            {%- endif %}
+          </div>
+        </div>
+        <p class="c-hero__scroll-price">{% if product.price_varies %}Starting at {% endif %}{{ product.price_min | money }} {% if product.compare_at_price_min > product.price_min %}<span class="c-hero__scroll-price--compare">{{ product.compare_at_price_min | money }}</span>{% endif %}</p>
+      </div>
+      <div class="c-hero__scroll-action">
+        {% if type == 'bundle' %}
+          <button type="button" class="c-button c-button--isDefault c-button--isSecondaryAlt" data-bundle-trigger>Customize Now {% render 'arrow.svg' %}</button>
+        {% elsif type == 'trial' %}
+          {% form 'product', product, data-trial-form: '' %}
+            <input type="hidden" name="id" value="{{ product.first_available_variant.id }}">
+            <input type="hidden" name="quantity" value="1">
+            <button type="submit" class="c-button c-button--isDefault c-button--isSecondaryAlt">Start Trial {% render 'arrow.svg' %}</button>
+          {% endform %}
+        {% else %}
+          {% form 'product', product, data-add-form: '' %}
+            <input type="hidden" name="id" value="{{ product.first_available_variant.id }}">
+            <input type="hidden" name="quantity" value="1">
+            <button type="submit" class="c-button c-button--isDefault c-button--isSecondaryAlt" {% unless product.available %}disabled{% endunless %}>Add To Cart {% render 'arrow.svg' %}</button>
+          {% endform %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="c-hero__images">
+    <ul class="c-hero__slider" data-hero-slider>
+      {% for image in product.images %}
+        <li class="c-hero__slider-item" style="background-color: {{ section.settings.background_color }}">
+          <div class="c-hero__slider-item-placeholder"></div>
+          <img class="c-hero__slider-item-image"
+               srcset="{{ image | img_url: '1444x1352', crop: 'center' }} 2x,
+                       {{ image | img_url: '722x676', crop: 'center' }} 1x"
+               src="{{ image | img_url: '722x676', crop: 'center' }}"
+               alt="{{ image.alt }}">
+        </li>
+      {% endfor %}
+    </ul>
+    <ul class="tns-nav c-hero__slider-nav" data-hero-slider-nav>
+      {% for image in product.images %}
+        <button class="c-hero__slider-nav-item">
+          <img class="c-hero__slider-nav-item-image"
+               srcset="{{ image | img_url: '120x120', crop: 'center' }} 2x,
+                       {{ image | img_url: '60x60', crop: 'center' }} 1x"
+               src="{{ image | img_url: '60x60', crop: 'center' }}"
+               alt="">
+        </button>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="c-hero__content-container">
+    <div class="c-hero__content">
+      <h1 class="c-hero__heading">{{ product.title }}</h1>
+      <div class="c-hero__rating c-reviews">
+        <div class="yotpo bottomLine"
+            data-appkey="NO7AhBX8YkIFbH5sXErLDYGfZuFYziaC09azR4tm"
+            data-domain="{{shop.permanent_domain | escape }}"
+            data-product-id="{{ product.id }}"
+            data-product-models="{{ product.id }}"
+            data-name="{{ product.title | escape }}"
+            data-url="{{ shop.url }}{{ product.url }}"
+            data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
+            data-description="{{ product.description | escape }}"
+            data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
+          {%- assign yotpo_offload_content = shop.metafields.yotpo.yotpo_offload_content %}
+          {%- assign time_now = 'now' | date: '%s' %}
+          {%- assign yotpo_live_time = shop.metafields.yotpo.yotpo_live | date: '%s' %}
+          {%- assign diff_seconds_from_live = time_now | minus: yotpo_live_time %}
+          {%- assign yotpo_bottomline_last_updated = product.metafields.yotpo.bottomline_update_time | date: '%s' %}
+          {%- assign diff_seconds_from_last_bottomline_update = time_now | minus: yotpo_bottomline_last_updated %}
+          {%- if yotpo_live_time and diff_seconds_from_live < 86400 or yotpo_bottomline_last_updated and diff_seconds_from_last_bottomline_update < 86400 -%}
+            {%- assign yotpo_bottomline_obsolete = false %}
+          {%- else %}
+            {%- assign yotpo_bottomline_obsolete = true %}
+          {%- endif %}
+          {%- if yotpo_offload_content == 'yes' and yotpo_bottomline_obsolete != true -%}
+            {{ product.metafields.yotpo.bottomline }}
+          {%- endif %}
+        </div>
+      </div>
+      <p class="c-hero__price">{% if product.price_varies %}Starting at {% endif %}{{ product.price_min | money }} {% if product.compare_at_price_min > product.price_min %}<span class="c-hero__price--compare">{{ product.compare_at_price_min | money }}</span>{% endif %}</p>
+      <div class="c-hero__description">{{ product.description }}</div>
+      <ul class="c-hero__list">
+        {% for block in section.blocks %}
+          <li class="c-hero__list-item"><span class="c-hero__list-item-icon"><img src="{{ block.settings.icon | img_url: '60x' }}" alt="{{ block.settings.icon.alt }}"></span><span>{{ block.settings.title }}</span></li>
+        {% endfor %}
+      </ul>
+      {% if type == 'bundle' %}
+        <div class="c-hero__action">
+          <button type="button" class="c-button c-button--isDefault c-button--isSecondaryAlt" data-bundle-trigger>Customize Now {% render 'arrow.svg' %}</button>
+        </div>
+      {% elsif type == 'trial' %}
+        <div class="c-hero__action">
+          {% form 'product', product, class: 'c-hero__action-form', data-trial-form: '' %}
+            <input type="hidden" name="id" value="{{ product.first_available_variant.id }}">
+            <input type="hidden" name="quantity" value="1">
+            <button type="submit" class="c-button c-button--isDefault c-button--isWhitePrimary u-hideMobileDown c-button--trial">{{ section.settings.button_text }} {% render 'arrow.svg' %}</button>
+            <button type="submit" class="c-button c-button--isDefault c-button--isSecondaryAlt u-hideTabletUp">Add To Cart {% render 'arrow.svg' %}</button>
+          {% endform %}
+        </div>
+      {% else %}
+        <div class="c-hero__action">
+          {% form 'product', product, class: 'c-hero__action-form', data-add-form: '' %}
+            <input type="hidden" name="id" value="{{ product.first_available_variant.id }}">
+            <input type="hidden" name="quantity" value="1">
+            <button type="submit" class="c-button c-button--isDefault c-button--isSecondaryAlt" {% unless product.available %}disabled{% endunless %}>Add To Cart {% render 'arrow.svg' %}</button>
+          {% endform %}
+        </div>
+        {% if section.settings.secondary_link != blank and section.settings.secondary_text != blank %}
+          {% unless customer and customer.orders_count > 0 %}
+            <div class="c-hero__action">
+              <a class="c-button c-button--isHollow c-button--isPrimary" href="{{ section.settings.secondary_link }}">{{ section.settings.secondary_text }}</a>
+            </div>
+          {% endunless %}
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% if type == 'trial' %}
+<style>
+  @media only screen and (min-width: 768px) {
+    .c-hero__rating .yotpo.bottomLine a,
+    .c-hero__rating .yotpo.bottomLine a:hover,
+    .c-hero__rating .yotpo.bottomLine .yotpo-bottomline .rating-star {
+      color: {{ section.settings.alternate_color }} !important;
+    }
+  }
+</style>
+{% endif %}

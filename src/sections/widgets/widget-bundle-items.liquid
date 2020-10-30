@@ -1,0 +1,62 @@
+<script>
+  var items = {};
+
+  items.images = {
+    best_seller: "{{ 'best-seller.png' | asset_url }}"
+  };
+
+  items.filters = {{ section.settings.filters | split: ',' | json }};
+  
+  items.products = [];
+  {% for bar in collections[section.settings.items].products %}
+    items.products.push({
+      product_id: {{ bar.id }},
+      id: {{ bar.variants[0].id }},
+      title: "{{ bar.title }}",
+      subscription_id: {{ bar.metafields.subscriptions.subscription_id }},
+      available: {{ bar.variants[0].available }},
+      tags: {{ bar.tags | json}},
+      images: [
+        {% for image in bar.images %}
+        {
+          "modal_1x": "{{ image | img_url: '620x896', crop: 'center' }}",
+          "modal_2x": "{{ image | img_url: '1240x1792', crop: 'center' }}",
+        }
+        {% unless forloop.last %},{% endunless %}{% endfor %}
+      ],
+      short_description: "{{ bar.metafields.details.short_description }}",
+      description: {{ bar.description | json }},
+      wrapper_image: "{{ bar.metafields.images.wrapper[0].cloudinary_src | append: 'w_265' }}",
+      bar_image: "{{ bar.metafields.images.bar[0].cloudinary_src | append: 'w_265' }}",
+      primary_color: "{{ bar.metafields.details.primary_color }}",
+      secondary_color: "{{ bar.metafields.details.secondary_color }}",
+      nutrition_label: "{{ bar.metafields.images.nutrition_label[0].cloudinary_src }}",
+      total_carbs: "{{ bar.metafields.details.total_carbs }}",
+      carb_details: {{ bar.metafields.details.carb_details | json }},
+      net_carbs: "{{ bar.metafields.details.net_carbs }}",
+      ingredients: "{{ bar.metafields.details.ingredients }}"
+    });
+  {% endfor %}
+
+  window.Scoutside.bundle.items = items;
+</script>
+
+{% schema %}
+  {
+    "name": "Build a Box - Bars",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "filters",
+        "label": "Filters",
+        "info": "Comma separated. Should match tags assigned to products."
+      },
+      {
+        "type": "collection",
+        "id": "items",
+        "label": "Collection of Bundle Items",
+        "info": "Collection should be populated with bundle child products."
+      }
+    ]
+  }
+{% endschema %}

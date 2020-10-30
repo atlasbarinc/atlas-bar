@@ -1,0 +1,374 @@
+<script>
+  var shipments = {}
+
+  shipments = {{ section.settings | json }}
+
+  {% for block in section.blocks %}
+    shipments['{{ block.type }}'] = shipments['{{ block.type }}'] || []
+    shipments['{{ block.type }}'].push({{ block.settings | json }})
+  {% endfor %}
+  
+  var upsells_collection = []
+  {% paginate collections[section.settings.upsells_collection].products by 250 %}
+    {% for product in collections[section.settings.upsells_collection].products %}
+      upsells_collection.push({{ product.id }})
+    {% endfor %}
+  {% endpaginate %}
+
+  shipments.upsells_collection = upsells_collection
+
+  window.Scoutside.portal.shipments = shipments
+</script>
+
+{% schema %}
+  {
+    "name": "Portal Shipments",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Loyalty"
+      },
+      {
+        "id": "loyalty_image",
+        "type": "image_picker",
+        "label": "Image"
+      },
+      {
+        "id": "loyalty_heading",
+        "type": "text",
+        "label": "Heading - Variables: {{ customer_name }}",
+        "default": "{{ loyalty_heading }}"
+      },
+      {
+        "id": "loyalty_label_tier",
+        "type": "text",
+        "label": "Label Tier - Variables: {{ tier }}",
+        "default": "{{ loyalty_label_tier }}"
+      },
+      {
+        "id": "loyalty_label_no_tier",
+        "type": "text",
+        "label": "Label No Tier",
+        "default": "{{ loyalty_label_no_tier }}"
+      },
+      {
+        "id": "loyalty_text_tier",
+        "type": "text",
+        "label": "Text Tier - Variables: {{ date }}",
+        "default": "{{ loyalty_text_tier }}"
+      },
+      {
+        "id": "loyalty_label_points",
+        "type": "text",
+        "label": "Label Points",
+        "default": "{{ loyalty_label_points }}"
+      },
+      {
+        "id": "loyalty_text_points",
+        "type": "text",
+        "label": "Text Points - Variables: {{ points }}",
+        "default": "{{ loyalty_text_points }}"
+      },
+      {
+        "id": "loyalty_button_view",
+        "type": "text",
+        "label": "Button View",
+        "default": "{{ loyalty_button_view }}"
+      },
+      {
+        "id": "loyalty_button_earn",
+        "type": "text",
+        "label": "Button Earn",
+        "default": "{{ loyalty_button_earn }}"
+      },
+      {
+        "id": "loyalty_text_refer",
+        "type": "text",
+        "label": "Text Refer",
+        "default": "{{ loyalty_text_refer }}"
+      },
+       {
+        "id": "loyalty_link_refer",
+        "type": "text",
+        "label": "Link Refer",
+        "default": "{{ loyalty_link_refer }}"
+      },
+      {
+        "type": "header",
+        "content": "Referral"
+      },
+      {
+        "id": "referral_preheading",
+        "type": "text",
+        "label": "Referral Preheading",
+        "default": "{{ referral_preheading }}"
+      },
+      {
+        "id": "referral_heading",
+        "type": "text",
+        "label": "Referral Heading",
+        "default": "{{ referral_heading }}"
+      },
+      {
+        "id": "referral_button",
+        "type": "text",
+        "label": "Referral Button",
+        "default": "{{ referral_button }}"
+      },
+      {
+        "type": "header",
+        "content": "General"
+      },
+      {
+        "id": "page_heading",
+        "type": "text",
+        "label": "Page Heading",
+        "default": "{{ page_heading }}"
+      },
+      {
+        "type": "header",
+        "content": "Box"
+      },
+      {
+        "id": "box_count_single",
+        "type": "text",
+        "label": "Box Count Single - Variables: {{ count }}",
+        "default": "{{ box_count_single }}"
+      },
+      {
+        "id": "box_count_multi",
+        "type": "text",
+        "label": "Box Count Multi - Variables: {{ count }}",
+        "default": "{{ box_count_multi }}"
+      },
+      {
+        "id": "box_count_empty",
+        "type": "text",
+        "label": "Box Count Empty",
+        "default": "{{ box_count_empty }}"
+      },
+      {
+        "id": "box_ships",
+        "type": "text",
+        "label": "Box Ships",
+        "default": "{{ box_ships }}"
+      },
+      {
+        "id": "box_edit_shipping",
+        "type": "text",
+        "label": "Box Edit Shipping",
+        "default": "{{ box_edit_shipping }}"
+      },
+      {
+        "id": "box_charges_single",
+        "type": "text",
+        "label": "Box Charges Single",
+        "default": "{{ box_charges_single }}"
+      },
+      {
+        "id": "box_charges_multi",
+        "type": "text",
+        "label": "Box Charges Multi",
+        "default": "{{ box_charges_multi }}"
+      },
+      {
+        "id": "box_button_add",
+        "type": "text",
+        "label": "Box Button Add",
+        "default": "{{ box_button_add }}"
+      },
+      {
+        "id": "box_button_order",
+        "type": "text",
+        "label": "Box Button Order",
+        "default": "{{ box_button_order }}"
+      },
+      {
+        "type": "header",
+        "content": "Empty"
+      },
+      {
+        "id": "empty_heading_products",
+        "type": "text",
+        "label": "Empty Heading Products",
+        "default": "{{ empty_heading_products }}"
+      },
+      {
+        "id": "empty_text_ships",
+        "type": "text",
+        "label": "Empty Text Ships",
+        "default": "{{ empty_text_ships }}"
+      },
+      {
+        "id": "empty_button_reactivate",
+        "type": "text",
+        "label": "Empty Button Reactivate",
+        "default": "{{ empty_button_reactivate }}"
+      },
+      {
+        "id": "empty_button_add",
+        "type": "text",
+        "label": "Empty Button Add",
+        "default": "{{ empty_button_add }}"
+      },
+      {
+        "id": "empty_text_disclaimer",
+        "type": "textarea",
+        "label": "Empty Text Disclaimer",
+        "default": "{{ empty_text_disclaimer }}"
+      },
+      {
+        "type": "header",
+        "content": "Bundle"
+      },
+      {
+        "id": "bundle_tab_main",
+        "type": "text",
+        "label": "Bundle Tab Main",
+        "default": "{{ bundle_tab_main }}"
+      },
+      {
+        "id": "bundle_tab_parts",
+        "type": "text",
+        "label": "Bundle Tab Parts",
+        "default": "{{ bundle_tab_parts }}"
+      },
+      {
+        "id": "bundle_button_schedule",
+        "type": "text",
+        "label": "Bundle Button Schedule",
+        "default": "{{ bundle_button_schedule }}"
+      },
+      {
+        "id": "bundle_button_delay",
+        "type": "text",
+        "label": "Bundle Button Delay",
+        "default": "{{ bundle_button_delay }}"
+      },
+      {
+        "id": "bundle_button_remove",
+        "type": "text",
+        "label": "Bundle Button Remove",
+        "default": "{{ bundle_button_remove }}"
+      },
+      {
+        "id": "bundle_button_edit",
+        "type": "text",
+        "label": "Bundle Button Edit",
+        "default": "{{ bundle_button_edit }}"
+      },
+      {
+        "id": "bundle_upsell_link",
+        "type": "text",
+        "label": "Bundle Upsell Link",
+        "default": "Upgrade to {{ count }}-ct {{ title }} & Save {{ savings }}",
+        "info": "Variables: {{ count }}, {{ title }}, {{ savings }}, {{ price }}"
+      },
+      {
+        "type": "header",
+        "content": "Product"
+      },
+      {
+        "id": "product_button_edit",
+        "type": "text",
+        "label": "Product Button Edit",
+        "default": "{{ product_button_edit }}"
+      },
+      {
+        "id": "product_button_schedule",
+        "type": "text",
+        "label": "Product Button Schedule",
+        "default": "{{ product_button_schedule }}"
+      },
+      {
+        "id": "product_button_delay",
+        "type": "text",
+        "label": "Product Button Delay",
+        "default": "{{ product_button_delay }}"
+      },
+      {
+        "type": "header",
+        "content": "Discount"
+      },
+      {
+        "id": "discount_placeholder",
+        "type": "text",
+        "label": "Discount Placeholder",
+        "default": "{{ discount_placeholder }}"
+      },
+      {
+        "id": "discount_button_text",
+        "type": "text",
+        "label": "Discount Button Text",
+        "default": "{{ discount_button_text }}"
+      },
+      {
+        "id": "discount_button_success",
+        "type": "text",
+        "label": "Discount Button Success",
+        "default": "{{ discount_button_successs }}"
+      },
+      {
+        "type": "header",
+        "content": "Summary"
+      },
+      {
+        "id": "summary_label_order",
+        "type": "text",
+        "label": "Summary Label Order",
+        "default": "{{ summary_label_order }}"
+      },
+      {
+        "id": "summary_label_subtotal",
+        "type": "text",
+        "label": "Summary Label Subtotal",
+        "default": "{{ summary_label_subtotal }}"
+      },
+      {
+        "id": "summary_label_discount",
+        "type": "text",
+        "label": "Summary Label Discount",
+        "default": "{{ summary_label_discount }}"
+      },
+      {
+        "id": "summary_label_tax",
+        "type": "text",
+        "label": "Summary Label Tax",
+        "default": "{{ summary_label_tax }}"
+      },
+      {
+        "id": "summary_label_shipping",
+        "type": "text",
+        "label": "Summary Label Shipping",
+        "default": "{{ summary_label_shipping }}"
+      },
+      {
+        "id": "summary_label_total",
+        "type": "text",
+        "label": "Summary Label Total",
+        "default": "{{ summary_label_total }}"
+      },
+      {
+        "type": "header",
+        "content": "Upsells"
+      },
+      {
+        "id": "upsells_heading",
+        "type": "text",
+        "label": "Upsells Heading",
+        "default": "{{ upsells_heading }}"
+      },
+      {
+        "id": "upsells_collection",
+        "type": "collection",
+        "label": "Upsells Collection"
+      },
+      {
+        "id": "upsells_button",
+        "type": "text",
+        "label": "Upsells Button",
+        "default": "{{ upsells_button }}"
+      }
+    ]
+  }
+{% endschema %}

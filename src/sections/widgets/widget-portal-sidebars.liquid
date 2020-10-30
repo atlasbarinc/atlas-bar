@@ -1,0 +1,696 @@
+<script>
+  var sidebars = {};
+
+  sidebars = {{ section.settings | json }};
+
+  {% for block in section.blocks %}
+    sidebars['{{ block.type }}'] = sidebars['{{ block.type }}'] || [];
+    sidebars['{{ block.type }}'].push({{ block.settings | json }});
+  {% endfor %}
+
+  var products_collection = []
+  {% paginate collections[section.settings.products_collection].products by 250 %}
+    {% for product in collections[section.settings.products_collection].products %}
+      products_collection.push({{ product.id }});
+    {% endfor %}
+  {% endpaginate %}
+
+  var flavors_collection = []
+  {% paginate collections[section.settings.flavors_collection].products by 250 %}
+    {% for product in collections[section.settings.flavors_collection].products %}
+      flavors_collection.push({{ product.id }});
+    {% endfor %}
+  {% endpaginate %}
+
+  sidebars.products_collection = products_collection;
+  sidebars.flavors_collection = flavors_collection;
+
+  window.Scoutside.portal.sidebars = sidebars;
+</script>
+
+{% schema %}
+  {
+    "name": "Portal Sidebars",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Billing"
+      },
+      {
+        "id": "billing_back",
+        "type": "text",
+        "label": "Back",
+        "default": "{{ billing_back }}"
+      },
+      {
+        "id": "billing_heading",
+        "type": "text",
+        "label": "Heading",
+        "default": "{{ billing_heading }}"
+      },
+      {
+        "id": "billing_first_label",
+        "type": "text",
+        "label": "First Name Label",
+        "default": "{{ billing_first_label }}"
+      },
+      {
+        "id": "billing_last_label",
+        "type": "text",
+        "label": "Last Name Label",
+        "default": "{{ billing_last_label }}"
+      },
+      {
+        "id": "billing_address1_label",
+        "type": "text",
+        "label": "Address 1 Label",
+        "default": "{{ billing_address1_label }}"
+      },
+      {
+        "id": "billing_address2_label",
+        "type": "text",
+        "label": "Address 2 Label",
+        "default": "{{ billing_address2_label }}"
+      },
+      {
+        "id": "billing_city_label",
+        "type": "text",
+        "label": "City Label",
+        "default": "{{ billing_city_label }}"
+      },
+      {
+        "id": "billing_province_label",
+        "type": "text",
+        "label": "Province Label",
+        "default": "{{ billing_province_label }}"
+      },
+      {
+        "id": "billing_zip_label",
+        "type": "text",
+        "label": "Zip Label",
+        "default": "{{ billing_zip_label }}"
+      },
+      {
+        "id": "billing_country_label",
+        "type": "text",
+        "label": "Country Label",
+        "default": "{{ billing_country_label }}"
+      },
+      {
+        "id": "billing_button_text",
+        "type": "text",
+        "label": "Button Text",
+        "default": "{{ billing_button_text }}"
+      },
+      {
+        "id": "billing_button_success",
+        "type": "text",
+        "label": "Button Text",
+        "default": "{{ billing_button_success }}"
+      },
+      {
+        "id": "billing_error_required",
+        "type": "text",
+        "label": "Error Required",
+        "default": "{{ billing_error_required }}"
+      },
+      {
+        "id": "billing_error_limit",
+        "type": "text",
+        "label": "Error Limit",
+        "default": "{{ billing_error_limit }}"
+      },
+      {
+        "id": "billing_error_general",
+        "type": "text",
+        "label": "Error General",
+        "default": "{{ billing_error_general }}"
+      },
+      {
+        "type": "header",
+        "content": "Password"
+      },
+      {
+        "id": "password_back",
+        "type": "text",
+        "label": "Back",
+        "default": "{{ password_back }}"
+      },
+      {
+        "id": "password_heading",
+        "type": "text",
+        "label": "Heading",
+        "default": "{{ password_heading }}"
+      },
+      {
+        "id": "password_email_label",
+        "type": "text",
+        "label": "Email Label",
+        "default": "{{ password_email_label }}"
+      },
+      {
+        "id": "password_button_text",
+        "type": "text",
+        "label": "Button Text",
+        "default": "{{ password_button_text }}"
+      },
+      {
+        "id": "password_button_success",
+        "type": "text",
+        "label": "Button Text",
+        "default": "{{ password_button_success }}"
+      },
+      {
+        "id": "password_error_email",
+        "type": "text",
+        "label": "Error Email",
+        "default": "{{ password_error_email }}"
+      },
+      {
+        "id": "password_error_required",
+        "type": "text",
+        "label": "Error Required",
+        "default": "{{ password_error_required }}"
+      },
+      {
+        "id": "password_error_customer",
+        "type": "text",
+        "label": "Error Customer",
+        "default": "{{ password_error_customer }}"
+      },
+      {
+        "id": "password_error_limit",
+        "type": "text",
+        "label": "Error Limit",
+        "default": "{{ password_error_limit }}"
+      },
+      {
+        "id": "password_error_general",
+        "type": "text",
+        "label": "Error General",
+        "default": "{{ password_error_general }}"
+      },
+      {
+        "type": "header",
+        "content": "payment"
+      },
+      {
+        "id": "payment_back",
+        "type": "text",
+        "label": "Back",
+        "default": "{{ payment_back }}"
+      },
+      {
+        "id": "payment_heading",
+        "type": "text",
+        "label": "Heading",
+        "default": "{{ payment_heading }}"
+      },
+      {
+        "type": "header",
+        "content": "Retention"
+      },
+      {
+        "id": "retention_back",
+        "type": "text",
+        "label": "Back",
+        "default": "{{ retention_back }}"
+      },
+      {
+        "id": "retention_heading",
+        "type": "text",
+        "label": "Heading",
+        "default": "{{ retention_heading }}"
+      },
+      {
+        "id": "retention_image",
+        "type": "image_picker",
+        "label": "Image"
+      },
+      {
+        "id": "retention_pretext",
+        "type": "text",
+        "label": "Pretext",
+        "default": "{{ retention_pretext }}"
+      },
+      {
+        "id": "retention_text",
+        "type": "text",
+        "label": "Text",
+        "default": "{{ retention_text }}"
+      },
+      {
+        "id": "retention_chat_icon",
+        "type": "image_picker",
+        "label": "Chat Icon"
+      },
+      {
+        "id": "retention_chat_heading",
+        "type": "text",
+        "label": "Chat Heading",
+        "default": "{{ retention_chat_heading }}"
+      },
+      {
+        "id": "retention_chat_text",
+        "type": "textarea",
+        "label": "Chat Text",
+        "default": "{{ retention_chat_text }}"
+      },
+      {
+        "id": "retention_answers_icon",
+        "type": "image_picker",
+        "label": "Answers Icon"
+      },
+      {
+        "id": "retention_answers_heading",
+        "type": "text",
+        "label": "Answers Heading",
+        "default": "{{ retention_chat_heading }}"
+      },
+      {
+        "id": "retention_answers_text",
+        "type": "textarea",
+        "label": "textarea",
+        "default": "{{ retention_chat_text }}"
+      },
+      {
+        "id": "retention_break_icon",
+        "type": "image_picker",
+        "label": "Break Icon"
+      },
+      {
+        "id": "retention_break_heading",
+        "type": "text",
+        "label": "Break Heading",
+        "default": "{{ retention_chart_heading }}"
+      },
+      {
+        "id": "retention_break_text",
+        "type": "textarea",
+        "label": "Break Text",
+        "default": "{{ retention_chart_text }}"
+      },
+      {
+        "id": "retention_cancel_button",
+        "type": "text",
+        "label": "Cancel Button",
+        "default": "{{ retention_cancel_button }}"
+      },
+      {
+        "type": "header",
+        "content": "Cancel"
+      },
+      {
+        "id": "cancel_back",
+        "type": "text",
+        "label": "Back",
+        "default": "{{ cancel_back }}"
+      },
+      {
+        "id": "cancel_heading",
+        "type": "text",
+        "label": "Heading",
+        "default": "{{ cancel_heading }}"
+      },
+      {
+        "id": "cancel_reason_1",
+        "type": "text",
+        "label": "Reason 1",
+        "default": "{{ cancel_reason_1 }}"
+      },
+      {
+        "id": "cancel_reason_2",
+        "type": "text",
+        "label": "Reason 2",
+        "default": "{{ cancel_reason_2 }}"
+      },
+      {
+        "id": "cancel_reason_3",
+        "type": "text",
+        "label": "Reason 3",
+        "default": "{{ cancel_reason_3 }}"
+      },
+      {
+        "id": "cancel_reason_4",
+        "type": "text",
+        "label": "Reason 4",
+        "default": "{{ cancel_reason_4 }}"
+      },
+      {
+        "id": "cancel_reason_5",
+        "type": "text",
+        "label": "Reason 5",
+        "default": "{{ cancel_reason_5 }}"
+      },
+      {
+        "id": "cancel_reason_other",
+        "type": "text",
+        "label": "Reason Other",
+        "default": "{{ cancel_reason_other }}"
+      },
+      {
+        "id": "cancel_delay_heading",
+        "type": "text",
+        "label": "Delay Heading",
+        "default": "{{ cancel_delay_heading }}"
+      },
+      {
+        "id": "cancel_delay_button",
+        "type": "text",
+        "label": "Delay Button",
+        "default": "{{ cancel_delay_button }}"
+      },
+      {
+        "id": "cancel_submit_button",
+        "type": "text",
+        "label": "Submit Button",
+        "default": "{{ cancel_submit_button }}"
+      },
+      {
+        "type": "header",
+        "content": "Activate"
+      },
+      {
+        "id": "activate_back",
+        "type": "text",
+        "label": "Back",
+        "default": "{{ activate_back }}"
+      },
+      {
+        "id": "activate_heading",
+        "type": "text",
+        "label": "Heading",
+        "default": "{{ activate_heading }}"
+      },
+      {
+        "id": "activate_ships",
+        "type": "text",
+        "label": "Ships",
+        "default": "{{ activate_ships }}"
+      },
+      {
+        "id": "activate_total",
+        "type": "text",
+        "label": "Total",
+        "default": "{{ activate_total }}"
+      },
+      {
+        "id": "activate_button",
+        "type": "text",
+        "label": "Button",
+        "default": "{{ activate_button }}"
+      },
+      {
+        "id": "activate_disclaimer",
+        "type": "textarea",
+        "label": "Disclaimer",
+        "default": "{{ activate_disclaimer }}"
+      },
+      {
+        "type": "header",
+        "content": "Shipping"
+      },
+      {
+        "id": "shipping_back",
+        "type": "text",
+        "label": "Back",
+        "default": "{{ shipping_back }}"
+      },
+      {
+        "id": "shipping_heading",
+        "type": "text",
+        "label": "Heading",
+        "default": "{{ shipping_heading }}"
+      },
+      {
+        "id": "shipping_first_label",
+        "type": "text",
+        "label": "First Name Label",
+        "default": "{{ shipping_first_label }}"
+      },
+      {
+        "id": "shipping_last_label",
+        "type": "text",
+        "label": "Last Name Label",
+        "default": "{{ shipping_last_label }}"
+      },
+      {
+        "id": "shipping_address1_label",
+        "type": "text",
+        "label": "Address 1 Label",
+        "default": "{{ shipping_address1_label }}"
+      },
+      {
+        "id": "shipping_address2_label",
+        "type": "text",
+        "label": "Address 2 Label",
+        "default": "{{ shipping_address2_label }}"
+      },
+      {
+        "id": "shipping_city_label",
+        "type": "text",
+        "label": "City Label",
+        "default": "{{ shipping_city_label }}"
+      },
+      {
+        "id": "shipping_province_label",
+        "type": "text",
+        "label": "Province Label",
+        "default": "{{ shipping_province_label }}"
+      },
+      {
+        "id": "shipping_zip_label",
+        "type": "text",
+        "label": "Zip Label",
+        "default": "{{ shipping_zip_label }}"
+      },
+      {
+        "id": "shipping_country_label",
+        "type": "text",
+        "label": "Country Label",
+        "default": "{{ shipping_country_label }}"
+      },
+      {
+        "id": "shipping_button_text",
+        "type": "text",
+        "label": "Button Text",
+        "default": "{{ shipping_button_text }}"
+      },
+      {
+        "id": "shipping_button_success",
+        "type": "text",
+        "label": "Button Text",
+        "default": "{{ shipping_button_success }}"
+      },
+      {
+        "id": "shipping_error_required",
+        "type": "text",
+        "label": "Error Required",
+        "default": "{{ shipping_error_required }}"
+      },
+      {
+        "id": "shipping_error_limit",
+        "type": "text",
+        "label": "Error Limit",
+        "default": "{{ shipping_error_limit }}"
+      },
+      {
+        "id": "shipping_error_general",
+        "type": "text",
+        "label": "Error General",
+        "default": "{{ shipping_error_general }}"
+      },
+      {
+        "type": "header",
+        "content": "Edit"
+      },
+      {
+        "id": "edit_back",
+        "type": "text",
+        "label": "Back",
+        "default": "{{ edit_back }}"
+      },
+      {
+        "id": "edit_heading_subscription",
+        "type": "text",
+        "label": "Heading Subscription",
+        "default": "{{ edit_heading_subscription }}"
+      },
+      {
+        "id": "edit_heading_onetime",
+        "type": "text",
+        "label": "Heading Onetime",
+        "default": "{{ edit_heading_onetime }}"
+      },
+      {
+        "id": "edit_label_quantity",
+        "type": "text",
+        "label": "Label Quantity",
+        "default": "{{ edit_label_quantity }}"
+      },
+      {
+        "id": "edit_button_text",
+        "type": "text",
+        "label": "Button Text",
+        "default": "{{ edit_button_text }}"
+      },
+      {
+        "id": "edit_button_success",
+        "type": "text",
+        "label": "Button Success",
+        "default": "{{ edit_button_success }}"
+      },
+      {
+        "id": "edit_button_remove",
+        "type": "text",
+        "label": "Button Remove",
+        "default": "{{ edit_button_remove }}"
+      },
+      {
+        "type": "header",
+        "content": "Schedule"
+      },
+      {
+        "id": "schedule_back",
+        "type": "text",
+        "label": "Back",
+        "default": "{{ schedule_back }}"
+      },
+      {
+        "id": "schedule_heading",
+        "type": "text",
+        "label": "Heading",
+        "default": "{{ schedule_heading }}"
+      },
+      {
+        "id": "schedule_image",
+        "type": "image_picker",
+        "label": "Image"
+      },
+      {
+        "id": "schedule_frequency_heading",
+        "type": "text",
+        "label": "Frequency Heading",
+        "default": "{{ schedule_frequency_heading }}" 
+      },
+      {
+        "id": "schedule_charge_heading",
+        "type": "text",
+        "label": "Charge Heading",
+        "default": "{{ schedule_charge_heading }}" 
+      },
+      {
+        "id": "schedule_button_text",
+        "type": "text",
+        "label": "Button Text",
+        "default": "{{ schedule_button_text }}" 
+      },
+      {
+        "id": "schedule_button_success",
+        "type": "text",
+        "label": "Button Success",
+        "default": "{{ schedule_button_success }}" 
+      },
+      {
+        "type": "header",
+        "content": "Products"
+      },
+      {
+        "id": "products_back",
+        "type": "text",
+        "label": "Back",
+        "default": "{{ products_back }}"
+      },
+      {
+        "id": "products_heading",
+        "type": "text",
+        "label": "Heading",
+        "default": "{{ products_heading }}"
+      },
+      {
+        "id": "products_collection",
+        "type": "collection",
+        "label": "Products Collection"
+      },
+      {
+        "id": "products_button_view",
+        "type": "text",
+        "label": "Button View",
+        "default": "{{ products_button_view }}"
+      },
+      {
+        "type": "header",
+        "content": "Add"
+      },
+      {
+        "id": "add_back",
+        "type": "text",
+        "label": "Back Subcriptions",
+        "default": "{{ add_back }}"
+      },
+      {
+        "id": "add_back_products",
+        "type": "text",
+        "label": "Back Products",
+        "default": "{{ add_back_products }}"
+      },
+      {
+        "id": "add_heading_details",
+        "type": "text",
+        "label": "Heading Details",
+        "default": "{{ add_heading_details }}"
+      },
+      {
+        "id": "add_label_address",
+        "type": "text",
+        "label": "Label Address",
+        "default": "{{ add_label_address }}"
+      },
+      {
+        "id": "add_button_add",
+        "type": "text",
+        "label": "Button Add",
+        "default": "{{ add_button_add }}"
+      },
+      {
+        "id": "add_button_soldout",
+        "type": "text",
+        "label": "Button Sold Out",
+        "default": "{{ add_button_soldout }}"
+      },
+      {
+        "id": "add_button_now",
+        "type": "text",
+        "label": "Button Now",
+        "default": "{{ add_button_now }}"
+      },
+      {
+        "id": "add_text_now",
+        "type": "text",
+        "label": "Text Now",
+        "default": "{{ add_text_now }}"
+      },
+      {
+        "type": "header",
+        "content": "Flavors"
+      },
+      {
+        "id": "flavors_back",
+        "type": "text",
+        "label": "Back",
+        "default": "{{ flavors_back }}"
+      },
+      {
+        "id": "flavors_heading",
+        "type": "text",
+        "label": "Heading",
+        "default": "{{ flavors_heading }}"
+      }, 
+      {
+        "id": "flavors_collection",
+        "type": "collection",
+        "label": "Flavors Collection"
+      }
+    ]
+  }
+{% endschema %}

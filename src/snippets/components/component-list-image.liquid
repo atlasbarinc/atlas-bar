@@ -1,0 +1,44 @@
+{% assign show = true %}
+{% if section.settings.type == "new" and customer != empty and customer.orders_count > 0 %}
+  {% assign show = false %}
+{% elsif section.settings.type == "returning" and customer == blank or customer and customer.orders_count == 0 %}
+  {% assign show = false %}
+{% endif %}
+
+{% if show %}
+  <section class="c-list-image__wrapper {% if extra_padding %}c-list-image__wrapper--padding{% endif %}">
+    <div class="c-list-image">
+      <div class="c-list-image__image-container">
+        <img srcset="{{ section.settings.image | img_url: '1200x1200' }} 2x,
+                    {{ section.settings.image | img_url: '600x600' }} 1x"
+            src="{{ section.settings.image | img_url: '600x600' }}"
+            alt="{{ section.settings.image.alt }}">
+      </div>
+      <div class="c-list-image__content">
+        <div class="c-list-image__header">
+          {% unless section.settings.icon == blank %}
+            <div class="c-list-image__icon">
+              <img srcset="{{ section.settings.icon | img_url: '200x200' }} 2x,
+                          {{ section.settings.icon | img_url: '100x100' }} 1x"
+                  src="{{ section.settings.icon | img_url: '100x100' }}"
+                  alt="{{ section.settings.icon.alt }}">
+            </div>
+          {% endunless %}
+          <h2 class="c-list-image__heading">{{ section.settings.title }}</h2>
+        </div>
+        <p class="c-list-image__description">{{ section.settings.description }}</p>
+        <ul class="c-list-image__list">
+          {% for block in section.blocks %}
+            <li class="c-list-image__item">
+              <span class="c-list-image__list-icon">{% render 'checkCircle.svg' %}</span>
+              <span>{{ block.settings.title }}</span>
+            </li>
+          {% endfor %}
+        </ul>
+        {% if section.settings.cta_link %}
+          <p class='c-list-image__action'><a href="{{ section.settings.cta_link }}" class="c-button c-button--isHollow c-button--isSecondary">{{ section.settings.cta_text }} {% render 'arrow.svg' %}</a></p>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endif %}

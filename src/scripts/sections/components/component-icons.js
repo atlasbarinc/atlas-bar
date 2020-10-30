@@ -1,0 +1,1 @@
+import '@styles/sections/components/component-icons.scss'

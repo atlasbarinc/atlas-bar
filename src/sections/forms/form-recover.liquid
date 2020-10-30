@@ -1,0 +1,137 @@
+{% assign heading = "Reset Password" %}
+{% assign text = "Please enter your email and we'll send you a password reset link" %}
+{% assign success_text = "We’ve sent you an email with instructions on how to reset your password." %}
+{% assign email_placeholder = "Email Address*" %}
+{% assign submit_button = "Submit" %}
+{% assign register_text = "Not a member?" %}
+{% assign register_link = "Create an account" %}
+{% assign remember_password_link = "Remember Password?" %}
+
+{% if section.settings.heading != blank %}{% assign heading = section.settings.heading %}{% endif %}
+{% if section.settings.text != blank %}{% assign text = section.settings.text %}{% endif %}
+{% if section.settings.success_text != blank %}{% assign success_text = section.settings.success_text %}{% endif %}
+{% if section.settings.email_placeholder != blank %}{% assign email_placeholder = section.settings.email_placeholder %}{% endif %}
+{% if section.settings.forgot_password_link != blank %}{% assign forgot_password_link = section.settings.forgot_password_link %}{% endif %}
+{% if section.settings.register_text != blank %}{% assign register_text = section.settings.register_text %}{% endif %}
+{% if section.settings.register_link != blank %}{% assign register_link = section.settings.register_link %}{% endif %}
+{% if section.settings.submit_button != blank %}{% assign submit_button = section.settings.submit_button %}{% endif %}
+
+<div class="c-formRecover c-form c-form--isNarrow u-hide"
+  data-form-recover
+>
+  <div class="c-formRecover__container o-pageNarrow">
+    <h1 class="c-formRecover__heading c-h1 c-form__heading u-textCenter">
+      {{ heading }}
+    </h1> 
+    {% if section.settings.text != blank %}
+      <p class="c-formRecover__text c-p3 c-form__text u-textCenter">
+        {{ section.settings.text }}
+      </p>
+    {% endif %}
+    <div class="c-formRecover__content c-form__content">
+      {%- form 'recover_customer_password' -%}
+        {%- if form.errors -%}
+          <div class="c-formRecover__alert c-form__alert c-form__alert--isError">
+            {{ form.errors | default_errors }}
+          </div>
+        {%- endif -%}
+        {%- if form.posted_successfully? -%}
+          <div class="c-formRecover__alert c-form__alert c-form__alert--isSuccess" data-form-recover-success>
+            {{ success_text }}
+          </div>
+        {%- endif -%}
+        <div class="c-formRecover__field c-field">
+          <input class="c-formRecover__input c-input c-input--isDefault"
+            type="email" 
+            name="email" 
+            placeholder="{{ email_placeholder }}"
+          />
+        </div>
+        <button class="c-formRecover__button c-form__submit
+          c-button 
+          c-button--isDefault
+          c-button--isSecondary"
+          type="submit"
+        >
+          {{ submit_button }}
+        </button>
+      {%- endform -%} 
+      <div class="c-formRecover__sub c-form__sub">
+        <p class="c-formRecover__forgot c-p3 c-form__subText">
+          {% if section.settings.register_text != blank %}
+          {{ register_text }}
+          {% endif %}
+          {% if section.settings.register_link != blank %}
+          <a href="/account/register" class="c-formRecover__forgotLink 
+            c-form__subLink"
+          >
+            {{ register_link }}
+          </a>
+          <br />
+          {% endif %}
+          {{ section.settings.remember_password_text }}
+          <a href="#" class="c-formRecover__forgotLink c-form__subLink"
+            data-form-login-trigger
+          >
+          {% if section.settings.remember_password_link != blank %}
+            {{ section.settings.remember_password_link }}
+          {% endif %}
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Form Recover",
+    "settings": [
+      {
+        "id": "heading",
+        "type": "text",
+        "label": "Heading"
+      },
+      {
+        "id": "text",
+        "type": "text",
+        "label": "Text"
+      },
+      {
+        "id": "successs_text",
+        "type": "text",
+        "label": "Success Text"
+      },
+      {
+        "id": "email_placeholder",
+        "type": "text",
+        "label": "Email Placeholder"
+      },
+      {
+        "id": "submit_button",
+        "type": "text",
+        "label": "Submit Button"
+      },
+      {
+        "id": "register_text",
+        "type": "text",
+        "label": "Register Text"
+      },
+      {
+        "id": "register_link",
+        "type": "text",
+        "label": "Register Link"
+      },
+      {
+        "id": "remember_password_text",
+        "type": "text",
+        "label": "Remember Password Text"
+      },
+      {
+        "id": "remember_password_link",
+        "type": "text",
+        "label": "Remember Password Link"
+      }
+    ]
+  }
+{% endschema %}

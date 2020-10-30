@@ -1,0 +1,17 @@
+<div class="c-instagram__container">
+  <div class="o-containerLarge">
+    {% if section.settings.handle != blank %}
+      <div class="c-h-subheading c-instagram__handle">{{ section.settings.handle }}</div>
+    {% endif %}
+    {% if section.settings.title != blank or section.settings.hashtag != blank %}
+      <h2 class="c-instagram__title">{{ section.settings.title }} <span class="c-instagram__hashtag">{{ section.settings.hashtag }}</h2>
+    {% endif %}
+    {% if section.settings.description != blank %}
+      <p class="c-instagram__description">{{ section.settings.description }}</p>
+    {% endif %}
+  </div>
+  {{ section.settings.code }}
+  <div class="c-instagram__buttonContainer">
+    <a class="c-button c-button--isDefault c-button--isSecondary" href="{{ settings.social_instagram }}" target="_blank">View Our Instagram {% render 'arrow.svg' %}</a>
+  </div>
+</div>

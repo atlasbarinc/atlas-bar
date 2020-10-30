@@ -1,0 +1,155 @@
+.c-form {
+  margin: 0 auto;
+}
+
+.c-form--isNarrow {
+  text-align: center;
+}
+
+.c-form__text {
+  margin: -20px 0 24px !important;
+}
+
+.c-form__content {
+  .c-form--isNarrow & {
+    max-width: 450px;
+    margin: 0 auto;
+  }
+}
+
+.c-form__alert {
+  width: 100%;
+  padding: 15px 10px;
+  border-radius: 3px;
+  color: $color-white;
+  margin-bottom: 20px;
+  &.c-form__alert--isError {
+    background: $color-error;
+  }
+  &.c-form__alert--isSuccess {
+    background: $color-success;
+  }
+}
+
+.c-form__submit {
+  margin-top: 30px;
+  font-family: Montserrat;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.c-form__sub {
+  margin-top: 20px;
+}
+
+.c-form__subText {
+  line-height: 1.75 !important;
+}
+
+.c-form__subLink {
+  font-weight: 700;
+  text-decoration: underline;
+  &:hover {
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+
+.c-formTitle {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: $color-primary;
+  justify-content: center;
+  padding-top: 63px;
+  margin-bottom: 50px;
+}
+
+.c-formRegister__heading,
+.c-formLogin__heading,
+.c-formRecover__heading,
+.c-formSuccess__heading {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 16px !important;
+  text-align: center;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $color-primary;
+}
+
+.c-formLogin__container,
+.c-formRegister__container,
+.c-formRecover__container,
+.c-formSuccess__container {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 20px;
+  max-width: 465px;
+  padding: 30px;
+}
+
+.c-formLogin__input,
+.c-formRegister__input {
+  border-radius: 10px !important;
+  &:focus {
+    border: 1px solid $color-primary;
+    color: $color-primary;
+  }
+}
+
+.c-formLogin__forgotLink {
+  font-family: Proxima Nova;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration-line: underline;
+  color: $color-primary;
+}
+
+.c-formSuccess__forgotLink {
+  text-decoration: none;
+  width: 100%;
+  background-color: #ffa200;
+  border: 1px solid #ffa200;
+  color: #fff;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: capitalize;
+  padding: 18px 25px;
+  border-radius: 200px;
+  display: block;
+}
+
+.c-formLogin__forgot,
+.c-formRegister__forgot,
+.c-formRecover__forgot {
+  font-family: Proxima Nova !important;
+  font-weight: bold !important;
+  font-size: 14px !important;
+  color: $color-primary;
+}
+
+.c-formSuccess__heading--container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.5rem !important;
+}
+
+.c-formSuccess__image {
+  width: 1rem;
+  align-self: center;
+  margin-right: 0.5rem;
+}
+
+.c-formSuccess__heading {
+  margin-bottom: 0rem !important;
+}

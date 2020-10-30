@@ -1,0 +1,57 @@
+.c-rewardsHow {
+  background: $color-offwhite;
+  padding: 41px 0 50px;
+
+  @include media-tablet-up {
+    padding: 82px 0;
+  }
+}
+
+.c-rewardsHow__heading {
+  margin: 0 0 42px; 
+
+  @include media-tablet-up {
+    margin: 0 0 70px;
+  }
+}
+
+.c-rewardsHow__cards {
+  @include media-tablet-up {
+    @include flex($align: stretch, $justify: center, $wrap: nowrap);
+  }
+}
+
+.c-rewardsHow__card {
+  @include flex($direction: column, $wrap: nowrap);
+  margin: 0 auto 40px;
+  max-width: 394px;
+
+  @include media-tablet-up {
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 58px;
+    padding: 0 14px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+
+    @include media-tablet-up {
+      margin-right: 0;
+    }
+  }
+
+  h3 {
+    margin-top: auto;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.c-rewardsHow__cardImage {
+  @include flex($justify: center);
+  margin-bottom: 12px;
+  margin-top: auto;
+}

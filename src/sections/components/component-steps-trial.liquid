@@ -1,0 +1,121 @@
+{{ 'component-steps.css' | asset_url | stylesheet_tag }}
+
+{% render 'component-steps' %}
+
+<script src="{{ 'component-steps.js' | asset_url }}"></script>
+
+{% schema %}
+  {
+    "name": "Steps Slider",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "title_mobile",
+        "label": "Mobile Title",
+        "info": "Shows on mobile."
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description"
+      },
+      {
+        "type": "range",
+        "id": "speed",
+        "label": "Slider Speed",
+        "min": 1,
+        "max": 15,
+        "step": 1,
+        "unit": "sec",
+        "default": 5
+      }
+    ],
+    "blocks": [
+      {
+        "type": "slide",
+        "name": "Small Blue Slide",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "textarea",
+            "id": "description",
+            "label": "Description"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "1754x950"
+          },
+          {
+            "type": "image_picker",
+            "id": "image_mobile",
+            "label": "Mobile Image",
+            "info": "566x374"
+          }
+        ]
+      },
+      {
+        "type": "white_slide",
+        "name": "Large White Slide",
+        "settings": [
+          {
+            "type": "text",
+            "id": "subtitle",
+            "label": "Step Text",
+            "info": "Example: 'Step One'"
+          },
+          {
+            "type": "header",
+            "content": "Desktop"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "textarea",
+            "id": "description",
+            "label": "Description"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "1754x950"
+          },
+          {
+            "type": "header",
+            "content": "Mobile"
+          },
+          {
+            "type": "text",
+            "id": "title_mobile",
+            "label": "Title"
+          },
+          {
+            "type": "textarea",
+            "id": "description_mobile",
+            "label": "Description"
+          },
+          {
+            "type": "image_picker",
+            "id": "image_mobile",
+            "label": "Image",
+            "info": "1754x950"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

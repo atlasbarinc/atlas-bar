@@ -1,0 +1,10 @@
+@mixin border-card() {
+  border-radius: 20px;
+  border: 1px solid #E5E5E5;
+}
+
+@mixin border-input() {
+  border-radius: 10px;
+  border: 1px solid #E6E6E6;
+  &:focus { border-color: $color-primary; }
+}

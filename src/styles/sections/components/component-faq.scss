@@ -1,0 +1,115 @@
+.c-faq__section {
+  background: $color-offwhite;
+}
+
+.c-faq-wrapper {
+  background: $color-offwhite;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  margin: 0 auto;
+  justify-items: center;
+  padding: 120px 40px 40px 40px;
+  max-width: 1200px;
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    padding: 60px 20px 20px 20px;
+  }
+}
+
+.c-faq__intro {
+  justify-self: start;
+  @media only screen and (max-width: 768px) {
+    justify-self: center;
+  }
+}
+
+.c-faq__title {
+  color: $color-primary;
+  font-size: 40px;
+  padding-top: 1.3rem;
+  line-height: 100%;
+  font-weight: 900;
+  @media only screen and (max-width: 768px) {
+    margin-bottom: 3rem;
+  }
+}
+
+.c-faq__item--content {
+  display: none;
+  p {
+    font-size: 20px;
+    color: $color-primary;
+    width: 80%;
+    margin-top: 0;
+    @media only screen and (max-width: 768px) {
+      width: 100%;
+      font-size: 17px;
+    }
+  }
+}
+
+.c-faq__open .c-faq__item--content {
+  display: block;
+}
+
+.c-faq__content {
+  width: 100%;
+}
+
+.c-faq__item {
+  border-bottom: 1px solid $color-border;
+  &:last-of-type {
+    border-bottom: none;
+  }
+}
+
+.c-faq__item--title {
+  font-size: 20px;
+  color: $color-primary;
+  cursor: pointer;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0px;
+  font-family: Montserrat;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  .c-faq__item--title--text {
+    width: 92%;
+  }
+  @media only screen and (max-width: 768px) {
+    font-size: 17px;
+  } 
+  .c-faq__item--ch {
+    width: 1.25rem;
+    margin-left: auto;
+    @media only screen and (max-width: 768px) {
+      width: 1.15rem;
+    } 
+    &:hover {
+      path {
+        fill: $color-secondary;
+      }
+    }
+  }
+  .c-faq__item--ch--close {
+    width: 1.75rem;
+    padding-left: 0.5rem;
+    display: none;
+    margin-left: auto;
+    color: $color-secondary;
+    @media only screen and (max-width: 768px) {
+      width: 1.65rem;
+    } 
+  }
+}
+
+.c-faq__item--titleOpen {
+  .c-faq__item--ch--close {
+    display: block !important;
+  }
+  .c-faq__item--ch {
+    display: none !important;
+  }
+}

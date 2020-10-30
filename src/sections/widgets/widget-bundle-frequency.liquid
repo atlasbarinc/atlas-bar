@@ -1,0 +1,38 @@
+<script>
+  var frequency = {};
+
+  frequency = {{ section.settings | json }}
+
+  window.Scoutside.bundle.frequency = frequency;
+</script>
+
+{% schema %}
+  {
+    "name": "Build a Box - Frequency",
+    "settings": [
+      {
+        "type": "text",
+        "id": "frequency",
+        "label": "Default Frequency",
+        "info": "Number only. Needs to match options in provided parents."
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Choose a Frequency"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description",
+        "info": "Optional"
+      },
+      {
+        "type": "image_picker",
+        "id": "background",
+        "label": "Background Image"
+      }
+    ]
+  }
+{% endschema %}

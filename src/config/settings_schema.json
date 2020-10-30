@@ -1,0 +1,57 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Skeleton theme",
+    "theme_version": "1.0.0",
+    "theme_author": "Shopify",
+    "theme_documentation_url": "https://github.com/Shopify/skeleton-theme",
+    "theme_support_url": "https://github.com/Shopify/skeleton-theme/issues"
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon",
+        "info": "32x32"
+      }
+    ]
+  },
+  {
+    "name": "Shop",
+    "settings": [
+      {
+        "type": "text",
+        "id": "shop_development_domain",
+        "label": "Development Domain",
+        "info": "Used to include no index tag for search engines"
+      }
+    ]
+  },
+  {
+    "name": "Social",
+    "settings": [
+      {
+        "type": "text",
+        "id": "social_facebook",
+        "label": "Facebook"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter",
+        "label": "Twitter"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram",
+        "label": "Instagram"
+      },
+      {
+        "type": "text",
+        "id": "social_email",
+        "label": "Email"
+      }
+    ]
+  }
+]

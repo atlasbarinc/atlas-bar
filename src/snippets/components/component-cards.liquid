@@ -1,0 +1,38 @@
+<section class="c-cards">
+  <div class="c-cards__container">
+    <div class="c-cards__header">
+      <div class="c-cards__header-icon">
+        <img srcset="{{ section.settings.icon | img_url: '200x200' }} 2x,
+                    {{ section.settings.icon | img_url: '100x100' }} 1x"
+            src="{{ section.settings.icon | img_url: '100x100' }}"
+            alt="{{ section.settings.icon.alt }}">
+      </div>
+      <h2 class="c-cards__header-text">{{ section.settings.title }}</h2>
+    </div>
+    <p class="c-cards__description">{{ section.settings.description | newline_to_br }}</p>
+    <div class="c-cards__list" data-cards-slider>
+      {% for block in section.blocks %}
+        <div class="c-cards__item-container">
+          <div class="c-cards__item">
+            <div class="c-cards__item-image">
+              <img srcset="{{ block.settings.image | img_url: '786x548', crop: 'center' }} 2x,
+                          {{ block.settings.image | img_url: '393x274', crop: 'center' }} 1x"
+                  src="{{ block.settings.image | img_url: '393x274', crop: 'center' }}"
+                  alt="{{ block.settings.image.alt }}">
+            </div>
+            <div class="c-cards__item-content">
+              <div class="c-cards__item-icon">
+                <img srcset="{{ block.settings.icon | img_url: '104x104' }} 2x,
+                            {{ block.settings.icon | img_url: '52x52' }} 1x"
+                    src="{{ block.settings.icon | img_url: '52x52' }}"
+                    alt="{{ block.settings.icon.alt }}">
+              </div>
+              <h3 class="c-cards__item-heading">{{ block.settings.title }}</h3>
+              <p class="c-cards__item-description">{{ block.settings.description }}</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

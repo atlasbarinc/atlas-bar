@@ -1,0 +1,25 @@
+@mixin text-body {
+  font-family: $font-body;
+  line-height: 1.6;
+  font-weight: 600;
+  @include media-mobile-down {
+    line-height: 1.5;
+  }
+}
+
+@mixin text-heading {
+  font-family: $font-heading;
+  line-height: 1.25;
+  font-weight: 900;
+  @include media-mobile-down {
+    line-height: 1.15;
+  }
+}
+
+@mixin text-input {
+  color: rgba($color-primary, 0.8);
+  font-family: $font-body;
+  font-size: 20px;
+  font-weight: 600;
+  &:focus { color: $color-primary; }
+}

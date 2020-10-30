@@ -1,0 +1,72 @@
+{{ 'component-rewards-points.css' | asset_url | stylesheet_tag }}
+
+{% render 'component-rewards-points' %}
+
+<script src="{{ 'component-rewards-points.js' | asset_url }}"></script>
+
+{% schema %}
+  {
+    "name": "Rewards Points",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading"
+      },
+      {
+        "type": "textarea",
+        "id": "points",
+        "label": "Earing Points Text",
+        "info": "New line for line breaks."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "action",
+        "name": "Action",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon",
+            "info": "130x130 maximium"
+          },
+          {
+            "type": "color",
+            "id": "color",
+            "label": "Color",
+            "info": "Used for completed background"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "textarea",
+            "id": "description",
+            "label": "Description"
+          },
+          {
+            "type": "header",
+            "content": "CTA Button"
+          },
+          {
+            "type": "paragraph",
+            "content": "This button will only show if there is no button provided by Loyalty Lion and the action has not already been completed."
+          },
+          {
+            "type": "text",
+            "id": "cta_label",
+            "label": "Label"
+          },
+          {
+            "type": "url",
+            "id": "cta_link",
+            "label": "Link"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,8 @@
+@mixin box-card() {
+  background-color: $color-white;
+  padding: 25px;
+  @include border-card;
+  @include media-mobile-down {
+    padding: 15px;
+  }
+}

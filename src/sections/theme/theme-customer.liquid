@@ -1,0 +1,35 @@
+<script>
+  window.Scoutside = window.Scoutside || {}
+  window.Scoutside.customer = window.Scoutside.customer || {}
+  
+  var customer = false
+  
+  {% if customer %}
+
+    {%- capture tags_list -%}
+      {% for tag in customer.tags %}
+        "{{ tag }}"{% unless forloop.last %}, {% endunless %}
+      {% endfor %}
+    {%- endcapture -%}
+    {% assign tags_list = tags_list | strip_newlines %}
+
+    var customer = {
+      "hash": "{{ customer.metafields.subscriptions.customer_string }}",
+      "shopify_id": "{{ customer.id }}",
+      "first_name": "{{ customer.first_name }}",
+      "last_name": "{{ customer.last_name }}",
+      "email": "{{ customer.email }}",
+      "phone": "{{ customer.phone }}",
+      "tags": [{{ tags_list }}]
+    }
+
+  {% endif %}
+
+  window.Scoutside.customer = customer
+</script>
+
+{% schema %}
+  {
+    "name": "Customer"
+  }
+{% endschema %}

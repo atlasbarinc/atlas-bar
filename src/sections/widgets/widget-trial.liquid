@@ -1,0 +1,139 @@
+<script>
+  var trial = {
+    frequency: {{ section.settings.trial_frequency }},
+    unit: "{{ section.settings.trial_unit }}",
+    parent: {},
+    children: []
+  };
+
+  {%- assign parent = all_products[section.settings.parent] -%}
+  var subscription_map = {{ parent.metafields.subscriptions.original_to_hidden_variant_map | json }};
+  trial.parent = {
+    id: {{ parent.variants[0].id }},
+    title: "{{ parent.title }}",
+    subscription_variant_id: subscription_map["{{ parent.variants[0].id }}"].discount_variant_id,
+    subscription_id: {{ parent.metafields.subscriptions.subscription_id }},
+    size: {{ section.settings.size }},
+    type: "{{ section.settings.title }}",
+    sub_price: {{ parent.variants[0].metafields.subscriptions.discount_variant_price }},
+    image: "{{ parent.featured_image | img_url: '154x154' }}",
+    frequency: {{ section.settings.bundle_frequency }},
+    unit: "{{ section.settings.bundle_unit }}"
+  };
+
+  {%- assign children = section.settings.children | json | remove: '"' | split: '\n' -%}
+  {% for child in children %}
+    {%- assign product_array = child | split: 'x' -%}
+    trial.children.push(
+      {
+        id: {{ product_array | first }},
+        qty: {{ product_array | last }}
+      }
+    );
+  {% endfor %}
+
+  window.Scoutside.trial = trial;
+</script>
+
+{% schema %}
+  {
+    "name": "Trial Settings",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Trial Product"
+      },
+      {
+        "type": "paragraph",
+        "content": "The following fields need to match the subscription frequency set up in Shopify. This acts as the delay from purchasing the trial and the first shipment of the following subscription box."
+      },
+      {
+        "type": "text",
+        "id": "trial_frequency",
+        "label": "Trial Frequency",
+        "info": "Number Only. Must match frequency set in Recharge."
+      },
+      {
+        "type": "select",
+        "id": "trial_unit",
+        "label": "Trial Unit",
+        "info": "Must match unit set in Recharge.",
+        "options": [
+          {
+            "value": "day",
+            "label": "Days"
+          },
+          {
+            "value": "week",
+            "label": "Weeks"
+          },
+          {
+            "value": "month",
+            "label": "Months"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Parent Product"
+      },
+      {
+        "type": "product",
+        "id": "parent",
+        "label": "Parent Product"
+      },
+      {
+        "type": "text",
+        "id": "size",
+        "label": "Bundle Size",
+        "info": "Number Only."
+      },
+      {
+        "type": "text",
+        "id": "bundle_frequency",
+        "label": "Bundle Frequency",
+        "info": "Number Only. Must match frequency set in Recharge."
+      },
+      {
+        "type": "select",
+        "id": "bundle_unit",
+        "label": "Bundle Unit",
+        "info": "Must match unit set in Recharge.",
+        "options": [
+          {
+            "value": "day",
+            "label": "Days"
+          },
+          {
+            "value": "week",
+            "label": "Weeks"
+          },
+          {
+            "value": "month",
+            "label": "Months"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Prebuilt Title",
+        "default": "Best Sellers"
+      },
+      {
+        "type": "header",
+        "content": "Children Products"
+      },
+      {
+        "type": "paragraph",
+        "content": "In the following input, add product id followed by 'x' and the quantity. For example: 1234567890x5."
+      },
+      {
+        "type": "textarea",
+        "id": "children",
+        "label": "Children Products",
+        "info": "Use a new line for each product."
+      }
+    ]
+  }
+{% endschema %}
