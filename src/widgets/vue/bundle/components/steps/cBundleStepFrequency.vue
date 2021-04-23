@@ -101,10 +101,20 @@
       barSubAverage(item) {
         return (item.sub_price / item.size).toFixed(2)
       },
+      getGATracker () {
+      return new Promise((resolve, reject) => {
+        ga(function(tracker) {
+          // _ga=2.116744901.2128760445.1618981712-22277272.1618329721
+          const _ga = tracker.get('linkerParam')
+          resolve(_ga)
+        });
+      });
+    },
       async checkout() {
         this.loading = true
         const discount = await cookies.get('ab_discount')
         const bundle = this.$store.getters['bundle']
+        const gaTracker = await this.getGATracker()
 
         // Add products to cart (one-time vs subscription)
         const bundleId = Date.now()
@@ -169,7 +179,7 @@
 
           // Direct to Recharge Checkout
           if (response.token) {
-            window.location = `https://checkout.rechargeapps.com/r/checkout/${response.token}?myshopify_domain=${bundleData.domain}`
+            window.location = `https://checkout.rechargeapps.com/r/checkout/${response.token}?myshopify_domain=${bundleData.domain}&${gaTracker}`
           }
         } else {
           let shopifyURL = '/checkout'
