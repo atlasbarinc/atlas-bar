@@ -61,6 +61,11 @@ yarn run zip
 
 To toggle your environment change the line of code at top of config.yml, then run the corresponding commands.
 
+```bash
+$ cd /src/widgets/vue
+$ yarn run start:dev
+```
+
 ```
 mode: development
 ```
@@ -90,6 +95,11 @@ yarn watch:dev
 The repository can be used with a regular Themekit approach - adding styles/scripts directly to the base shopify folders (assets for example)But this approach defeats a lot of the repo's purpose. For details on how to use the advanced features check out the guides directory.
 
 The webpack file contains a number of useful aliases for easier imports.  For example the styles, scripts folders can be imported with these aliases `@styles` `@scripts`.
+
+```
+Recharge portal API backend
+./src/widgets/vue/portal/store/modules/
+```
 
 ## Gotchas
 
