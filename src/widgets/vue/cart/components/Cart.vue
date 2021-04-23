@@ -165,18 +165,28 @@ export default {
 
       this.$store.commit('setCart', json)
     },
+    getGATracker () {
+      return new Promise((resolve, reject) => {
+        ga(function(tracker) {
+          // _ga=2.116744901.2128760445.1618981712-22277272.1618329721
+          const _ga = tracker.get('linkerParam')
+          resolve(_ga)
+        });
+      });
+    },
     async checkout() {
       const hasSubscription = this.cartContainProp('subscription')
       const hasBundle = this.cartContainProp('bundle_id')
       const discount = await cookies.get('ab_discount')
+      const gaTracker = await this.getGATracker()
       if (hasSubscription) {
         if (hasBundle) {
           // Check Bundle Structure
           const token = await this.validateBundleInApp(discount)
-          if (token) window.location = `https://checkout.rechargeapps.com/r/checkout/${token}?myshopify_domain=${window.Shopify.shop}`
+          if (token) window.location = `https://checkout.rechargeapps.com/r/checkout/${token}?myshopify_domain=${window.Shopify.shop}&${gaTracker}`
           return
         }
-        let rechargeURL = `https://checkout.rechargeapps.com/r/checkout?myshopify_domain=${window.Shopify.shop}&cart_token=${this.cart.token}`
+        let rechargeURL = `https://checkout.rechargeapps.com/r/checkout?myshopify_domain=${window.Shopify.shop}&cart_token=${this.cart.token}&${gaTracker}`
         if (discount) rechargeURL = `${rechargeURL}&discount_code=${discount}`
         window.location = rechargeURL
       } else {
