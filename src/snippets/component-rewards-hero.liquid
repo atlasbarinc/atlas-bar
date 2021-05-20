@@ -1,0 +1,29 @@
+<section class="c-rewardsHero">
+  {% if customer %}
+    <h1 class="c-rewardsHero__heading c-h2 u-textCenter">Welcome Back, {{ customer.first_name }}</h1>
+    <div class="c-rewardsHero__info"><strong data-lion-membership>Member</strong> since <span data-account-date></span></div>
+    <div class="c-rewardsHero__info">Rewards Balance: <strong class="c-rewardsHero__points"><span data-lion-points="approved">0</span> Points</strong></div>
+    <div class="c-rewardsHero__actions">
+      <a href="{{ section.settings.cta_1_link_user }}" class="c-button c-button--isDefault c-button--isWhitePrimary" data-scroll-links>{{ section.settings.cta_1_text_user }}</a>
+      <a href="{{ section.settings.cta_2_link_user }}" class="c-button c-button--isHollow c-button--isWhite" data-scroll-links>{{ section.settings.cta_2_text_user }}</a>
+    </div>
+  {% else %}
+    <h1 class="c-rewardsHero__heading c-h2 u-textCenter">{{ section.settings.title }}</h1>
+    <p class="c-rewardsHero__info u-textCenter">{{ section.settings.description }}</p>
+    <div class="c-rewardsHero__actions">
+      <a href="{{ section.settings.cta_1_link }}" class="c-button c-button--isDefault c-button--isWhitePrimary">{{ section.settings.cta_1_text }}</a>
+      <a href="{{ section.settings.cta_2_link }}" class="c-button c-button--isHollow c-button--isWhite">{{ section.settings.cta_2_text }}</a>
+    </div>
+  {% endif %}
+</section>
+
+<style>
+  .c-rewardsHero {
+    background-image: url('{{ section.settings.mobile_image | img_url: '750x974'}}')
+  }
+  @media only screen and (min-width: 768px) {
+    .c-rewardsHero {
+      background-image: url('{{ section.settings.image | img_url: '2880x1040'}}')
+    }
+  }
+</style>

@@ -1,0 +1,38 @@
+{{ 'component-faq.css' | asset_url | stylesheet_tag }}
+
+{% render 'component-faq' %}
+
+<script src="{{ 'component-faq.js' | asset_url }}"></script>
+
+{% schema %}
+  {
+    "name": "FAQ Section",
+    "class": "c-faq__section",
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Section Title",
+        "default": "FAQ"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "FAQ Item",
+        "type": "dropdown_item",
+        "settings": [
+          {
+            "type": "text",
+            "id": "item_title",
+            "label": "Item Title"
+          },
+          {
+            "type": "richtext",
+            "id": "item_content",
+            "label": "Item Content"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

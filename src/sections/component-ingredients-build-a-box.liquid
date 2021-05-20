@@ -1,0 +1,24 @@
+{{ 'component-ingredients.css' | asset_url | stylesheet_tag }}
+
+{% render 'component-ingredients' %}
+
+<script src="{{ 'component-ingredients.js' | asset_url }}"></script>
+
+{% schema %}
+  {
+    "name": "Ingredients",
+    "blocks": [
+      {
+        "type": "product",
+        "name": "Product",
+        "settings": [
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

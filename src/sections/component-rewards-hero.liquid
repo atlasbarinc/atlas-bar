@@ -1,0 +1,89 @@
+{{ 'component-rewards-hero.css' | asset_url | stylesheet_tag }}
+
+{% render 'component-rewards-hero' %}
+
+<script src="{{ 'component-rewards-hero.js' | asset_url }}"></script>
+
+{% schema %}
+  {
+    "name": "Rewards Hero",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Background Image",
+        "info": "2880x1040"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Mobile Background Image",
+        "info": "750x974"
+      },
+      {
+        "type": "header",
+        "content": "Logged Out"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Atlas Rewards Program"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description",
+        "default": "Get rewarded while you eat! Simply shop & share to earn points for deep loyalty discounts, free gifts, and more!"
+      },
+      {
+        "type": "url",
+        "id": "cta_1_link",
+        "label": "CTA 1 Link"
+      },
+      {
+        "type": "text",
+        "id": "cta_1_text",
+        "label": "CTA 1 Text",
+        "default": "Join Now"
+      },
+      {
+        "type": "url",
+        "id": "cta_2_link",
+        "label": "CTA 2 Link"
+      },
+      {
+        "type": "text",
+        "id": "cta_2_text",
+        "label": "CTA 2 Text",
+        "default": "Login"
+      },
+      {
+        "type": "header",
+        "content": "Logged In"
+      },
+      {
+        "type": "url",
+        "id": "cta_1_link_user",
+        "label": "CTA 1 Link"
+      },
+      {
+        "type": "text",
+        "id": "cta_1_text_user",
+        "label": "CTA 1 Text",
+        "default": "Rack Up Points"
+      },
+      {
+        "type": "url",
+        "id": "cta_2_link_user",
+        "label": "CTA 2 Link"
+      },
+      {
+        "type": "text",
+        "id": "cta_2_text_user",
+        "label": "CTA 2 Text",
+        "default": "Redeem Rewards"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,50 @@
+{{ 'component-press.css' | asset_url | stylesheet_tag }}
+
+{% render 'component-press', reverse: true, secondary_stars: true %}
+
+<script src="{{ 'component-press.js' | asset_url }}"></script>
+
+{% schema %}
+  {
+    "name": "Press",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Word on the Street"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "press",
+        "name": "Press",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "image",
+            "info": "190x190"
+          },
+          {
+            "type": "textarea",
+            "id": "quote",
+            "label": "Quote"
+          },
+          {
+            "type": "color",
+            "id": "color",
+            "label": "Background Color",
+            "info": "Pick color that will work with white text."
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "category": "Home",
+        "name": "Press"
+      }
+    ]
+  }
+{% endschema %}

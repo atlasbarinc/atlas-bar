@@ -1,0 +1,46 @@
+<section class="c-highlighted-reviews__wrapper" data-highlighted-reviews>
+  <div class="c-highlighted-reviews">
+    <h2 class="c-highlighted-reviews__heading">{{ section.settings.title }}</h2>
+    <p class="c-highlighted-reviews__description">{{ section.settings.description }}</p>
+    <ul class="c-highlighted-reviews__list" data-highlighted-reviews-slider>
+      {% for block in section.blocks %}
+        <li class="c-highlighted-reviews__item-container">
+          <div class="c-highlighted-reviews__item">
+            <div class="c-highlighted-reviews__image">
+              <img srcset="{{ block.settings.image | img_url: '670x520', crop: 'center' }} 670w,
+                           {{ block.settings.image | img_url: '1056x792', crop: 'center' }} 1056w"
+                  sizes="(min-width: 768px) 528px,
+                          335px"
+                  src="{{ block.settings.image | img_url: '528x396' }}"
+                  alt="{{ block.settings.image.alt }}">
+            </div>
+            <blockquote class="c-highlighted-review__quote">
+              <p>{{ block.settings.quote }}</p>
+              <footer>{{ block.settings.author }}</footer>
+            </blockquote>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+    <div class="c-highlighted-reviews__nav-wrapper">
+      <div class="c-highlighted-reviews__nav" data-highlighted-reviews-slider-nav>
+        {% for block in section.blocks %}
+          <div class="c-highlighted-reviews__nav-item-wrapper">
+            <div class="c-highlighted-reviews__nav-item">
+              <div class="c-highlighted-reviews__nav-icon">
+                <img srcset="{{ block.settings.Icon | img_url: '140x140' }} 2x,
+                             {{ block.settings.Icon | img_url: '70x70' }} 1x"
+                     src="{{ block.settings.Icon | img_url: '70x70' }}"
+                     alt="{{ block.settings.icon.alt }}">
+              </div>
+              <p class="c-highlighted-reviews__nav-title">
+                <span class="c-highlighted-reviews__nav-check">{% render 'check.svg' %}</span>
+                <span>{{ block.settings.title }}</span>
+              </p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

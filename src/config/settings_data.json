@@ -1,5 +1,2616 @@
 {
-  "current": "Default",
+  "current": {
+    "favicon": "shopify:\/\/shop_images\/Fav.png",
+    "shop_development_domain": "",
+    "social_facebook": "https:\/\/www.facebook.com\/atlasbars\/",
+    "social_twitter": "https:\/\/twitter.com\/atlasbars?lang=en",
+    "social_instagram": "https:\/\/www.instagram.com\/atlasbars\/?hl=en",
+    "social_email": "test@example.com",
+    "checkout_header_image": "",
+    "checkout_logo_image": "",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#ffa200",
+    "checkout_button_color": "#ffa200",
+    "checkout_error_color": "#f26950",
+    "portal_api_key": "test_key",
+    "general_development_domain": "atlasbars-dev.myshopify.com",
+    "sections": {
+      "form-login": {
+        "type": "form-login",
+        "settings": {
+          "heading": "Sign In",
+          "text": "Please enter your email and password:",
+          "email_placeholder": "Email Address*",
+          "password_placeholder": "Password*",
+          "submit_button": "Sign In",
+          "forgot_password_link": "Forgot your password?",
+          "register_text": "",
+          "register_link": ""
+        }
+      },
+      "form-recover": {
+        "type": "form-recover",
+        "settings": {
+          "heading": "Recover Password",
+          "text": "Please enter your email:",
+          "successs_text": "A password reset email has been sent",
+          "email_placeholder": "Email Address*",
+          "submit_button": "Recover",
+          "register_text": "",
+          "register_link": "",
+          "remember_password_text": "Remember your password?",
+          "remember_password_link": "Back to login"
+        }
+      },
+      "form-success": {
+        "type": "form-success",
+        "settings": {
+          "heading": "",
+          "text": "We’ve sent you an email with instructions on how to reset your password.",
+          "remember_password_text": "",
+          "remember_password_link": "Back to Login"
+        }
+      },
+      "theme-header-bar": {
+        "type": "theme-header-bar",
+        "settings": {
+          "show": false,
+          "message": "📦  FREE 2-3 DAY SHIPPING!"
+        }
+      },
+      "theme-header-main": {
+        "type": "theme-header-main",
+        "blocks": {
+          "1592349558291": {
+            "type": "product",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Nav-SamplePack2.png",
+              "product": "trial-pack"
+            }
+          },
+          "1592349736887": {
+            "type": "product",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Nav-15ct.png",
+              "product": "build-a-box"
+            }
+          },
+          "1592349751314": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Nav-AtlasRewards.jpg",
+              "title": "Rewards",
+              "link": "shopify:\/\/pages\/rewards"
+            }
+          }
+        },
+        "block_order": [
+          "1592349558291",
+          "1592349736887",
+          "1592349751314"
+        ],
+        "settings": {
+          "logo_image": "shopify:\/\/shop_images\/AtlasBarLogo.png",
+          "logo_text": "",
+          "login_text": "Log In",
+          "account_text": "Account",
+          "cart_image": "shopify:\/\/shop_images\/cart.png",
+          "cart_text": "",
+          "offer_enable": true,
+          "offer_link": "shopify:\/\/products\/trial-pack",
+          "offer_text": "6-ct Trial Pack",
+          "offer_enable_mobile": false,
+          "offer_link_mobile": "shopify:\/\/products\/trial-pack",
+          "offer_text_mobile": "Trial Pack",
+          "menu": "shop",
+          "shop": true
+        }
+      },
+      "theme-footer-legal": {
+        "type": "theme-footer-legal",
+        "settings": {
+          "copyright_text": "Atlas Bars. All Rights Reserved.",
+          "legal_menu": "footer-terms"
+        }
+      },
+      "theme-footer-main": {
+        "type": "theme-footer-main",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/logo-new-white.png",
+          "footer_menu": "main-menu",
+          "connect_title": "Connect",
+          "connect_text": "<p>Mon-Fri 9-6pm EST<\/p><p><a href=\"mailto:support@atlasbars.com\" target=\"_blank\" title=\"mailto:hi@atlasbars.com\">hi@atlasbars.com<\/a><\/p>",
+          "social_title": "Let's Be Friends"
+        }
+      },
+      "widget-cart": {
+        "type": "widget-cart",
+        "settings": {
+          "header_text": "Your Cart",
+          "header_count": true,
+          "item_remove_button": "Remove"
+        }
+      },
+      "theme-api": {
+        "type": "theme-api",
+        "settings": {
+          "api_url": "https:\/\/portal-node-production.herokuapp.com",
+          "api_key": "S37mculUa2mzRJvMc7JX",
+          "api_secret": "vYyU82ehk2Ey8VMM7pI3",
+          "bundle_app_url": "https:\/\/bundles-production.herokuapp.com"
+        }
+      },
+      "theme-customer": {
+        "type": "theme-customer",
+        "settings": {}
+      },
+      "widget-portal-parts": {
+        "type": "widget-portal-parts",
+        "blocks": {
+          "1586296162220": {
+            "type": "navigation",
+            "settings": {
+              "text": "Your Next Box",
+              "page": "shipments",
+              "visibility": "recharge_users"
+            }
+          },
+          "1586296244568": {
+            "type": "navigation",
+            "settings": {
+              "text": "Account Details",
+              "page": "details",
+              "visibility": "all_users"
+            }
+          },
+          "1586296321729": {
+            "type": "navigation",
+            "settings": {
+              "text": "Order History",
+              "page": "orders",
+              "visibility": "all_users"
+            }
+          }
+        },
+        "block_order": [
+          "1586296162220",
+          "1586296244568",
+          "1586296321729"
+        ],
+        "settings": {
+          "navigation_label": "Manage Account",
+          "navigation_signout": "Sign Out",
+          "navigation_view": "View My Rewards",
+          "navigation_earn": "Earn Rewards",
+          "navigation_refer": "Give $10 Get $10"
+        }
+      },
+      "widget-portal-orders": {
+        "type": "widget-portal-orders",
+        "settings": {
+          "page_heading": "Your Order History",
+          "last_heading": "Last Order",
+          "previous_heading": "Previous Orders",
+          "empty_preheading": "You don't have any orders yet",
+          "empty_heading": "Get your first bar to join the club",
+          "empty_button_text": "Shop Now",
+          "empty_button_url": "shopify:\/\/collections\/all",
+          "order_name": "Order",
+          "order_processing": "Processing",
+          "order_transit": "In Transit",
+          "order_track": "Track Package",
+          "order_delivered": "Delivered",
+          "order_billing": "Billing Address",
+          "order_payment": "Payment Status",
+          "order_paid": "Paid",
+          "order_ships": "Ships",
+          "order_subtotal_label": "Subtotal",
+          "order_discount_label": "Discount",
+          "order_shipping_label": "Shipping",
+          "order_tax_label": "Tax",
+          "order_total_label": "Total"
+        }
+      },
+      "theme-shop": {
+        "type": "theme-shop",
+        "blocks": {
+          "1586530550034": {
+            "type": "intervals",
+            "settings": {
+              "frequency": "0",
+              "unit": "",
+              "text": "Onetime Purchase"
+            }
+          },
+          "1586530519523": {
+            "type": "intervals",
+            "settings": {
+              "frequency": "30",
+              "unit": "Days",
+              "text": "Every 30 Days"
+            }
+          },
+          "1586530529986": {
+            "type": "intervals",
+            "settings": {
+              "frequency": "45",
+              "unit": "Days",
+              "text": "Every 45 Days"
+            }
+          },
+          "1586530540335": {
+            "type": "intervals",
+            "settings": {
+              "frequency": "60",
+              "unit": "Days",
+              "text": "Every 60 Days"
+            }
+          },
+          "1593714396277": {
+            "type": "intervals",
+            "settings": {
+              "frequency": "90",
+              "unit": "Days",
+              "text": "Every 90 Days"
+            }
+          }
+        },
+        "block_order": [
+          "1586530550034",
+          "1586530519523",
+          "1586530529986",
+          "1586530540335",
+          "1593714396277"
+        ],
+        "settings": {
+          "shop_name": "Atlas Bars",
+          "currency_name": "USD",
+          "currency_symbol": "$"
+        }
+      },
+      "widget-portal-details": {
+        "type": "widget-portal-details",
+        "settings": {
+          "page_heading": "Your Account Details",
+          "billing_label": "Billing Address",
+          "billing_edit": "Edit",
+          "email_label": "Email",
+          "password_label": "Password",
+          "password_placeholder": "**********",
+          "password_edit": "Edit",
+          "payment_label": "Payment Method",
+          "payment_placeholder": "****",
+          "payment_edit": "Edit",
+          "notifications_label": "SMS & Email Notifications",
+          "notifications_edit": "Update Settings",
+          "plans_heading": "Your Subscriptions",
+          "plans_text_next": "Next Box Ships",
+          "plans_text_last": "Last Box Shipped",
+          "plans_text_never": "Never",
+          "plans_button_cancel": "Cancel",
+          "plans_button_activate": "Reactivate"
+        }
+      },
+      "widget-portal-sidebars": {
+        "type": "widget-portal-sidebars",
+        "settings": {
+          "billing_back": "Back To Account Details",
+          "billing_heading": "Edit Billing Address",
+          "billing_first_label": "First Name",
+          "billing_last_label": "Last Name",
+          "billing_address1_label": "Address 1",
+          "billing_address2_label": "Address 2",
+          "billing_city_label": "City",
+          "billing_province_label": "State",
+          "billing_zip_label": "Zip Code",
+          "billing_country_label": "Country",
+          "billing_button_text": "Save Address",
+          "billing_button_success": "Saved Addresss",
+          "billing_error_required": "{{ billing_error_required }}",
+          "billing_error_limit": "{{ billing_error_limit }}",
+          "billing_error_general": "{{ billing_error_general }}",
+          "password_back": "Back To Account Details",
+          "password_heading": "Reset Password",
+          "password_email_label": "Email",
+          "password_button_text": "Send Reset",
+          "password_button_success": "Sent Reset",
+          "password_error_email": "Email Invalid",
+          "password_error_required": "Required",
+          "password_error_customer": "Customer Exists",
+          "password_error_limit": "Limit Exceeded",
+          "password_error_general": "Error",
+          "payment_back": "Back To Account Details",
+          "payment_heading": "Edit Payment Method",
+          "retention_back": "Back To Account Details",
+          "retention_heading": "Cancel Plan",
+          "retention_image": "shopify:\/\/shop_images\/James.jpg",
+          "retention_pretext": "Before You Go",
+          "retention_text": "Maybe We Can Help",
+          "retention_chat_icon": "shopify:\/\/shop_images\/retention-chat.png",
+          "retention_chat_heading": "Chat With Us",
+          "retention_chat_text": "We’re here to help! Send us a message & we’ll get back to you within 24 hrs.",
+          "retention_answers_icon": "shopify:\/\/shop_images\/retention-answers.png",
+          "retention_answers_heading": "Get Answers",
+          "retention_answers_text": "If you need assistance in any way, just let us know & we’ll get back to you ASAP.",
+          "retention_break_icon": "shopify:\/\/shop_images\/retention-break.png",
+          "retention_break_heading": "Need A Break",
+          "retention_break_text": "Going out of town? No problem, click here to delay your next delivery by 2 weeks.",
+          "retention_cancel_button": "Cancel Plan",
+          "cancel_back": "Back To Account Details",
+          "cancel_heading": "Cancel Plan",
+          "cancel_reason_1": "I don't need product right now",
+          "cancel_reason_2": "I no longer need this product at this location",
+          "cancel_reason_3": "I wasn't happy with my products",
+          "cancel_reason_4": "I need to unsubscribe for financial reasons",
+          "cancel_reason_5": "I experienced service issues",
+          "cancel_reason_other": "Other",
+          "cancel_delay_heading": "Are you sure?",
+          "cancel_delay_button": "Delay 1 Month",
+          "cancel_submit_button": "Cancel",
+          "activate_back": "Back To Account Details",
+          "activate_heading": "Reactivate Plan",
+          "activate_ships": "Ships",
+          "activate_total": "Total",
+          "activate_button": "Activate",
+          "activate_disclaimer": "Your subscription will charge 2 days after you reactivate your account. \nYou can adjust your charge date in Your Account.",
+          "shipping_back": "Back To Account Details",
+          "shipping_heading": "Edit Shipping Address",
+          "shipping_first_label": "First Name",
+          "shipping_last_label": "Last Name",
+          "shipping_address1_label": "Address 1",
+          "shipping_address2_label": "Address 2",
+          "shipping_city_label": "City",
+          "shipping_province_label": "State",
+          "shipping_zip_label": "Zip Code",
+          "shipping_country_label": "Country",
+          "shipping_button_text": "Save Address",
+          "shipping_button_success": "Saved Address",
+          "shipping_error_required": "{{ shipping_error_required }}",
+          "shipping_error_limit": "{{ shipping_error_limit }}",
+          "shipping_error_general": "{{ shipping_error_general }}",
+          "edit_back": "Back To Subscriptions",
+          "edit_heading_subscription": "Edit Subscription Product",
+          "edit_heading_onetime": "Edit Onetime Product",
+          "edit_label_quantity": "QTY:",
+          "edit_button_text": "Save Changes",
+          "edit_button_success": "Saved Changes",
+          "edit_button_remove": "Remove Product",
+          "schedule_back": "Back To Subscriptions",
+          "schedule_heading": "Edit Schedule",
+          "schedule_image": "shopify:\/\/shop_images\/Bars_e7626716-5a50-42fa-a1fb-66b4b72fb20f.jpg",
+          "schedule_frequency_heading": "Edit Frequency",
+          "schedule_charge_heading": "Edit Renewal Date",
+          "schedule_button_text": "Save Changes",
+          "schedule_button_success": "Saved Changes",
+          "products_back": "Back To Subscriptions",
+          "products_heading": "Add Products",
+          "products_collection": "portal-upsells",
+          "products_button_view": "View Details",
+          "add_back": "Back To Subscriptions",
+          "add_back_products": "Back To Products",
+          "add_heading_details": "Product Details",
+          "add_label_address": "Ship To",
+          "add_button_add": "Add To Next Order",
+          "add_button_soldout": "Sold Out",
+          "add_button_now": "Ship It now",
+          "add_text_now": "This will charge immediately and ship as soon as possible.",
+          "flavors_back": "Back To Subscriptions",
+          "flavors_heading": "Edit Your Flavors",
+          "flavors_collection": "bundle-bars"
+        }
+      },
+      "widget-portal-shipments": {
+        "type": "widget-portal-shipments",
+        "settings": {
+          "loyalty_image": "shopify:\/\/shop_images\/AtlasBars-Flavors_c250f7f4-3d8b-4bb8-bc2b-0aa0185bd3b6.jpg",
+          "loyalty_heading": "Welcome, {{ customer_name }}",
+          "loyalty_label_tier": "{{ tier }} Member",
+          "loyalty_label_no_tier": "Member",
+          "loyalty_text_tier": "since {{ date }}",
+          "loyalty_label_points": "Rewards Balance:",
+          "loyalty_text_points": "{{ points }} Points",
+          "loyalty_button_view": "View My Rewards",
+          "loyalty_button_earn": "Earn Points",
+          "loyalty_text_refer": "Give $10. Get $10.",
+          "loyalty_link_refer": "Your Referral Link",
+          "referral_preheading": "Refer A Friend",
+          "referral_heading": "Give $10 & Get $10",
+          "referral_button": "Your Referral Link",
+          "page_heading": "Your Upcoming Shipments",
+          "box_count_single": "You Have {{ count }} Item",
+          "box_count_multi": "You Have {{ count }} Items",
+          "box_count_empty": "You Have No Active Subscriptions",
+          "box_ships": "Shipping To",
+          "box_edit_shipping": "Edit Shipping Address",
+          "box_charges_single": "Renews on",
+          "box_charges_multi": "Renews on",
+          "box_button_add": "+ Add Products",
+          "box_button_order": "Ship It ASAP",
+          "empty_heading_products": "Products At This Address",
+          "empty_text_ships": "Ships",
+          "empty_button_reactivate": "Reactivate",
+          "empty_button_add": "Add Products",
+          "empty_text_disclaimer": "Your products will charge 2 days after you reactivate or add them to your account.",
+          "bundle_tab_main": "Box Details",
+          "bundle_tab_parts": "Bar Flavors",
+          "bundle_button_schedule": "Edit Schedule",
+          "bundle_button_delay": "Delay 2 Weeks",
+          "bundle_button_remove": "Cancel This Subscription",
+          "bundle_button_edit": "Edit Flavors",
+          "bundle_upsell_link": "Upgrade to {{ count }}-ct {{ title }} & Save {{ savings }}",
+          "product_button_edit": "Edit Product",
+          "product_button_schedule": "Edit Schedule",
+          "product_button_delay": "Delay 2 Weeks",
+          "discount_placeholder": "Discount Code",
+          "discount_button_text": "Apply",
+          "discount_button_success": "Applied",
+          "summary_label_order": "Order Total",
+          "summary_label_subtotal": "Subtotal",
+          "summary_label_discount": "Discount",
+          "summary_label_tax": "Tax",
+          "summary_label_shipping": "Shipping",
+          "summary_label_total": "Total",
+          "upsells_heading": "Add Products To Your Box",
+          "upsells_collection": "portal-upsells",
+          "upsells_button": "Add To Box"
+        }
+      },
+      "widget-portal-modals": {
+        "type": "widget-portal-modals",
+        "settings": {
+          "order_heading": "Please Note",
+          "order_text": "We will ship your box as soon as possible and you will be charged immediately. \nYour recurring Charge Date will also change.",
+          "order_button_confirm": "Ship It Asap",
+          "order_button_cancel": "Nevermind",
+          "delay_heading": "Please Note",
+          "delay_text": "Your order will be shipped and charged in 2 weeks. You can manage this order at anytime under your “Upcoming Orders”",
+          "delay_button_confirm": "Delay My Order",
+          "delay_button_cancel": "Nevermind",
+          "cancel_heading": "We're Sorry",
+          "cancel_subheading": "Please select a reason below",
+          "cancel_reason_1": "I don't need product right now",
+          "cancel_reason_2": "I no longer need this product at this location",
+          "cancel_reason_3": "I wasn't happy with my products",
+          "cancel_reason_4": "I need to unsubscribe for financial reasons",
+          "cancel_reason_5": "I experienced service issues",
+          "cancel_reason_other": "Other",
+          "cancel_button_confirm": "Remove Product",
+          "cancel_button_cancel": "Keep This Product",
+          "discount_heading": "Uh Oh!",
+          "discount_text": "The discount code {{ discount_code }} could not be applied to the address.  Please try again or contact customer support.",
+          "discount_button_confirm": "Email Support",
+          "discount_button_link": "\/",
+          "discount_button_cancel": "Nevermind",
+          "error_heading": "Uh, Oh!",
+          "error_text": "Your account has a charge related error on it.  Please contact customer support to resolve the issue.",
+          "error_button_confirm": "Email Support",
+          "error_button_link": "\/"
+        }
+      },
+      "widget-bundle-sizes": {
+        "type": "widget-bundle-sizes",
+        "blocks": {
+          "1588743793665": {
+            "type": "parent",
+            "settings": {
+              "product": "15-ct-power-pack",
+              "size": "15",
+              "title": "Power Pack",
+              "selected": true
+            }
+          },
+          "1588743805139": {
+            "type": "parent",
+            "settings": {
+              "product": "30-ct-value-pack",
+              "size": "30",
+              "title": "Value Pack",
+              "selected": false
+            }
+          }
+        },
+        "block_order": [
+          "1588743793665",
+          "1588743805139"
+        ],
+        "settings": {
+          "title": "Select Size",
+          "description": "Choose the perfect size box to match your appetite and healthy lifestyle.",
+          "background": "shopify:\/\/shop_images\/image-bundle-step-1.jpg"
+        }
+      },
+      "widget-bundle-items": {
+        "type": "widget-bundle-items",
+        "settings": {
+          "filters": "Top Sellers, Chocolate Lovers, James Faves",
+          "items": "bundle-bars"
+        }
+      },
+      "widget-bundle-header": {
+        "type": "widget-bundle-header",
+        "settings": {
+          "logo": "shopify:\/\/shop_images\/logo-new.png"
+        }
+      },
+      "widget-bundle-frequency": {
+        "type": "widget-bundle-frequency",
+        "settings": {
+          "frequency": "45",
+          "title": "Choose Frequency",
+          "description": "Atlas On-Demand offers extra savings on each recurring order. The best part? You can skip a shipment, swap flavors or cancel anytime—you’re in control!",
+          "background": "shopify:\/\/shop_images\/image-bundle-step-3.jpg"
+        }
+      },
+      "widget-bundle-prebuilts": {
+        "type": "widget-bundle-prebuilts",
+        "blocks": {
+          "1589610530961": {
+            "type": "bundle",
+            "settings": {
+              "title": "Top Sellers",
+              "products": "4877239681126x4\n4877235519590x4\n4877239320678x4\n4877233717350x3"
+            }
+          },
+          "1589610571802": {
+            "type": "bundle",
+            "settings": {
+              "title": "Chocolate Lovers",
+              "products": "4877235519590x4\n4877239681126x4\n4877233717350x4\n4877238927462x3"
+            }
+          },
+          "1589610597023": {
+            "type": "bundle",
+            "settings": {
+              "title": "James Faves",
+              "products": "4877239681126x4\n4877235519590x3\n4877239320678x3\n4877233717350x3\n4877238927462x2"
+            }
+          }
+        },
+        "block_order": [
+          "1589610530961",
+          "1589610571802",
+          "1589610597023"
+        ],
+        "settings": {}
+      },
+      "component-steps-build-a-box": {
+        "type": "component-steps-build-a-box",
+        "blocks": {
+          "1590002389166": {
+            "type": "slide",
+            "settings": {
+              "title": "Select Size",
+              "description": "15-ct Power Pack<br>or<br> 30-ct Value Pack",
+              "image": "shopify:\/\/shop_images\/image-bundle-steps-desktop.jpg",
+              "image_mobile": "shopify:\/\/shop_images\/image-bundle-steps-mobile.jpg"
+            }
+          },
+          "1590002402411": {
+            "type": "slide",
+            "settings": {
+              "title": "Customize Box",
+              "description": "Select flavors and quantities for each",
+              "image": "shopify:\/\/shop_images\/ChooseFlavors_7ce29dba-e5fd-4b15-b2bd-dd41fc6763f7.jpg",
+              "image_mobile": "shopify:\/\/shop_images\/Choose-mobile.jpg"
+            }
+          },
+          "1590002414806": {
+            "type": "slide",
+            "settings": {
+              "title": "Choose Frequency",
+              "description": "Pick one-time purchase or keep ‘em coming with Atlas On-Demand",
+              "image": "shopify:\/\/shop_images\/Frequency.jpg",
+              "image_mobile": "shopify:\/\/shop_images\/Frequency-mobile.jpg"
+            }
+          },
+          "1594750172844": {
+            "type": "slide",
+            "settings": {
+              "title": "Happiness Delivered",
+              "description": "100% satisfaction guaranteed or your money back",
+              "image": "shopify:\/\/shop_images\/Delivered.jpg",
+              "image_mobile": "shopify:\/\/shop_images\/Delivered-mobile.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "1590002389166",
+          "1590002402411",
+          "1590002414806",
+          "1594750172844"
+        ],
+        "settings": {
+          "title": "Build The Perfect Box<br>Just For You",
+          "title_mobile": "How It Works",
+          "description": "Get everything you want and nothing you don’t –you’re in control! Atlas Bar’s fully customizable Build A Box experience will make going to the grocery store a thing of the past.",
+          "speed": 7
+        }
+      },
+      "component-icons-build-a-box": {
+        "type": "component-icons-build-a-box",
+        "blocks": {
+          "1590033249006": {
+            "type": "icon",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/icon-keto.png",
+              "title": "Keto"
+            }
+          },
+          "1590033269308": {
+            "type": "icon",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/icon-grass-fed.png",
+              "title": "Grass-fed Whey"
+            }
+          },
+          "1590033282318": {
+            "type": "icon",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/icon-adaptogen.png",
+              "title": "Adaptogen Powered"
+            }
+          },
+          "1590033299545": {
+            "type": "icon",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/icon-no-gmos.png",
+              "title": "No GMOs"
+            }
+          },
+          "1590033316357": {
+            "type": "icon",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/icon-no-gluten.png",
+              "title": "No Gluten"
+            }
+          },
+          "1590033330181": {
+            "type": "icon",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/icon-no-soy.png",
+              "title": "No Soy"
+            }
+          }
+        },
+        "block_order": [
+          "1590033249006",
+          "1590033269308",
+          "1590033282318",
+          "1590033299545",
+          "1590033316357",
+          "1590033330181"
+        ],
+        "settings": {
+          "title": "The Next Generation Protein Bar Has Arrived",
+          "description": "Atlas Bar is the world’s best-tasting high-performance protein bar made with only the highest quality real food ingredients your body and mind need to succeed."
+        }
+      },
+      "component-ingredients-build-a-box": {
+        "type": "component-ingredients-build-a-box",
+        "blocks": {
+          "1590733460743": {
+            "type": "product",
+            "settings": {
+              "product": "peanut-butter-chocolate-chip-2"
+            }
+          },
+          "1590733470070": {
+            "type": "product",
+            "settings": {
+              "product": "chocolate-cacao-3"
+            }
+          },
+          "1590733465565": {
+            "type": "product",
+            "settings": {
+              "product": "vanilla-almond-chai-2"
+            }
+          },
+          "1590733442536": {
+            "type": "product",
+            "settings": {
+              "product": "almond-chocolate-chip-2"
+            }
+          },
+          "1590733415411": {
+            "type": "product",
+            "settings": {
+              "product": "copy-of-mint-chocolate-chip"
+            }
+          },
+          "1590733452223": {
+            "type": "product",
+            "settings": {
+              "product": "peanut-butter-raspberry-2"
+            }
+          }
+        },
+        "block_order": [
+          "1590733460743",
+          "1590733470070",
+          "1590733465565",
+          "1590733442536",
+          "1590733415411",
+          "1590733452223"
+        ],
+        "settings": {}
+      },
+      "component-list-image-build-a-box": {
+        "type": "component-list-image-build-a-box",
+        "blocks": {
+          "1590037136267": {
+            "type": "item",
+            "settings": {
+              "title": "Adapt to Stress"
+            }
+          },
+          "1590037140577": {
+            "type": "item",
+            "settings": {
+              "title": "Fight Fatigue"
+            }
+          },
+          "1590037145121": {
+            "type": "item",
+            "settings": {
+              "title": "Boost Endurance"
+            }
+          },
+          "1590037151543": {
+            "type": "item",
+            "settings": {
+              "title": "Aid Recovery"
+            }
+          },
+          "1590037156627": {
+            "type": "item",
+            "settings": {
+              "title": "Burn Fat"
+            }
+          },
+          "1590037161810": {
+            "type": "item",
+            "settings": {
+              "title": "Build Muscle"
+            }
+          }
+        },
+        "block_order": [
+          "1590037136267",
+          "1590037140577",
+          "1590037145121",
+          "1590037151543",
+          "1590037156627",
+          "1590037161810"
+        ],
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Adaptogen.jpg",
+          "icon": "shopify:\/\/shop_images\/bolt.png",
+          "title": "Adaptogen Powered Benefits",
+          "description": "The first protein bar of its kind specially formulated with Organic KSM-66 Ashwagandha, a potent science-backed adaptogen revered for centuries around the world as “nature’s gift to mankind.\""
+        }
+      },
+      "component-press-build-a-box": {
+        "type": "component-press-build-a-box",
+        "blocks": {
+          "1590109381535": {
+            "type": "press",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/GearPatrol.png",
+              "quote": "“Could this be the best keto-friendly protein bar ever?” -Gear Patrol",
+              "color": "#101f2d"
+            }
+          },
+          "1590109421716": {
+            "type": "press",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/VeryWellFit.png",
+              "quote": "\"You might expect a low sugar protein bar to be lacking in flavor, but that’s not the case when it comes to Atlas Bar.\"   -VerywellFit.com",
+              "color": "#101f2d"
+            }
+          },
+          "1590109442247": {
+            "type": "press",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/HungryGirl.png",
+              "quote": "“Atlas Bar is in a league of its own. It’s very rare that a bar makes its way into my life. These are in my purse, and my travel bag. Two thumbs up!” -Hungry Girl",
+              "color": "#101f2d"
+            }
+          },
+          "1590109456721": {
+            "type": "press",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/WomensHealth.png",
+              "quote": "“You can see this bar has a little more protein, it uses grass-fed whey, which is an easily absorbed protein source. Plus, the Vanilla Almond Chai flavor is delicious!” -Women's Health",
+              "color": "#101f2d"
+            }
+          }
+        },
+        "block_order": [
+          "1590109381535",
+          "1590109421716",
+          "1590109442247",
+          "1590109456721"
+        ],
+        "settings": {
+          "title": "Word on the Street"
+        }
+      },
+      "component-highlighted-reviews-build-a-box": {
+        "type": "component-highlighted-reviews-build-a-box",
+        "blocks": {
+          "1590165574549": {
+            "type": "quote",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Breakfast2.jpg",
+              "Icon": "shopify:\/\/shop_images\/Breakfast-Icon_52d0e3b0-fcfe-4f50-83cb-6f4c82617630.png",
+              "title": "On-The-Go-Breakfast",
+              "quote": "“ These protein bars are the BEST! They're full of clean ingredients and they taste AMAZING! Low sugar, high protein, high-fiber. Keeps you full for hours!! ”",
+              "author": "- Peggy R."
+            }
+          },
+          "1590166733534": {
+            "type": "quote",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/PostWorkout.jpg",
+              "Icon": "shopify:\/\/shop_images\/Workout_1556a375-7a45-4ccc-ba4e-bedb52521a46.png",
+              "title": "Post Workout Recovery",
+              "quote": "“ It's hard to find protein bars that are low sugar & made with quality ingredients. These not only meet those criteria, but also taste amazing. Perfect when you’re on the go or need quick recovery food post-workout. ”",
+              "author": "- Mark H."
+            }
+          },
+          "1590166804386": {
+            "type": "quote",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/KetoSnack.jpg",
+              "Icon": "shopify:\/\/shop_images\/Keto.png",
+              "title": "Keto-Friendly Snack",
+              "quote": "“ These bars come through wonderfully on all counts, and taste great! So happy to find protein bars I can rely on. ”",
+              "author": "- Lisa W."
+            }
+          },
+          "1590166829528": {
+            "type": "quote",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Dessert.jpg",
+              "Icon": "shopify:\/\/shop_images\/Dessert.png",
+              "title": "Guilt-Free Dessert",
+              "quote": "“ I found these bars to be very tasty and hit the sweet tooth perfect. They are not hard where you think you’ll loose a tooth but the right amount of soft chewy goodness. ”",
+              "author": "- Liz S."
+            }
+          }
+        },
+        "block_order": [
+          "1590165574549",
+          "1590166733534",
+          "1590166804386",
+          "1590166829528"
+        ],
+        "settings": {
+          "title": "The Fuel Your Body & Mind Need To Succeed",
+          "description": "Wake up energized, sleep soundly, and feel focused throughout the day—it’s your time to shine!"
+        }
+      },
+      "component-reviews-slider-build-a-box": {
+        "type": "component-reviews-slider-build-a-box",
+        "blocks": {
+          "1590468617645": {
+            "type": "review",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/PBCC-UGC.jpg",
+              "quote": "“I love that these bars are low in sugar & high in protein with quality ingredients.”",
+              "author": "- Lindsay K."
+            }
+          },
+          "1590472056818": {
+            "type": "review",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/review-3_41f87e16-7a31-4780-b6f4-789a94906889.jpg",
+              "quote": "“Really kickstarts my day with healthy ingredients & even gives me steady energy.”",
+              "author": "- Bella H."
+            }
+          },
+          "1590470028564": {
+            "type": "review",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ACC-UGC.jpg",
+              "quote": "“They are filling and tasty and helped me in my journey to become healthier.”",
+              "author": "- Steven G."
+            }
+          },
+          "1590992575447": {
+            "type": "review",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Review-2_8a08e0ee-3c62-4bc0-9104-481f23f6ff4e.jpg",
+              "quote": "“I really love the taste of these bars. They're such a good treat & extremely healthy.”",
+              "author": "- Shyla C."
+            }
+          },
+          "1590992587804": {
+            "type": "review",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/VAC-edited.jpg",
+              "quote": "“These are my favorite bars! They do not taste chalky and they keep me full.”",
+              "author": "- Chelsea M."
+            }
+          }
+        },
+        "block_order": [
+          "1590468617645",
+          "1590472056818",
+          "1590470028564",
+          "1590992575447",
+          "1590992587804"
+        ],
+        "settings": {
+          "title": "50,000+<br>Happy Customers",
+          "description": "Trusted by Thousands of Doers, Dreamers, and Outside-the-Box Thinkers.",
+          "link_text": ""
+        }
+      },
+      "component-split-content-build-a-box": {
+        "type": "component-split-content-build-a-box",
+        "settings": {
+          "title": "Over 500,000 Flavor Combinations",
+          "description": "Atlas Bar’s 100% customizable Build A Box experience gives you everything you want and nothing you don’t.",
+          "cta_text": "CUSTOMIZE NOW",
+          "cta_arrow": true,
+          "image": "shopify:\/\/shop_images\/BYO3_9fbd2e3d-8acf-4a3b-9af2-b64038680cbf.png",
+          "image_cutoff": false,
+          "background": "#27c7ba"
+        }
+      },
+      "component-hero-build-a-box": {
+        "type": "component-hero-build-a-box",
+        "blocks": {
+          "1590915636467": {
+            "type": "list_item",
+            "settings": {
+              "title": "Mix & Match 6 Flavor Recipes",
+              "icon": "shopify:\/\/shop_images\/Bars2.png"
+            }
+          },
+          "1590915675845": {
+            "type": "list_item",
+            "settings": {
+              "title": "Free 2-Day Shipping",
+              "icon": "shopify:\/\/shop_images\/Shipping2.png"
+            }
+          },
+          "1590915732820": {
+            "type": "list_item",
+            "settings": {
+              "title": "100% Satisfaction Guaranteed",
+              "icon": "shopify:\/\/shop_images\/Satisfaction2.png"
+            }
+          }
+        },
+        "block_order": [
+          "1590915636467",
+          "1590915675845",
+          "1590915732820"
+        ],
+        "settings": {
+          "background_color": "#5aaad6",
+          "alternate_color": "#0d3355"
+        }
+      },
+      "component-hero-sample": {
+        "type": "component-hero-sample",
+        "blocks": {
+          "1590987998096": {
+            "type": "list_item",
+            "settings": {
+              "title": "Cookie dough texture & taste",
+              "icon": "shopify:\/\/shop_images\/Bars2.png"
+            }
+          },
+          "1590988013164": {
+            "type": "list_item",
+            "settings": {
+              "title": "Free Shipping!",
+              "icon": "shopify:\/\/shop_images\/Shipping2.png"
+            }
+          },
+          "1590988025778": {
+            "type": "list_item",
+            "settings": {
+              "title": "Love it, or it's on us :)",
+              "icon": "shopify:\/\/shop_images\/Satisfaction2.png"
+            }
+          }
+        },
+        "block_order": [
+          "1590987998096",
+          "1590988013164",
+          "1590988025778"
+        ],
+        "settings": {
+          "background_color": "#f26950",
+          "alternate_color": "#101f2d",
+          "secondary_link": "shopify:\/\/products\/trial-pack",
+          "secondary_text": "Trial Pack Offer"
+        }
+      },
+      "component-icons-sample": {
+        "type": "component-icons-sample",
+        "blocks": {
+          "1590989253103": {
+            "type": "icon",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/icon-keto.png",
+              "title": "Keto"
+            }
+          },
+          "1590989266352": {
+            "type": "icon",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/icon-grass-fed.png",
+              "title": "Grass-Fed Whey"
+            }
+          },
+          "1590989277401": {
+            "type": "icon",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/icon-adaptogen.png",
+              "title": "Adaptogen Powered"
+            }
+          },
+          "1590989290468": {
+            "type": "icon",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/icon-no-gmos.png",
+              "title": "No GMOs"
+            }
+          },
+          "1590989300440": {
+            "type": "icon",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/icon-no-gluten.png",
+              "title": "No Gluten"
+            }
+          },
+          "1592511367095": {
+            "type": "icon",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/icon-no-soy.png",
+              "title": "No Soy"
+            }
+          }
+        },
+        "block_order": [
+          "1590989253103",
+          "1590989266352",
+          "1590989277401",
+          "1590989290468",
+          "1590989300440",
+          "1592511367095"
+        ],
+        "settings": {
+          "title": "The Next Generation Protein Bar Has Arrived",
+          "description": "Atlas Bar is the world’s best-tasting high-performance protein bar made with only the highest quality real food ingredients your body and mind need to succeed."
+        }
+      },
+      "component-ingredients-sample": {
+        "type": "component-ingredients-sample",
+        "blocks": {
+          "1594154953766": {
+            "type": "product",
+            "settings": {
+              "product": "vanilla-almond-chai-2"
+            }
+          },
+          "1594154949459": {
+            "type": "product",
+            "settings": {
+              "product": "peanut-butter-chocolate-chip-2"
+            }
+          },
+          "1594154933518": {
+            "type": "product",
+            "settings": {
+              "product": "chocolate-cacao-3"
+            }
+          },
+          "1594154926666": {
+            "type": "product",
+            "settings": {
+              "product": "almond-chocolate-chip-2"
+            }
+          },
+          "1594154938383": {
+            "type": "product",
+            "settings": {
+              "product": "copy-of-mint-chocolate-chip"
+            }
+          },
+          "1594154945036": {
+            "type": "product",
+            "settings": {
+              "product": "peanut-butter-raspberry-2"
+            }
+          }
+        },
+        "block_order": [
+          "1594154953766",
+          "1594154949459",
+          "1594154933518",
+          "1594154926666",
+          "1594154938383",
+          "1594154945036"
+        ],
+        "settings": {}
+      },
+      "component-list-image-sample": {
+        "type": "component-list-image-sample",
+        "blocks": {
+          "1590989419123": {
+            "type": "item",
+            "settings": {
+              "title": "Adapt to Stress"
+            }
+          },
+          "1590989423544": {
+            "type": "item",
+            "settings": {
+              "title": "Fight Fatigue"
+            }
+          },
+          "1590989428229": {
+            "type": "item",
+            "settings": {
+              "title": "Boost Endurance"
+            }
+          },
+          "1590989432061": {
+            "type": "item",
+            "settings": {
+              "title": "Aid Recovery"
+            }
+          },
+          "1590989435868": {
+            "type": "item",
+            "settings": {
+              "title": "Burn Fat"
+            }
+          },
+          "1590989440586": {
+            "type": "item",
+            "settings": {
+              "title": "Build Muscle"
+            }
+          }
+        },
+        "block_order": [
+          "1590989419123",
+          "1590989423544",
+          "1590989428229",
+          "1590989432061",
+          "1590989435868",
+          "1590989440586"
+        ],
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Adaptogen.jpg",
+          "icon": "shopify:\/\/shop_images\/bolt.png",
+          "title": "Adaptogen Powered Benefits",
+          "description": "The first protein bar of its kind specially formulated with Organic KSM-66 Ashwagandha, a potent science-backed adaptogen revered for centuries around the world as “nature’s gift to mankind.\""
+        }
+      },
+      "component-press-sample": {
+        "type": "component-press-sample",
+        "blocks": {
+          "1590989460586": {
+            "type": "press",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/GearPatrol.png",
+              "quote": "“Could this be the best keto-friendly protein bar ever?” -Gear Patrol",
+              "color": "#101f2d"
+            }
+          },
+          "1590989488483": {
+            "type": "press",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/VeryWellFit.png",
+              "quote": "“You might expect a low sugar protein bar to be lacking in flavor, but that’s not the case when it comes to Atlas Bar.” -VerywellFit.com",
+              "color": "#101f2d"
+            }
+          },
+          "1590989511551": {
+            "type": "press",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/HungryGirl.png",
+              "quote": "“Atlas Bar is in a league of its own. It’s very rare that a bar makes its way into my life. These are in my purse, and my travel bag. Two thumbs up!” -Hungry Girl",
+              "color": "#101f2d"
+            }
+          },
+          "1590989525510": {
+            "type": "press",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/WomensHealth.png",
+              "quote": "“You can see this bar has a little more protein, it uses grass-fed whey, which is an easily absorbed protein source. Plus, the Vanilla Almond Chai flavor is delicious!” -Women's Health",
+              "color": "#101f2d"
+            }
+          }
+        },
+        "block_order": [
+          "1590989460586",
+          "1590989488483",
+          "1590989511551",
+          "1590989525510"
+        ],
+        "settings": {
+          "title": "Word on the Street"
+        }
+      },
+      "component-highlighted-reviews-sample": {
+        "type": "component-highlighted-reviews-sample",
+        "blocks": {
+          "1590989566892": {
+            "type": "quote",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Breakfast2.jpg",
+              "Icon": "shopify:\/\/shop_images\/Breakfast-Icon_52d0e3b0-fcfe-4f50-83cb-6f4c82617630.png",
+              "title": "On-The-Go-Breakfast",
+              "quote": "“ These protein bars are the BEST! They're full of clean ingredients and they taste AMAZING! Low sugar, high protein, high-fiber. Keeps you full for hours!! ”",
+              "author": "- Peggy R."
+            }
+          },
+          "1590989613275": {
+            "type": "quote",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/PostWorkout.jpg",
+              "Icon": "shopify:\/\/shop_images\/Workout_1556a375-7a45-4ccc-ba4e-bedb52521a46.png",
+              "title": "Post Workout Recovery",
+              "quote": "“ It's hard to find protein bars that are low sugar & made with quality ingredients. These not only meet those criteria, but also taste amazing. Perfect when you’re on the go or need quick recovery food post-workout. ”",
+              "author": "- Matt H."
+            }
+          },
+          "1590989649955": {
+            "type": "quote",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/KetoSnack.jpg",
+              "Icon": "shopify:\/\/shop_images\/Keto.png",
+              "title": "Keto-Friendly Snack",
+              "quote": "“ These bars come through wonderfully on all counts, and taste great! So happy to find protein bars I can rely on. ”",
+              "author": "- Lisa W."
+            }
+          },
+          "1590989672778": {
+            "type": "quote",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Dessert.jpg",
+              "Icon": "shopify:\/\/shop_images\/Dessert.png",
+              "title": "Guilt-Free Dessert",
+              "quote": "“ I found these bars to be very tasty and hit the sweet tooth perfect. They are not hard where you think you’ll loose a tooth but the right amount of soft chewy goodness. ”",
+              "author": "- Liz S."
+            }
+          }
+        },
+        "block_order": [
+          "1590989566892",
+          "1590989613275",
+          "1590989649955",
+          "1590989672778"
+        ],
+        "settings": {
+          "title": "The Fuel Your Body & Mind Need To Succeed",
+          "description": "Wake up energized, sleep soundly, and feel focused throughout the day—it’s your time to shine!"
+        }
+      },
+      "component-reviews-slider-sample": {
+        "type": "component-reviews-slider-sample",
+        "blocks": {
+          "1590989748772": {
+            "type": "review",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ACC.jpg",
+              "quote": "“High quality! You can definitely taste the difference.”",
+              "author": "- Elizabeth T."
+            }
+          },
+          "1590989795485": {
+            "type": "review",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Mix2.jpg",
+              "quote": "“They keep me full and are perfect for keto”",
+              "author": "- Katy M."
+            }
+          },
+          "1590989726262": {
+            "type": "review",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/PBCC.jpg",
+              "quote": "“They taste great and use quality ingredients.”",
+              "author": "- Dominic G."
+            }
+          },
+          "1590989759583": {
+            "type": "review",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Mix.jpg",
+              "quote": "“The protein bars I need in my fast paced, keto-friendly life.”",
+              "author": "- Sandra D."
+            }
+          },
+          "1590989774587": {
+            "type": "review",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/CC.jpg",
+              "quote": "“Taste wise, I think they're about as good as it gets.”",
+              "author": "- Chris W."
+            }
+          }
+        },
+        "block_order": [
+          "1590989748772",
+          "1590989795485",
+          "1590989726262",
+          "1590989759583",
+          "1590989774587"
+        ],
+        "settings": {
+          "title": "50,000+<br>Happy Customers",
+          "description": "Trusted by Thousands of Doers, Dreamers, and Outside-the-Box Thinkers.",
+          "link_text": ""
+        }
+      },
+      "component-split-content-sample": {
+        "type": "component-split-content-sample",
+        "settings": {
+          "type": "new",
+          "subheading": "Fun, Flexible, And Hassle-Free",
+          "title": "Atlas On-Demand",
+          "description": "The fun, flexible, and hassle-free way to keep your pantry stocked with the flavors you love—delivered straight to your doorstep.",
+          "cta_text": "Learn More",
+          "cta_link": "shopify:\/\/products\/build-a-box",
+          "cta_arrow": true,
+          "image": "shopify:\/\/shop_images\/image-split.png",
+          "image_cutoff": true,
+          "background": "#5aaad6"
+        }
+      },
+      "component-hero-trial": {
+        "type": "component-hero-trial",
+        "blocks": {
+          "1591003343042": {
+            "type": "list_item",
+            "settings": {
+              "title": "Try all 6 delicious flavors",
+              "icon": "shopify:\/\/shop_images\/Bars2.png"
+            }
+          },
+          "1591003360912": {
+            "type": "list_item",
+            "settings": {
+              "title": "Free Shipping",
+              "icon": "shopify:\/\/shop_images\/Shipping2.png"
+            }
+          },
+          "1591003369848": {
+            "type": "list_item",
+            "settings": {
+              "title": "Love it, or it's on us",
+              "icon": "shopify:\/\/shop_images\/Satisfaction2.png"
+            }
+          }
+        },
+        "block_order": [
+          "1591003343042",
+          "1591003360912",
+          "1591003369848"
+        ],
+        "settings": {
+          "background_color": "#ffa200",
+          "alternate_color": "#101f2d",
+          "button_text": "Get Started"
+        }
+      },
+      "component-steps-trial": {
+        "type": "component-steps-trial",
+        "blocks": {
+          "1591208478184": {
+            "type": "white_slide",
+            "settings": {
+              "subtitle": "Step 1",
+              "title": "Get Started",
+              "description": "Order your Trial Pack to try all 6 delicious flavors for only $9.95 + Free Shipping.",
+              "image": "shopify:\/\/shop_images\/HowItWorks-1.jpg",
+              "title_mobile": "Get Started",
+              "description_mobile": "Order your Trial Pack to try all 6 delicious flavors for only $9.95 + Free Shipping.",
+              "image_mobile": "shopify:\/\/shop_images\/HowItWorks-mobile-1.jpg"
+            }
+          },
+          "1591214268663": {
+            "type": "white_slide",
+            "settings": {
+              "subtitle": "Step 2",
+              "title": "Receive Notification",
+              "description": "After you’ve had a chance to taste them all, we’ll send you a link to build your box.",
+              "image": "shopify:\/\/shop_images\/Step2_5f7fa186-bd94-48fc-8513-1580685ea661.jpg",
+              "title_mobile": "Receive Notification",
+              "description_mobile": "After you’ve had a chance to taste them all, we’ll send you a link to build your box.",
+              "image_mobile": "shopify:\/\/shop_images\/Step2-mobile_4117d157-a9b0-4ffe-bd9f-97594e0cad4f.jpg"
+            }
+          },
+          "1594833286749": {
+            "type": "white_slide",
+            "settings": {
+              "subtitle": "Step 3",
+              "title": "Build Your Box",
+              "description": "Mix + match flavors to build your own 15-ct custom box. Cancel anytime (it's easy).",
+              "image": "shopify:\/\/shop_images\/Step3.jpg",
+              "title_mobile": "Build Your Box",
+              "description_mobile": "Mix + match flavors to build your own 15-ct custom box. Cancel anytime (it's easy).",
+              "image_mobile": "shopify:\/\/shop_images\/Delivered-mobile.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "1591208478184",
+          "1591214268663",
+          "1594833286749"
+        ],
+        "settings": {
+          "title": "How it Works",
+          "title_mobile": "How It Works",
+          "description": "Try all 6 flavors, then mix + match to build your own custom box with all your favorites. Easily cancel at any time.",
+          "speed": 5
+        }
+      },
+      "component-icons-trial": {
+        "type": "component-icons-trial",
+        "blocks": {
+          "1591003433524": {
+            "type": "icon",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Keto_698fe06c-33b3-4188-b8d3-e1671ec82e38.png",
+              "title": "Keto"
+            }
+          },
+          "7244cc66-eebf-482d-9350-fa64149a65b5": {
+            "type": "icon",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ZeroSugar.png",
+              "title": "Zero Added Sugar"
+            }
+          },
+          "1591003450627": {
+            "type": "icon",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Ashwaganda.png",
+              "title": "Ashwagandha Powered"
+            }
+          },
+          "1591003462011": {
+            "type": "icon",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/GMOs.png",
+              "title": "No GMOs"
+            }
+          },
+          "1591003441143": {
+            "type": "icon",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/GrassFed.png",
+              "title": "Grass-Fed Whey"
+            }
+          },
+          "57549523-18a5-48eb-9da5-b1a0bc1c7b34": {
+            "type": "icon",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Gluten.png",
+              "title": "Gluten Free"
+            }
+          }
+        },
+        "block_order": [
+          "1591003433524",
+          "7244cc66-eebf-482d-9350-fa64149a65b5",
+          "1591003450627",
+          "1591003462011",
+          "1591003441143",
+          "57549523-18a5-48eb-9da5-b1a0bc1c7b34"
+        ],
+        "settings": {
+          "title": "MIND + BODY<br>NUTRITION",
+          "description": "Organic ashwaganda to reduce stress. Grass-fed whey to fuel performance. Zero added sugar. Clean, real-food ingredients."
+        }
+      },
+      "component-ingredients-trial": {
+        "type": "component-ingredients-trial",
+        "blocks": {
+          "1591003513453": {
+            "type": "product",
+            "settings": {
+              "product": "chocolate-cacao-3"
+            }
+          },
+          "1591003526846": {
+            "type": "product",
+            "settings": {
+              "product": "peanut-butter-chocolate-chip-2"
+            }
+          },
+          "1591003522791": {
+            "type": "product",
+            "settings": {
+              "product": "peanut-butter-raspberry-2"
+            }
+          },
+          "1591003509770": {
+            "type": "product",
+            "settings": {
+              "product": "almond-chocolate-chip-2"
+            }
+          },
+          "1591003518457": {
+            "type": "product",
+            "settings": {
+              "product": "copy-of-mint-chocolate-chip"
+            }
+          },
+          "1591003530954": {
+            "type": "product",
+            "settings": {
+              "product": "vanilla-almond-chai-2"
+            }
+          }
+        },
+        "block_order": [
+          "1591003513453",
+          "1591003526846",
+          "1591003522791",
+          "1591003509770",
+          "1591003518457",
+          "1591003530954"
+        ],
+        "settings": {}
+      },
+      "component-list-image-trial": {
+        "type": "component-list-image-trial",
+        "blocks": {
+          "1591003567642": {
+            "type": "item",
+            "settings": {
+              "title": "Reduce Everyday  Stress"
+            }
+          },
+          "1591003570904": {
+            "type": "item",
+            "settings": {
+              "title": "Elevate Mood + Energy"
+            }
+          },
+          "1591003574864": {
+            "type": "item",
+            "settings": {
+              "title": "Improve Focus + Sleep Quality"
+            }
+          }
+        },
+        "block_order": [
+          "1591003567642",
+          "1591003570904",
+          "1591003574864"
+        ],
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Ashwagandha_eacb45f3-3e12-4c84-9c7a-c72efaa7eda0.png",
+          "icon": "shopify:\/\/shop_images\/bolt.png",
+          "title": "Ashwagandha<br>Powered",
+          "description": "Pronounced osh-wah-gand-da\n(don’t worry, it took us 6 months before we could say it) is a small shrub (like cranberries) that has been used for over 5,000 years in India to promote mind + body wellness."
+        }
+      },
+      "component-press-trial": {
+        "type": "component-press-trial",
+        "blocks": {
+          "1591003599524": {
+            "type": "press",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/GearPatrol.png",
+              "quote": "“Could this be the best keto-friendly protein bar ever?” -Gear Patrol",
+              "color": "#101f2d"
+            }
+          },
+          "1591003610985": {
+            "type": "press",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/VeryWellFit.png",
+              "quote": "“You might expect a low sugar protein bar to be lacking in flavor, but that’s not the case when it comes to Atlas Bar.” -VerywellFit.com",
+              "color": "#101f2d"
+            }
+          },
+          "1591003635678": {
+            "type": "press",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/HungryGirl.png",
+              "quote": "“Atlas Bar is in a league of its own. It’s very rare that a bar makes its way into my life. These are in my purse, and my travel bag. Two thumbs up!” -Hungry Girl",
+              "color": "#101f2d"
+            }
+          },
+          "1591003647058": {
+            "type": "press",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/WomensHealth.png",
+              "quote": "“You can see this bar has a little more protein, it uses grass-fed whey, which is an easily absorbed protein sources. Plus, the Vanilla Almond Chai flavor is delicious!” -Women's Health",
+              "color": "#101f2d"
+            }
+          }
+        },
+        "block_order": [
+          "1591003599524",
+          "1591003610985",
+          "1591003635678",
+          "1591003647058"
+        ],
+        "settings": {
+          "title": "Word on the Street"
+        }
+      },
+      "component-highlighted-reviews-trial": {
+        "type": "component-highlighted-reviews-trial",
+        "blocks": {
+          "1591003709929": {
+            "type": "quote",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Breakfast2.jpg",
+              "Icon": "shopify:\/\/shop_images\/Breakfast-Icon_52d0e3b0-fcfe-4f50-83cb-6f4c82617630.png",
+              "title": "On-The-Go-Breakfast",
+              "quote": "“ These protein bars are the BEST! They're full of clean ingredients and they taste AMAZING! Low sugar, high protein, high-fiber. Keeps you full for hours!! ”",
+              "author": "- Peggy R."
+            }
+          },
+          "1591003726736": {
+            "type": "quote",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/PostWorkout.jpg",
+              "Icon": "shopify:\/\/shop_images\/Workout_1556a375-7a45-4ccc-ba4e-bedb52521a46.png",
+              "title": "Post Workout Recovery",
+              "quote": "“ It's hard to find protein bars that are low sugar & made with quality ingredients. These not only meet those criteria, but also taste amazing. Perfect when you’re on the go or need quick recovery food post-workout. ”",
+              "author": "- Matt H."
+            }
+          },
+          "1591003742129": {
+            "type": "quote",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/KetoSnack.jpg",
+              "Icon": "shopify:\/\/shop_images\/Keto.png",
+              "title": "Keto-Friendly Snack",
+              "quote": "“ These bars come through wonderfully on all counts, and taste great! So happy to find protein bars I can rely on. ”",
+              "author": "- Lisa W."
+            }
+          },
+          "1591003757060": {
+            "type": "quote",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Dessert.jpg",
+              "Icon": "shopify:\/\/shop_images\/Dessert.png",
+              "title": "Guilt-Free Dessert",
+              "quote": "“ I found these bars to be very tasty and hit the sweet tooth perfect. They are not hard where you think you’ll loose a tooth but the right amount of soft chewy goodness. ”",
+              "author": "- Liz S."
+            }
+          }
+        },
+        "block_order": [
+          "1591003709929",
+          "1591003726736",
+          "1591003742129",
+          "1591003757060"
+        ],
+        "settings": {
+          "title": "The Fuel Your Body & Mind Need To Succeed",
+          "description": "Wake up energized, sleep soundly, and feel focused throughout the day—it’s your time to shine!"
+        }
+      },
+      "component-reviews-slider-trial": {
+        "type": "component-reviews-slider-trial",
+        "blocks": {
+          "1591003796632": {
+            "type": "review",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/UGC-1_9eaa003a-6a35-455b-8024-97c5eebbb61a.jpg",
+              "quote": "“This is the best bar I've ever eaten. 100\/10 Recommend 🙌”",
+              "author": "- Katy M."
+            }
+          },
+          "1591003787263": {
+            "type": "review",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/MCC.jpg",
+              "quote": "“Yum! Easy and delicious - I love every flavor. 😍”",
+              "author": "- Bryan T."
+            }
+          },
+          "1591003812683": {
+            "type": "review",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/UGC-1.jpg",
+              "quote": "“Blown away by these bars! You earned a customer for life.”",
+              "author": "- Lizzy P."
+            }
+          },
+          "25b36088-e48e-4215-a286-7b14927278d7": {
+            "type": "review",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/UGC-4.jpg",
+              "quote": "\"Love being able to mix & match flavors. Awesome customer service.\"",
+              "author": "Isaiah S."
+            }
+          },
+          "1591003804594": {
+            "type": "review",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/SHHH.jpg",
+              "quote": "“Not chalky and no weird aftertaste. New fave bars!!!”",
+              "author": "- Shelby D."
+            }
+          },
+          "a318eacd-3bdf-46b1-a76e-b2c71e8a80ab": {
+            "type": "review",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/VAC-UGC.jpg",
+              "quote": "\"Super healthy, great meal replacement. I just put in my order for 30 more.\"",
+              "author": "Payton B."
+            }
+          },
+          "a37d4e4b-cf6a-4d44-b199-0159e0053a8d": {
+            "type": "review",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/UGC-5.jpg",
+              "quote": "\"Echoing the other reviews, but the truth speaks! They ARE the BEST!\"",
+              "author": "David R."
+            }
+          }
+        },
+        "block_order": [
+          "1591003796632",
+          "1591003787263",
+          "1591003812683",
+          "25b36088-e48e-4215-a286-7b14927278d7",
+          "1591003804594",
+          "a318eacd-3bdf-46b1-a76e-b2c71e8a80ab",
+          "a37d4e4b-cf6a-4d44-b199-0159e0053a8d"
+        ],
+        "settings": {
+          "title": "50,000+<br>Happy Customers",
+          "description": "Feeling good tastes great! Trusted by thousands for mind + body wellness.",
+          "link_text": ""
+        }
+      },
+      "component-split-content-trial": {
+        "type": "component-split-content-trial",
+        "settings": {
+          "subheading": "YOUR SPECIAL OFFER",
+          "title": "Get 30% off the Sample Pack",
+          "description": "Atlas On-Demand is the fun, flexible, and hassle-free way to keep your pantry stocked with the flavors you love—delivered straight to your doorstep.",
+          "cta_text": "Start Your Risk-Free Trial",
+          "cta_arrow": true,
+          "image": "shopify:\/\/shop_images\/image-split.png",
+          "image_cutoff": true,
+          "background": "#27c7ba"
+        }
+      },
+      "widget-trial": {
+        "type": "widget-trial",
+        "settings": {
+          "trial_frequency": "21",
+          "trial_unit": "day",
+          "parent": "15-ct-power-pack",
+          "size": "15",
+          "bundle_frequency": "30",
+          "bundle_unit": "day",
+          "title": "Best Sellers",
+          "children": "4877239681126x3\n4877235519590x3\n4877239320678x3\n4877233717350x3\n4877238927462x2\n4877245055078x1"
+        }
+      },
+      "1591809403221": {
+        "type": "component-icons",
+        "blocks": {
+          "1591809422018": {
+            "type": "icon",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Keto_698fe06c-33b3-4188-b8d3-e1671ec82e38.png",
+              "title": "Keto"
+            }
+          },
+          "1591809480589": {
+            "type": "icon",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ZeroSugar.png",
+              "title": "Zero Added Sugar"
+            }
+          },
+          "1591809448355": {
+            "type": "icon",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Ashwaganda.png",
+              "title": "Adaptogen Powered"
+            }
+          },
+          "1591809433830": {
+            "type": "icon",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/GrassFed.png",
+              "title": "Grass-Fed Whey"
+            }
+          },
+          "1591809461038": {
+            "type": "icon",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/icon-no-gmos.png",
+              "title": "No GMOs"
+            }
+          },
+          "40cfbfc2-6569-4784-bf43-5abb0e41c7a1": {
+            "type": "icon",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Gluten.png",
+              "title": "Gluten Free"
+            }
+          }
+        },
+        "block_order": [
+          "1591809422018",
+          "1591809480589",
+          "1591809448355",
+          "1591809433830",
+          "1591809461038",
+          "40cfbfc2-6569-4784-bf43-5abb0e41c7a1"
+        ],
+        "settings": {
+          "title": "MIND + BODY<br>NUTRITION",
+          "description": "Organic ashwagandha to reduce stress. Grass-fed whey to fuel performance. Zero added sugar. Clean, real-food ingredients."
+        }
+      },
+      "1591810308023": {
+        "type": "component-reviews-slider",
+        "blocks": {
+          "1591810318966": {
+            "type": "review",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/PBCC-UGC.jpg",
+              "quote": "“They are filling and tasty and helped me in my journey to become healthier.”",
+              "author": "- Lindsay K."
+            }
+          },
+          "7a9c8132-6a07-49f9-a0e5-5e96b4f40f7f": {
+            "type": "review",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/UGC-5.jpg",
+              "quote": "\"Echoing the other reviews, but the truth speaks! They ARE the BEST!\"",
+              "author": "David R."
+            }
+          },
+          "1591810390365": {
+            "type": "review",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/VAC-edited.jpg",
+              "quote": "“These are my favorite bars! They do not taste chalky and they keep me full.”",
+              "author": "- Chelsea M."
+            }
+          },
+          "1591810331813": {
+            "type": "review",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Review-2_8a08e0ee-3c62-4bc0-9104-481f23f6ff4e.jpg",
+              "quote": "“I really love the taste of these bars. They're such a good treat & extremely healthy.”",
+              "author": "- Shyla C."
+            }
+          },
+          "1591810345875": {
+            "type": "review",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/review-3_41f87e16-7a31-4780-b6f4-789a94906889.jpg",
+              "quote": "“Really kickstarts my day with healthy ingredients & even gives me steady energy.”",
+              "author": "- Bella H."
+            }
+          },
+          "1591810372655": {
+            "type": "review",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/UGC-1_9eaa003a-6a35-455b-8024-97c5eebbb61a.jpg",
+              "quote": "“This is the best bar I've ever eaten. 100\/10 Recommend 🙌”",
+              "author": "- Sarah G."
+            }
+          },
+          "4c54a361-104c-4a87-8ef6-34ed66d3148d": {
+            "type": "review",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/UGC-4.jpg",
+              "quote": "\"Love being able to mix & match flavors. Awesome customer service.\"",
+              "author": "Isaiah S."
+            }
+          }
+        },
+        "block_order": [
+          "1591810318966",
+          "7a9c8132-6a07-49f9-a0e5-5e96b4f40f7f",
+          "1591810390365",
+          "1591810331813",
+          "1591810345875",
+          "1591810372655",
+          "4c54a361-104c-4a87-8ef6-34ed66d3148d"
+        ],
+        "settings": {
+          "title": "50,000+<br>Happy Customers",
+          "description": "Trusted by thousands for mind + body wellness.",
+          "link": "shopify:\/\/products\/trial-pack",
+          "link_text": "Shop Trial Pack →"
+        }
+      },
+      "1591811143059": {
+        "type": "component-press",
+        "blocks": {
+          "1591811151344": {
+            "type": "press",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/GearPatrol.png",
+              "quote": "“Could this be the best keto-friendly protein bar ever?” -Gear Patrol",
+              "color": "#101f2d"
+            }
+          },
+          "1591811227494": {
+            "type": "press",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/VeryWellFit.png",
+              "quote": "“You might expect a low sugar protein bar to be lacking in flavor, but that’s not the case when it comes to Atlas Bar.” -VerywellFit.com",
+              "color": "#101f2d"
+            }
+          },
+          "1591811200185": {
+            "type": "press",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/HungryGirl.png",
+              "quote": "“Atlas Bar is in a league of its own. It’s very rare that a bar makes its way into my life. These are in my purse, and my travel bag. Two thumbs up!” -Hungry Girl",
+              "color": "#101f2d"
+            }
+          },
+          "1591811242558": {
+            "type": "press",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/WomensHealth.png",
+              "quote": "“You can see this bar has a little more protein, it uses grass-fed whey, which is an easily absorbed protein source. Plus, the Vanilla Almond Chai flavor is delicious!” -Women's Health",
+              "color": "#101f2d"
+            }
+          }
+        },
+        "block_order": [
+          "1591811151344",
+          "1591811227494",
+          "1591811200185",
+          "1591811242558"
+        ],
+        "settings": {
+          "title": "Word on the Street"
+        }
+      },
+      "1591813442889": {
+        "type": "component-list-image",
+        "blocks": {
+          "1591813469339": {
+            "type": "item",
+            "settings": {
+              "title": "Save 15% + free 2-day shipping."
+            }
+          },
+          "1591813485340": {
+            "type": "item",
+            "settings": {
+              "title": "Cancel anytime (it's easy)."
+            }
+          },
+          "1591813476080": {
+            "type": "item",
+            "settings": {
+              "title": "3X rewards on every order."
+            }
+          }
+        },
+        "block_order": [
+          "1591813469339",
+          "1591813485340",
+          "1591813476080"
+        ],
+        "settings": {
+          "type": "new",
+          "image": "shopify:\/\/shop_images\/home-list.png",
+          "title": "Atlas On-Demand",
+          "description": "We make subscriptions fun, flexible, and hassle-free.",
+          "cta_link": "shopify:\/\/products\/build-a-box",
+          "cta_text": "Build Your Box"
+        }
+      },
+      "1591916156639": {
+        "type": "component-content-image",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/north-star-profile.png",
+          "title": "The Atlas Bar North Star",
+          "description": "“We use MIND + BODY nutrition to help people thrive through the ups and downs.”",
+          "signature_image": "shopify:\/\/shop_images\/north-star-signature.png",
+          "signature_text": "James Oliver, Founder\nCertified Sports Nutritionist"
+        }
+      },
+      "1591920707361": {
+        "type": "component-home-hero",
+        "blocks": {
+          "1591920711039": {
+            "type": "slide",
+            "settings": {
+              "background_color": "#f26950",
+              "title": "Feeling good<br>tastes great.",
+              "description": "Mind + Body Nutrition—so you can wake up energized, sleep soundly, and feel focused throughout the day.",
+              "cta_link": "shopify:\/\/products\/trial-pack",
+              "cta_text": "Try All 6 Flavors",
+              "image": "shopify:\/\/shop_images\/Trial-Banner_5bb895f5-6930-47eb-b2f8-e87affb8fdca.jpg",
+              "image_mobile": "shopify:\/\/shop_images\/Trial-Mobile_12b19a55-97de-4874-9ac2-2899441480f0.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "1591920711039"
+        ],
+        "settings": {
+          "speed": 3
+        }
+      },
+      "1591999470194": {
+        "type": "component-cards",
+        "blocks": {
+          "1591999516140": {
+            "type": "card",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Mind_eab54090-1187-4c60-928b-2d80350c573a.jpg",
+              "icon": "shopify:\/\/shop_images\/Mind.png",
+              "title": "MIND",
+              "description": "Reduce everyday stress.<br>Improve focus."
+            }
+          },
+          "1591999965632": {
+            "type": "card",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Body.jpg",
+              "icon": "shopify:\/\/shop_images\/Performance.png",
+              "title": "BODY",
+              "description": "Reduce cravings.<br>Elevate energy."
+            }
+          },
+          "1591999990838": {
+            "type": "card",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Wellness-3.jpg",
+              "icon": "shopify:\/\/shop_images\/Body.png",
+              "title": "WELLNESS",
+              "description": "Boost immunity.<br>Improve sleep quality."
+            }
+          }
+        },
+        "block_order": [
+          "1591999516140",
+          "1591999965632",
+          "1591999990838"
+        ],
+        "settings": {
+          "title": "Ashwagandha Powered",
+          "description": "Better for your body, starting with your mind—so you can live, work, think and feel your best.",
+          "icon": "shopify:\/\/shop_images\/bolt.png"
+        }
+      },
+      "1592123594181": {
+        "type": "component-bars",
+        "blocks": {
+          "1592123632296": {
+            "type": "bar",
+            "settings": {
+              "product": "peanut-butter-chocolate-chip-2",
+              "description": "Sweet, salty, rich and delicious – what’s not to love?"
+            }
+          },
+          "1592123644528": {
+            "type": "bar",
+            "settings": {
+              "product": "chocolate-cacao-3",
+              "description": "Creamy almond butter, fresh cocoa powder, and dark chocolate chips—chocolate lovers unite!"
+            }
+          },
+          "1592123618734": {
+            "type": "bar",
+            "settings": {
+              "product": "peanut-butter-raspberry-2",
+              "description": "Warning!!! This modern take on the classic PB&J has been known to cause severe happiness."
+            }
+          },
+          "1592123609037": {
+            "type": "bar",
+            "settings": {
+              "product": "almond-chocolate-chip-2",
+              "description": "Remember those cookies Grandma used to make? It’s like that, only better."
+            }
+          },
+          "1592123626400": {
+            "type": "bar",
+            "settings": {
+              "product": "copy-of-mint-chocolate-chip",
+              "description": "A kiss of cool mint + rich chocolatey goodness...former Girl Scouts beware!"
+            }
+          },
+          "1592123637636": {
+            "type": "bar",
+            "settings": {
+              "product": "vanilla-almond-chai-2",
+              "description": "Some say it tastes like a snickerdoodle, others a churro. We’ll let you decide!"
+            }
+          }
+        },
+        "block_order": [
+          "1592123632296",
+          "1592123644528",
+          "1592123618734",
+          "1592123609037",
+          "1592123626400",
+          "1592123637636"
+        ],
+        "settings": {}
+      },
+      "1593644042170": {
+        "type": "component-list-image",
+        "settings": {
+          "type": "returning",
+          "image": "shopify:\/\/shop_images\/home-list.png",
+          "title": "Atlas On-Demand",
+          "description": "We make subscriptions fun, flexible, and hassle-free.",
+          "cta_link": "shopify:\/\/products\/build-a-box",
+          "cta_text": "Build Your Box"
+        }
+      },
+      "component-split-content-sample-2": {
+        "type": "component-split-content-sample-2",
+        "settings": {
+          "type": "returning",
+          "subheading": "Fun, Flexible, and Hassle-Free",
+          "title": "Atlas On-Demand",
+          "description": "Whether on-the-go or working from home, staying fit, fueled, and feeling good has never been easier. Keep your pantry stocked with the flavors you love—delivered straight to your doorstep.",
+          "cta_text": "LEARN MORE",
+          "cta_link": "shopify:\/\/products\/build-a-box",
+          "cta_arrow": true,
+          "image": "shopify:\/\/shop_images\/image-split.png",
+          "image_cutoff": true,
+          "background": "#5aaad6"
+        }
+      },
+      "form-title": {
+        "type": "form-title",
+        "settings": {
+          "title": "My Account"
+        }
+      },
+      "form-register": {
+        "type": "form-register",
+        "settings": {
+          "heading": "",
+          "text": "",
+          "first_name_placeholder": "",
+          "last_name_placeholder": "",
+          "email_placeholder": "",
+          "password_placeholder": "",
+          "submit_button": "",
+          "account_text": "",
+          "account_link": ""
+        }
+      },
+      "component-faq": {
+        "type": "component-faq",
+        "blocks": {
+          "1593627161728": {
+            "type": "dropdown_item",
+            "settings": {
+              "item_title": "Can I really cancel anytime?",
+              "item_content": "<p>Absolutely! Unlike typical subscriptions, we make it really easy - simply email us at vip@atlasbars.com with &quot;CANCEL&quot;.<\/p>"
+            }
+          },
+          "1593627199661": {
+            "type": "dropdown_item",
+            "settings": {
+              "item_title": "What if I don’t end up liking them?",
+              "item_content": "<p>We offer a 100% satisfaction guarantee. If you don&#x27;t love your Trial Pack, it&#x27;s on us.<\/p>"
+            }
+          },
+          "1594760971624": {
+            "type": "dropdown_item",
+            "settings": {
+              "item_title": "When do I build my custom box?",
+              "item_content": "<p>After you&#x27;ve received your Trial Pack and tried all the flavors, we&#x27;ll send you a link to build your custom box. You can mix + match as many flavors as you want, as well as make changes to your subscription.<\/p>"
+            }
+          },
+          "783b8ca4-43ba-4f3d-b68c-1543b54e7480": {
+            "type": "dropdown_item",
+            "settings": {
+              "item_title": "Can Atlas Bars be used as a meal replacement?",
+              "item_content": "<p>Absolutely! With 15g+ protein and 10g+ fiber, Atlas Bars fill you up and help curb cravings. Many of our customers eat Atlas Bars for breakfast, in between meals, or as a guilt-free dessert that fits their low-sugar lifestyle.<\/p>"
+            }
+          },
+          "1593627143717": {
+            "type": "dropdown_item",
+            "settings": {
+              "item_title": "Does the fiber contain IMOs?",
+              "item_content": "<p>Not a chance! We use a resistant starch tapioca fiber that won’t spike your blood sugar levels. It’s keto-friendly, low-glycemic, and safe for diabetics. Not only that, it can help curb cravings and supports healthy hormone signaling. Mind + body win!<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1593627161728",
+          "1593627199661",
+          "1594760971624",
+          "783b8ca4-43ba-4f3d-b68c-1543b54e7480",
+          "1593627143717"
+        ],
+        "settings": {
+          "title": "FAQ"
+        }
+      },
+      "1594099773564": {
+        "type": "component-instagram",
+        "settings": {
+          "title": "Let's",
+          "hashtag": "#fueltheimpossible",
+          "handle": "@ATLASBARS",
+          "description": "Every great achievement was once considered impossible.",
+          "code": "<script src=\"\/\/foursixty.com\/media\/scripts\/fs.slider.v2.5.js\" data-feed-id=\"atlas-bar\" data-theme=\"slider_v2_5\" data-cell-size=\"300\" data-product-images=\"false\"><\/script><style>.fs-has-links {display:none;}.fs-entry-container { width: 300px !important; height: 300px !important; } path.fs-arrow { stroke: #222; }.fs-wrapper div.fs-text-container .fs-entry-title, div.fs-detail-title{font-family:Times New Roman, serif;font-style:italic;font-weight:normal;}div.fs-text-container .fs-entry-date, div.fs-detail-container .fs-post-info, div.fs-wrapper div.fs-has-links::after, .fs-text-product, .fs-overlink-text{font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-style:normal;font-weight:bold;}.fs-wrapper div.fs-text-container * {color:#fff}.fs-wrapper div.fs-text-container {background-color:rgba(16, 31, 45, 0.7); margin: 0px}div.fs-entry-date{display:none}div.fs-entry-title{display:none}.fs-wrapper div.fs-timeline-entry{ margin: 24px }<\/style>"
+        }
+      },
+      "widget-portal-products": {
+        "type": "widget-portal-products",
+        "settings": {
+          "catalog": "portal-products"
+        }
+      },
+      "component-rewards-hero": {
+        "type": "component-rewards-hero",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/test3.jpg",
+          "mobile_image": "shopify:\/\/shop_images\/Mobile-test.jpg",
+          "title": "Atlas Rewards",
+          "description": "Get rewarded while you eat! Simply shop & share to earn points for deep loyalty discounts, free gifts, and more!",
+          "cta_1_link": "\/account\/login",
+          "cta_1_text": "Join Now",
+          "cta_2_link": "\/account\/login",
+          "cta_2_text": "Login",
+          "cta_1_link_user": "#rewards-points",
+          "cta_1_text_user": "Rack Up Points",
+          "cta_2_link_user": "#rewards-redeem",
+          "cta_2_text_user": "Redeem Rewards"
+        }
+      },
+      "component-rewards-how": {
+        "type": "component-rewards-how",
+        "blocks": {
+          "1597195545755": {
+            "type": "card",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/works-1_608b3455-8f16-41f3-a4c9-8bb32c0707bd.png",
+              "title": "Create an Account",
+              "description": "Get 250 points just by signing up! <br>It’s FREE to join."
+            }
+          },
+          "1597195697551": {
+            "type": "card",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/works-2_2cdc39b4-88f5-42d7-8336-bdcece366355.png",
+              "title": "Earn Points",
+              "description": "Earn points on every purchase and enjoy membership benefits."
+            }
+          },
+          "1597195720383": {
+            "type": "card",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/works-3_0b1da597-9e31-467d-8f86-be5d0c73ef63.png",
+              "title": "Get Rewarded",
+              "description": "Redeem points for exclusive rewards and discounts."
+            }
+          }
+        },
+        "block_order": [
+          "1597195545755",
+          "1597195697551",
+          "1597195720383"
+        ],
+        "settings": {
+          "title": "How It Works"
+        }
+      },
+      "component-rewards-perks": {
+        "type": "component-rewards-perks",
+        "blocks": {
+          "1597195798956": {
+            "type": "tier",
+            "settings": {
+              "title": "Classic Member",
+              "points": "One-Time Purchases",
+              "perks": "1 Point (per $1 spent)\nCreate Account Bonus\nFirst Build A Box Bonus\nBirthday Gift",
+              "image": "shopify:\/\/shop_images\/Classic3.jpg"
+            }
+          },
+          "1597195833527": {
+            "type": "tier",
+            "settings": {
+              "title": "On-Demand Member",
+              "points": "Subscription Purchases",
+              "perks": "3 Points (per $1 spent)\nCreate Account Bonus\nFirst Build A Box Bonus\nBirthday Gift\nEarly Access\nSpecial Offers\nExclusive Giveaways",
+              "image": "shopify:\/\/shop_images\/Demand2.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "1597195798956",
+          "1597195833527"
+        ],
+        "settings": {
+          "title": "Membership Perks",
+          "description": "Get rewarded every time you shop! <br> On-Demand members get triple points per purchase & even more perks.",
+          "cta_link": "\/account\/login",
+          "cta_text": "Get Started",
+          "logged_in_title": "Membership Status",
+          "logged_in_description": "Get rewarded every time you shop! <br> On-Demand members get triple points per purchase & even more perks."
+        }
+      },
+      "component-rewards-points": {
+        "type": "component-rewards-points",
+        "blocks": {
+          "1597196090549": {
+            "type": "action",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/CreateAccount.png",
+              "color": "#ffa200",
+              "title": "Create Account",
+              "description": "Score 250 points just for signing up!",
+              "cta_label": ""
+            }
+          },
+          "1597196306207": {
+            "type": "action",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Purchase.png",
+              "color": "#ffa200",
+              "title": "Purchase Bars",
+              "description": "Receive rewards points every time you shop.",
+              "cta_label": ""
+            }
+          },
+          "1597196188174": {
+            "type": "action",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Instagram_103a2293-1bd6-4e2b-9485-7a6d264bac29.png",
+              "color": "#ffa200",
+              "title": "Follow Us On IG",
+              "description": "25 points when you follow us on the gram.",
+              "cta_label": ""
+            }
+          },
+          "1597196247912": {
+            "type": "action",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Newsletter.png",
+              "color": "#ffa200",
+              "title": "Get On The List",
+              "description": "75 points when you subscribe to our newsletter.",
+              "cta_label": ""
+            }
+          },
+          "1597196213299": {
+            "type": "action",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Birthday.png",
+              "color": "#ffa200",
+              "title": "Happy Birthday",
+              "description": "Every member receives a birthday gift!",
+              "cta_label": ""
+            }
+          },
+          "1597196008623": {
+            "type": "action",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Bars_67c0c194-ff97-4a2e-b050-674569b92b36.png",
+              "color": "#ffa200",
+              "title": "Build A Box",
+              "description": "Up To 1,000 points when you order your first Build A Box.",
+              "cta_label": "Shop Now",
+              "cta_link": "shopify:\/\/products\/build-a-box"
+            }
+          },
+          "1597419216701": {
+            "type": "action",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Review_bdb05a01-4562-4e82-a7d2-24bdef51aa33.png",
+              "color": "#ffa200",
+              "title": "Leave Review",
+              "description": "Up to 500 points for<br>leaving a review.",
+              "cta_label": ""
+            }
+          },
+          "1597196274821": {
+            "type": "action",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Refer.png",
+              "color": "#ffa200",
+              "title": "Refer A Friend",
+              "description": "1,000 points for every new customer referred.",
+              "cta_label": ""
+            }
+          }
+        },
+        "block_order": [
+          "1597196090549",
+          "1597196306207",
+          "1597196188174",
+          "1597196247912",
+          "1597196213299",
+          "1597196008623",
+          "1597419216701",
+          "1597196274821"
+        ],
+        "settings": {
+          "title": "Rack Up Points",
+          "points": "Spend $1 = 1 Point\nOn-Demand Members = 3 Points"
+        }
+      },
+      "component-rewards-rewards": {
+        "type": "component-rewards-rewards",
+        "blocks": {
+          "1597196466759": {
+            "type": "reward",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/CashReward.png",
+              "title": "Cash Off",
+              "description": "Apply points at checkout or redeem on future purchases."
+            }
+          },
+          "1597196483569": {
+            "type": "reward",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/FreeBars.png",
+              "title": "Free Bars",
+              "description": "Exchange points for more Atlas Bars... health yea!"
+            }
+          }
+        },
+        "block_order": [
+          "1597196466759",
+          "1597196483569"
+        ],
+        "settings": {
+          "title": "Redeem Rewards",
+          "description": "",
+          "logged_in_description": "Redeeming your points is easy! Simply apply your points at checkout or redeem below.",
+          "icon": "shopify:\/\/shop_images\/CashReward.png",
+          "color": "#27c7ba",
+          "cta_link": "\/account\/login",
+          "cta_text": "Let's Do This"
+        }
+      },
+      "component-rewards-refer": {
+        "type": "component-rewards-refer",
+        "settings": {
+          "subheading": "Referral program",
+          "title": "Give $10. Get $10.",
+          "description": "Earn 1,000 points every time you refer a friend who makes their first purchase.",
+          "image": "shopify:\/\/shop_images\/Test4.png",
+          "cta_link": "\/account\/login",
+          "cta_text": "Get Started",
+          "background": "shopify:\/\/shop_images\/referral.jpg"
+        }
+      },
+      "component-rewards-faq": {
+        "type": "component-rewards-faq",
+        "blocks": {
+          "1597196676024": {
+            "type": "dropdown_item",
+            "settings": {
+              "item_title": "Does it cost anything to sign up or be a member?",
+              "item_content": "<p>Nope! The program is completely free of charge and you can deactivate your account whenever you&rsquo;d like (although we hope you never do).<\/p>"
+            }
+          },
+          "1597196680526": {
+            "type": "dropdown_item",
+            "settings": {
+              "item_title": "Does every purchase earn points?",
+              "item_content": "<p>Once you have your account set up, you&rsquo;re all set to start earning points. Earn 1 point for every $1 spent and get <strong>3X points for On-Demand purchases.<\/strong><\/p>"
+            }
+          },
+          "1597686338187": {
+            "type": "dropdown_item",
+            "settings": {
+              "item_title": "How do I redeem my points?",
+              "item_content": "<p>You can redeem your points for rewards such as cash off your next order or exclusive Atlas Bar swag.<\/p>\n<p><\/p>\n<p>Every 1,000 points = $10&nbsp;Atlas Rewards<\/p>"
+            }
+          },
+          "1597686568096": {
+            "type": "dropdown_item",
+            "settings": {
+              "item_title": "How can I check my current balance?",
+              "item_content": "<p>You can keep track of how many points you&rsquo;ve earned by logging into your account (or creating an account) and visiting our&nbsp;Atlas Rewards page.<\/p>"
+            }
+          },
+          "1597686268156": {
+            "type": "dropdown_item",
+            "settings": {
+              "item_title": "Will my points ever expire?",
+              "item_content": "<p>Nope! These are your hard earned points, we&nbsp;wouldn't want to take them from you.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1597196676024",
+          "1597196680526",
+          "1597686338187",
+          "1597686568096",
+          "1597686268156"
+        ],
+        "settings": {
+          "title": "FAQ"
+        }
+      },
+      "component-cards": {
+        "type": "component-cards",
+        "blocks": {
+          "1602267916511": {
+            "type": "card",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Mind_eab54090-1187-4c60-928b-2d80350c573a.jpg",
+              "icon": "shopify:\/\/shop_images\/Mind.png",
+              "title": "MIND",
+              "description": "Stress less and<br>\nfind your focus."
+            }
+          },
+          "1602268002890": {
+            "type": "card",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Body.jpg",
+              "icon": "shopify:\/\/shop_images\/Performance.png",
+              "title": "BODY",
+              "description": "Curb your cravings and<br>\nstrengthen your body."
+            }
+          },
+          "1602268047257": {
+            "type": "card",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Wellness-3.jpg",
+              "icon": "shopify:\/\/shop_images\/Body.png",
+              "title": "WELLNESS",
+              "description": "Boost your energy<br>\nand feel restored."
+            }
+          }
+        },
+        "block_order": [
+          "1602267916511",
+          "1602268002890",
+          "1602268047257"
+        ],
+        "settings": {
+          "title": "Adaptogen Powered Performance",
+          "description": "The first adaptogen powered protein bar specially formulated to help your body and mind thrive.",
+          "icon": "shopify:\/\/shop_images\/bolt.png"
+        }
+      }
+    },
+    "content_for_index": [
+      "1591920707361",
+      "1591810308023",
+      "1591809403221",
+      "1592123594181",
+      "1591999470194",
+      "1591916156639",
+      "1591811143059",
+      "1591813442889",
+      "1593644042170",
+      "1594099773564"
+    ]
+  },
   "presets": {
     "Default": {}
   }

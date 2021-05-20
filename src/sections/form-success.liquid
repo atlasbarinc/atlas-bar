@@ -1,0 +1,63 @@
+{% assign heading = "SUCCESS!" %}
+{% assign text = "We’ve sent you an email with instructions on how to reset your password." %}
+
+{% if section.settings.heading != blank %}{% assign heading = section.settings.heading %}{% endif %}
+{% if section.settings.text != blank %}{% assign text = section.settings.text %}{% endif %}
+
+<div class="c-formSuccess c-form c-form--isNarrow u-hide"
+  data-form-recover
+>
+  <div class="c-formSuccess__container o-pageNarrow">
+    <div class="c-formSuccess__heading--container">
+      <img class="c-formSuccess__image" src="{{ section.settings.success_image | img_url: 'original' }}">
+      <h1 class="c-formSuccess__heading c-h1 c-form__heading u-textCenter">
+        {{ heading }}
+      </h1> 
+    </div>
+    {% if section.settings.text != blank %}
+      <p class="c-formSuccess__text c-p3 c-form__text u-textCenter">
+        {{ section.settings.text }}
+      </p>
+    {% endif %}
+    <a href="#" class="c-formSuccess__forgotLink c-form__subLink" data-form-login-trigger>
+      {% if section.settings.remember_password_link != blank %}
+        {{ section.settings.remember_password_link }}
+      {% endif %}
+    </a>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Form Success",
+    "settings": [
+      {
+        "id": "heading",
+        "type": "text",
+        "label": "Heading"
+      },
+      {
+        "id": "success_image",
+        "type": "image_picker",
+        "label": "Success Heading Image"
+      },
+      {
+        "id": "text",
+        "type": "text",
+        "label": "Text",
+        "default": "We’ve sent you an email with instructions on how to reset your password."
+      },
+      {
+        "id": "remember_password_text",
+        "type": "text",
+        "label": "Remember Password Text"
+      },
+      {
+        "id": "remember_password_link",
+        "type": "text",
+        "label": "Remember Password Link",
+        "default": "Back to Login"
+      }
+    ]
+  }
+{% endschema %}

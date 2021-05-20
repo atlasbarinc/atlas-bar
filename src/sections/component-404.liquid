@@ -1,0 +1,64 @@
+{{ 'component-404.css' | asset_url | stylesheet_tag }}
+
+{% render 'component-404' %}
+
+
+{% schema %}
+  {
+    "name": "404 Section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "text_one",
+        "label": "Top Text",
+        "default": "404 ERROR"
+      },
+      {
+        "type": "text",
+        "id": "text_two",
+        "label": "Top Middle Text",
+        "default": "Let Us Help!"
+      },
+      {
+        "type": "text",
+        "id": "text_three",
+        "label": "Top End Text",
+        "default": "We couldn't find the page you're looking for. Here are some products to get you back on track."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "list_item",
+        "name": "Featured Products",
+        "settings": [
+          {
+            "id": "product",
+            "type": "product",
+            "label": "Product"
+          },
+          {
+            "id": "image",
+            "type": "image_picker",
+            "label": "Rating Image"
+          },
+          {
+            "id": "priceText",
+            "type": "text",
+            "label": "Price Text"
+          },
+          {
+            "id": "priceHide",
+            "type": "checkbox",
+            "label": "Price Show/Hide",
+            "default": true
+          },
+          {
+            "id": "button",
+            "type": "text",
+            "label": "Button Text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

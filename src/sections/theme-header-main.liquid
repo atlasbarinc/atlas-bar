@@ -1,0 +1,338 @@
+{{ 'theme-header-main.css' | asset_url | stylesheet_tag }}
+
+{% assign logo_text = "{{ logo_text }}" %}
+{% assign login_text = "{{ login_text }}" %}
+{% assign account_text = "{{ account_text }}" %}
+{% assign cart_text = "{{ cart_text }}" %}
+
+{% if section.settings.logo_text != blank %}{% assign logo_text = section.settings.logo_text %}{% endif %}
+{% if section.settings.login_text != blank %}{% assign login_text = section.settings.login_text %}{% endif %}
+{% if section.settings.account_text != blank %}{% assign account_text = section.settings.account_text %}{% endif %}
+{% if section.settings.cart_text != blank %}{% assign cart_text = section.settings.cart_text %}{% endif %}
+
+{% if customer and customer.first_name != blank %}
+  {% capture account_text %}Hi, {{ customer.first_name }}{% endcapture %}
+{% endif %}
+
+<div class="c-headerMain" data-header-main>
+  <div class="c-headerMain__wrapper o-containerLarge">
+    <button class="c-headerMain__mobileButton u-hideDesktopUp" type="button" data-header-mobile aria-label="Menu"></button>
+    <a href="/" class="c-headerMain__logo">
+      <h1 class="c-headerMain__logoBox">
+        {% if section.settings.logo_image %}
+          <img class="c-headerMain__logoImage" 
+            srcset="{{ section.settings.logo_image | img_url: '178x104' }} 2x,
+                    {{ section.settings.logo_image | img_url: '89x52' }} 1x"
+            src="{{ section.settings.logo_image | img_url: '89x52' }}"
+            alt="{{ section.settings.logo_image.alt }}" 
+          />
+        {% else %}
+          <span class="c-headerMain__logoText">{{ logo_text }}</span>
+        {% endif %}
+      </h1>
+    </a>
+    <div class="c-headerMain__primary u-hideTabletDown">
+      {% if section.settings.shop %}
+        <a href="#" class="c-headerMain__primaryLink" data-header-shop><span class="c-headerMain__hoverText c-headerMain__dropdownText">Shop {% render 'chevron.svg' %}</span></a>
+        <div class="c-headerMain__subMenu u-hideTabletDown" data-header-shop-menu aria-hidden="true">
+          {% for block in section.blocks %}
+            {% if block.type == "product" %}
+              {% assign item = all_products[block.settings.product] %}
+              <a class="c-headerMain__productLink" href="{{ item.url }}">
+                <img srcset="{{ block.settings.image | img_url: '432x340' }} 2x,
+                            {{ block.settings.image | img_url: '216x170' }} 1x"
+                    src="{{ block.settings.image | img_url: '216x170' }}"
+                    alt="{{ block.settings.image.alt }}">
+                <div class="c-headerMain__productInfo">
+                  <div class="c-headerMain__productStars">{% for i in (1..5) %}{% render 'star.svg' %}{% endfor %}</div>
+                  <div class="c-headerMain__productTitle">{{ item.title }}</div>
+                  <div class="c-headerMain__productPrice">{% if item.price_varies %}Starting at {% endif %}{{ item.price_min | money }}</div>
+                </div>
+              </a>
+            {% elsif block.type == "image" %}
+              <a class="c-headerMain__imageLink" href="{{ block.settings.link }}">
+                <img srcset="{{ block.settings.image | img_url: '784x558' }} 2x,
+                            {{ block.settings.image | img_url: '392x279' }} 1x"
+                    src="{{ block.settings.image | img_url: '392x279' }}"
+                    alt="{{ block.settings.image.alt }}">
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+      {% for link in linklists[section.settings.menu].links %}
+        <a href="{{ link.url }}" class="c-headerMain__primaryLink"><span class="c-headerMain__hoverText">{{ link.title }}</span></a>
+      {% endfor %}
+    </div>
+    <div class="c-headerMain__secondary">
+      {% if section.settings.offer_enable %}
+        {% unless customer.orders_count > 0
+           or product.handle != 'sample-pack'
+           and request.page_type != 'index' %}
+          <a class="c-headerMain__offerLink c-button c-button--isDefault c-button--isSecondaryAlt u-hideTabletDown" href="{{ section.settings.offer_link }}">{{ section.settings.offer_text }} {% render 'arrow.svg' %}</a>
+        {% endunless %}
+      {% endif %}
+      {% if customer %}
+        <a href="/account" class="c-headerMain__account u-hideTabletDown">
+          {% if section.settings.account_image %}
+            <img class="c-headerMain__accountImage"
+              src="{{ section.settings.account_image | img_url }}"
+              alt="{{ section.settings.account_image.alt }}" 
+            />
+          {% else %}
+            <span class="c-headerMain__accountText c-headerMain__hoverText">{{ account_text }}</span>
+          {% endif %}
+        </a>
+      {% else %}
+        <a href="/account/login" class="c-headerMain__account u-hideTabletDown">
+          {% if section.settings.login_image %}
+            <img class="c-headerMain__accountImage"
+              src="{{ section.settings.login_image | img_url }}"
+              alt="{{ section.settings.login_image.alt }}" 
+            />
+          {% else %}
+            <span class="c-headerMain__accountText c-headerMain__hoverText">{{ login_text }}</span>
+          {% endif %}
+        </a>
+      {% endif %}
+      <span class="c-headerMain__cart" data-cart-trigger>
+        {% if section.settings.cart_image %}
+          <img class="c-headerMain__cartImage"
+            src="{{ section.settings.cart_image | img_url }}"
+            alt="{{ section.settings.cart_image.alt }}" 
+          />
+          <span class="c-headerMain__cartCount u-hide" data-cart-count></span>
+        {% else %}
+          <span class="c-headerMain__cartText c-headerMain__hoverText">{{ cart_text }}</span>
+        {% endif %}
+      </span>
+    </div>
+  </div>
+  {% if section.settings.offer_enable_mobile %}
+    {% unless customer
+       or product.handle != 'sample-pack'
+       and request.page_type != 'index' %}
+      <a class="c-headerMain__offerLinkMobile c-button c-button--isDefault c-button--isSecondaryAlt" href="{{ section.settings.offer_link_mobile }}">{{ section.settings.offer_text_mobile }} {% render 'arrow.svg' %}</a>
+    {% endunless %}
+  {% endif %}
+  <div class="c-headerMain__mobileMenu" data-header-mobile-menu>
+    {% if section.settings.shop %}
+      <div class="c-h-subheading">Shop</div>
+      <ul class="c-headerMain__mobileLinks">
+        {% for block in section.blocks %}
+          {% if block.type == "product" %}
+            {% assign item = all_products[block.settings.product] %}
+            {% assign link = item.url %}
+            {% assign title = item.title %}
+          {% elsif block.type == "image" %}
+            {% assign link = block.settings.link %}
+            {% assign title = block.settings.title %}
+          {% endif %}
+          <li><a class="c-headerMain__mobileLink" href="{{ link }}">{{ title }}</a></li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {% if section.settings.menu != blank %}
+      <div class="c-h-subheading">{% if section.settings.shop %}Explore{% else %}Shop{% endif %}</div>
+      <ul class="c-headerMain__mobileLinks">
+        {% for link in linklists[section.settings.menu].links %}
+          <li><a class="c-headerMain__mobileLink" href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    <div class="c-headerMain__mobileFooter">
+      {% unless customer %}
+        <a class="c-headerMain__mobileAccount c-button c-button--isHollow c-button--isPrimary" href="/account/login">Login / Register {% render 'arrow.svg' %}</a>
+      {% endunless %}
+      {% if section.settings.offer_enable
+        and customer
+        and customer.orders_count == 0
+        and product.handle == 'sample-pack'
+        or request.page_type == 'index' %}
+        <a class="c-headerMain__mobileAccount c-button c-button--isDefault c-button--isSecondaryAlt" href="{{ section.settings.offer_link }}">{{ section.settings.offer_text }} {% render 'arrow.svg' %}</a>
+      {% endif %}
+      <div class="c-headerMain__socialLinks">
+        {% if settings.social_facebook != blank %}
+          <a class="c-headerMain__socialLink" href="{{ settings.social_facebook }}">{% render 'facebook.svg' %}</a>
+        {% endif %}
+        {% if settings.social_twitter != blank %}
+          <a class="c-headerMain__socialLink" href="{{ settings.social_twitter }}">{% render 'twitter.svg' %}</a>
+        {% endif %}
+        {% if settings.social_instagram != blank %}
+          <a class="c-headerMain__socialLink" href="{{ settings.social_instagram }}">{% render 'instagram.svg' %}</a>
+        {% endif %}
+        {% if settings.social_email != blank %}
+          <a class="c-headerMain__socialLink" href="mailto:{{ settings.social_email }}">{% render 'email.svg' %}</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{{ 'theme-header-main.js' | asset_url | script_tag }}
+
+{% schema %}
+  {
+    "name": "Header Main",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Logo"
+      },
+      {
+        "id": "logo_image",
+        "type": "image_picker",
+        "label": "Logo Image"
+      },
+      {
+        "id": "logo_text",
+        "type": "text",
+        "label": "Logo Text"
+      },
+      {
+        "type": "header",
+        "content": "Account"
+      },
+      {
+        "id": "login_text",
+        "type": "text",
+        "label": "Login Text"
+      },
+      {
+        "id": "login_image",
+        "type": "image_picker",
+        "label": "Login Image"
+      },
+      {
+        "id": "account_text",
+        "type": "text",
+        "label": "Account Text"
+      },
+      {
+        "id": "account_image",
+        "type": "image_picker",
+        "label": "Account Image"
+      },
+      {
+        "type": "header",
+        "content": "Cart"
+      },
+      {
+        "id": "cart_image",
+        "type": "image_picker",
+        "label": "Cart Image"
+      },
+      {
+        "id": "cart_text",
+        "type": "text",
+        "label": "Cart Text"
+      },
+      {
+        "type": "header",
+        "content": "Offer - Desktop"
+      },
+      {
+        "type": "paragraph",
+        "content": "The Offer button will only show up for non-logged in customers and customers with no purchases."
+      },
+      {
+        "type": "checkbox",
+        "id": "offer_enable",
+        "label": "Enable Offer Link",
+        "default": true
+      },
+      {
+        "type": "url",
+        "id": "offer_link",
+        "label": "Offer Link"
+      },
+      {
+        "type": "text",
+        "id": "offer_text",
+        "label": "Offer Text"
+      },
+      {
+        "type": "header",
+        "content": "Offer - Mobile"
+      },
+      {
+        "type": "paragraph",
+        "content": "The Offer button will only show up for non-logged in customers and customers with no purchases."
+      },
+      {
+        "type": "checkbox",
+        "id": "offer_enable_mobile",
+        "label": "Enable Offer Link",
+        "default": true
+      },
+      {
+        "type": "url",
+        "id": "offer_link_mobile",
+        "label": "Offer Link"
+      },
+      {
+        "type": "text",
+        "id": "offer_text_mobile",
+        "label": "Offer Text"
+      },
+      {
+        "type": "header",
+        "content": "Navigation"
+      },
+      {
+        "type": "link_list",
+        "id": "menu",
+        "label": "Menu"
+      },
+      {
+        "type": "checkbox",
+        "id": "shop",
+        "label": "Enable Shop Dropdown",
+        "info": "Shop dropdown utilizes blocks below.",
+        "default": false
+      }
+    ],
+    "blocks": [
+      {
+        "type": "product",
+        "name": "Product",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "432x340"
+          },
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "name": "Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "784x558"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Link"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

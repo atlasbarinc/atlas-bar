@@ -1,0 +1,90 @@
+{% assign heading = "Activate Account" %}
+{% assign text = "" %}
+{% assign password_placeholder = "Password*" %}
+{% assign confirm_password_placeholder = "Confirm Password*" %}
+{% assign submit_button = "Submit" %}
+
+{% if section.settings.heading != blank %}{% assign heading = section.settings.heading %}{% endif %}
+{% if section.settings.text != blank %}{% assign text = section.settings.text %}{% endif %}
+{% if section.settings.confirm_password_placeholder != blank %}{% assign confirm_password_placeholder = section.settings.email_placeholder %}{% endif %}
+{% if section.settings.password_placeholder != blank %}{% assign password_placeholder = section.settings.password_placeholder %}{% endif %}
+{% if section.settings.submit_button != blank %}{% assign submit_button = section.settings.submit_button %}{% endif %}
+
+<div class="c-formActivate c-form c-form--isNarrow"
+  data-form-activate
+>
+  <div class="c-formActivate__container o-pageNarrow">
+    <h1 class="c-formActivate__heading c-h1 c-form__heading u-textCenter">
+      {{ heading }}
+    </h1> 
+    {% if section.settings.text != blank %}
+      <p class="c-formActivate__text c-p3 c-form__text u-textCenter">
+        {{ section.settings.text }}
+      </p>
+    {% endif %}
+    <div class="c-formActivate__content c-form__content">
+      {%- form "activate_customer_password" -%} 
+        {%- if form.errors -%}
+          <div class="c-formActivate__alert c-form__alert c-form__alert--isError">
+            {{ form.errors | default_errors }}
+          </div>
+        {%- endif -%}
+        <div class="c-formActivate__field c-field">
+          <input class="c-formActivate__input c-input c-input--isDefault"
+            type="password"
+            name="customer[password]"
+            placeholder="{{ password_placeholder }}"
+          />
+        </div>
+        <div class="c-formActivate__field c-field">
+          <input class="c-formActivate__input c-input c-input--isDefault"
+            type="password" 
+            name="customer[password_confirmation]" 
+            placeholder="{{ confirm_password_placeholder }}"
+          />
+        </div>
+        <button class="c-formActivate__button c-form__submit
+          c-button 
+          c-button--isDefault
+          c-button--isSecondary"
+          type="submit"
+        >
+          {{ submit_button }}
+        </button>
+      {%- endform -%} 
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Form Activate",
+    "settings": [
+      {
+        "id": "heading",
+        "type": "text",
+        "label": "Heading"
+      },
+      {
+        "id": "text",
+        "type": "text",
+        "label": "Text"
+      },
+      {
+        "id": "password_placeholder",
+        "type": "text",
+        "label": "Password Placeholder"
+      },
+      {
+        "id": "confirm_password_placeholder",
+        "type": "text",
+        "label": "Confirm Password Placeholder"
+      },
+      {
+        "id": "submit_button",
+        "type": "text",
+        "label": "Submit Button"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,200 @@
+<script>
+  var modals = {}
+
+  modals = {{ section.settings | json }}
+
+  {% for block in section.blocks %}
+    modals['{{ block.type }}'] = modals['{{ block.type }}'] || []
+    modals['{{ block.type }}'].push({{ block.settings | json }})
+  {% endfor %}
+
+  window.Scoutside.portal.modals = modals
+</script>
+
+{% schema %}
+  {
+    "name": "Portal Modals",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Order"
+      },
+      {
+        "id": "order_heading",
+        "type": "text",
+        "label": "Order Heading",
+        "default": "{{ order_heading }}"
+      },
+      {
+        "id": "order_text",
+        "type": "textarea",
+        "label": "Order Text",
+        "default": "{{ order_text }}"
+      },
+      {
+        "id": "order_button_confirm",
+        "type": "text",
+        "label": "Order Button Confirm",
+        "default": "{{ order_button_confirm }}"
+      },
+      {
+        "id": "order_button_cancel",
+        "type": "text",
+        "label": "Order Button Cancel",
+        "default": "{{ order_button_cancel }}"
+      },
+      {
+        "type": "header",
+        "content": "Delay"
+      },
+      {
+        "id": "delay_heading",
+        "type": "text",
+        "label": "Delay Heading",
+        "default": "{{ delay_heading }}"
+      },
+      {
+        "id": "delay_text",
+        "type": "textarea",
+        "label": "Delay Text",
+        "default": "{{ delay_text }}"
+      },
+      {
+        "id": "delay_button_confirm",
+        "type": "text",
+        "label": "Delay Button Confirm",
+        "default": "{{ delay_button_confirm }}"
+      },
+      {
+        "id": "delay_button_cancel",
+        "type": "text",
+        "label": "Delay Button Cancel",
+        "default": "{{ delay_button_cancel }}"
+      },
+      {
+        "type": "header",
+        "content": "Cancel"
+      },
+      {
+        "id": "cancel_heading",
+        "type": "text",
+        "label": "Cancel Heading",
+        "default": "{{ cancel_heading }}"
+      },
+      {
+        "id": "cancel_subheading",
+        "type": "text",
+        "label": "Cancel Subheading",
+        "default": "{{ cancel_subheading }}"
+      },
+      {
+        "id": "cancel_reason_1",
+        "type": "text",
+        "label": "Reason 1",
+        "default": "{{ cancel_reason_1 }}"
+      },
+      {
+        "id": "cancel_reason_2",
+        "type": "text",
+        "label": "Reason 2",
+        "default": "{{ cancel_reason_2 }}"
+      },
+      {
+        "id": "cancel_reason_3",
+        "type": "text",
+        "label": "Reason 3",
+        "default": "{{ cancel_reason_3 }}"
+      },
+      {
+        "id": "cancel_reason_4",
+        "type": "text",
+        "label": "Reason 4",
+        "default": "{{ cancel_reason_4 }}"
+      },
+      {
+        "id": "cancel_reason_5",
+        "type": "text",
+        "label": "Reason 5",
+        "default": "{{ cancel_reason_5 }}"
+      },
+      {
+        "id": "cancel_reason_other",
+        "type": "text",
+        "label": "Reason Other",
+        "default": "{{ cancel_reason_other }}"
+      },
+      {
+        "id": "cancel_button_confirm",
+        "type": "text",
+        "label": "Cancel Button Confirm",
+        "default": "{{ cancel_button_confirm }}"
+      },
+      {
+        "id": "cancel_button_cancel",
+        "type": "text",
+        "label": "Cancel Button Cancel",
+        "default": "{{ cancel_button_cancel }}"
+      },
+      {
+        "type": "header",
+        "content": "Discount"
+      },
+      {
+        "id": "discount_heading",
+        "type": "text",
+        "label": "Discount Heading",
+        "default": "{{ discount_heading }}"
+      },
+      {
+        "id": "discount_text",
+        "type": "textarea",
+        "label": "Discount Text - Variables: {{ discount_code }}",
+        "default": "{{ discount_text }}"
+      },
+      {
+        "id": "discount_button_confirm",
+        "type": "text",
+        "label": "Discount Button Confirm",
+        "default": "{{ discount_button_confirm }}"
+      },
+      {
+        "id": "discount_button_link",
+        "type": "url",
+        "label": "Discount Button Link"
+      },
+      {
+        "id": "discount_button_cancel",
+        "type": "text",
+        "label": "Discount Button Cancel",
+        "default": "{{ discount_button_cancel }}"
+      },
+      {
+        "type": "header",
+        "content": "Error"
+      },
+      {
+        "id": "error_heading",
+        "type": "text",
+        "label": "Error Heading",
+        "default": "{{ error_heading }}"
+      },
+      {
+        "id": "error_text",
+        "type": "textarea",
+        "label": "Error Text",
+        "default": "{{ error_text }}"
+      },
+      {
+        "id": "error_button_confirm",
+        "type": "text",
+        "label": "Error Button Confirm",
+        "default": "{{ error_button_confirm }}"
+      },
+      {
+        "id": "error_button_link",
+        "type": "url",
+        "label": "Error Button Link"
+      }
+    ]
+  }
+{% endschema %}

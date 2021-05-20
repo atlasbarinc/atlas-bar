@@ -1,0 +1,54 @@
+<script>
+  window.Scoutside = window.Scoutside || {}
+  window.Scoutside.api = window.Scoutside.api || {}
+
+  var api = {
+    "base_url": "{{ section.settings.api_url }}",
+    "api_key": "{{ section.settings.api_key }}",
+    "customer_token": false,
+    "bundle_url": "{{ section.settings.bundle_app_url }}"
+  }
+
+  {% if customer %}
+    api.customer_token = "{{ customer.id | hmac_sha256: section.settings.api_secret }}"
+  {% endif %}
+  
+  window.Scoutside.api = api
+</script>
+
+<script src="{{ 'theme-api.js' | asset_url }}"></script>
+
+{% schema %}
+  {
+    "name": "API Settings",
+    "settings": [
+      {
+        "type": "text",
+        "id": "api_url",
+        "label": "API Url",
+        "info": "Used to direct api request to API"
+      },
+      {
+        "type": "text",
+        "id": "api_key",
+        "label": "API Key",
+        "info": "Used to make authenticated request to API"
+      },
+      {
+        "type": "text",
+        "id": "api_secret",
+        "label": "API Secret",
+        "info": "Used to encrypt keys passed to API"
+      },
+      {
+        "type": "header",
+        "content": "Bundle App"
+      },
+      {
+        "type": "text",
+        "id": "bundle_app_url",
+        "label": "Bundle App URL"
+      }
+    ]
+  }
+{% endschema %}

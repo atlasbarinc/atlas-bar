@@ -1,0 +1,32 @@
+<section class="c-rewardsPerks {% if customer %}c-rewardsPerks__loggedIn{% endif %}">
+  <div class="o-containerLarge">
+    <h2 class="c-rewardsPerks__heading c-h3 u-textCenter">{% if customer %}{{ section.settings.logged_in_title }}{% else %}{{ section.settings.title }}{% endif %}</h2>
+    <p class="c-rewardsPerks__intro u-textCenter">{% if customer %}{{ section.settings.logged_in_description }}{% else %}{{ section.settings.description }}{% endif %}</p>
+    <div class="c-rewardsPerks__cards" data-perks-slider>
+      {% for block in section.blocks %}
+        <div class="c-rewardsPerks__card" data-lion-tier-card>
+          <h3 class="c-rewardsPerks__cardHeading c-h4 u-textCenter">{{ block.settings.title }}</h3>
+          <p class="c-rewardsPerks__cardPoints u-textCenter">{{ block.settings.points }}</p>
+          <ul class="c-rewardsPerks__cardList">
+            {% assign perks = block.settings.perks | newline_to_br | split: '<br />' %}
+            {% for perk in perks %}
+              <li class="c-rewardsPerks__cardListItem"><span class="c-svg">{% render 'checkCircle.svg' %}</span> {{ perk }}</li>
+            {% endfor %}
+          </ul>
+          <div class="c-rewardsPerks__cardImage">
+            <img srcset="{{ block.settings.image | img_url: '744x494', crop: 'center' }} 2x,
+                         {{ block.settings.image | img_url: '372x247', crop: 'center' }} 1x"
+                 src="{{ block.settings.image | img_url: '372x247', crop: 'center' }}"
+                 alt=""
+            >
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    {% unless customer %}
+      <div class="c-rewardsPerks__actions">
+        <a href="{{ section.settings.cta_link }}" class="c-button c-button--isDefault c-button--isWhitePrimary">{{ section.settings.cta_text }} {% render 'arrow.svg' %}</a>
+      </div>
+    {% endunless %}
+  </div>
+</section>

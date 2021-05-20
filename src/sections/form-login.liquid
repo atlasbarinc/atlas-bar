@@ -1,0 +1,131 @@
+{% assign heading = "Login" %}
+{% assign text = "" %}
+{% assign email_placeholder = "Email Address*" %}
+{% assign password_placeholder = "Password*" %}
+{% assign submit_button = "Submit" %}
+{% assign forgot_password_link = "Forgot your password?" %}
+{% assign register_text = "Don't have an account?" %}
+{% assign register_link = "Register" %}
+
+{% if section.settings.heading != blank %}{% assign heading = section.settings.heading %}{% endif %}
+{% if section.settings.text != blank %}{% assign text = section.settings.text %}{% endif %}
+{% if section.settings.email_placeholder != blank %}{% assign email_placeholder = section.settings.email_placeholder %}{% endif %}
+{% if section.settings.password_placeholder != blank %}{% assign password_placeholder = section.settings.password_placeholder %}{% endif %}
+{% if section.settings.forgot_password_link != blank %}{% assign forgot_password_link = section.settings.forgot_password_link %}{% endif %}
+{% if section.settings.register_text != blank %}{% assign register_text = section.settings.register_text %}{% endif %}
+{% if section.settings.register_link != blank %}{% assign register_link = section.settings.register_link %}{% endif %}
+{% if section.settings.submit_button != blank %}{% assign submit_button = section.settings.submit_button %}{% endif %}
+
+<div class="c-formLogin c-form c-form--isNarrow u-hide"
+  data-form-login
+>
+  <div class="c-formLogin__container o-pageNarrow">
+    <h1 class="c-formLogin__heading c-h1 c-form__heading u-textCenter">
+      {{ heading }}
+    </h1> 
+    {% if section.settings.text != blank %}
+      <p class="c-formLogin__text c-p3 c-form__text u-textCenter">
+        {{ section.settings.text }}
+      </p>
+    {% endif %}
+    <div class="c-formLogin__content c-form__content">
+      {%- form "customer_login" -%} 
+        {%- if form.errors -%}
+          <div class="c-formLogin__alert c-form__alert c-form__alert--isError">
+            {{ form.errors | default_errors }}
+          </div>
+        {%- endif -%}
+        <div class="c-formLogin__field c-field">
+          <input class="c-formLogin__input c-input c-input--isDefault"
+            type="email" 
+            name="customer[email]" 
+            placeholder="{{ email_placeholder }}"
+          />
+        </div>
+        <div class="c-formLogin__field c-field">
+          <input class="c-formLogin__input c-input c-input--isDefault"
+            type="password"
+            name="customer[password]"
+            placeholder="{{ password_placeholder }}"
+          />
+        </div>
+        <button class="c-formLogin__button c-form__submit
+          c-button 
+          c-button--isDefault
+          c-button--isSecondary"
+          type="submit"
+        >
+          {{ submit_button }}
+        </button>
+      {%- endform -%} 
+      <div class="c-formLogin__sub c-form__sub">
+        <p class="c-formLogin__forgot c-p3 c-form__subText">
+          <a href="#recover" class="c-formLogin__forgotLink c-form__subLink"
+            data-form-recover-trigger
+          >
+            {{ forgot_password_link }}
+          </a>
+          <br />
+          {% if section.settings.register_text != blank %}
+          {{ register_text }}
+          {% endif %}
+          <a href="/account/register" class="c-formLogin__forgotLink 
+            c-form__subLink"
+          >
+          {% if section.settings.register_link != blank %}
+            {{ register_link }}
+          {% endif %}
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Form Login",
+    "settings": [
+      {
+        "id": "heading",
+        "type": "text",
+        "label": "Heading"
+      },
+      {
+        "id": "text",
+        "type": "text",
+        "label": "Text"
+      },
+      {
+        "id": "email_placeholder",
+        "type": "text",
+        "label": "Email Placeholder"
+      },
+      {
+        "id": "password_placeholder",
+        "type": "text",
+        "label": "Password Placeholder"
+      },
+      {
+        "id": "submit_button",
+        "type": "text",
+        "label": "Submit Button"
+      },
+      {
+        "id": "forgot_password_link",
+        "type": "text",
+        "label": "Forgot Password Link"
+      },
+      {
+        "id": "register_text",
+        "type": "text",
+        "label": "Register Text"
+      },
+      {
+        "id": "register_link",
+        "type": "text",
+        "label": "Register Link"
+      }
+    ]
+  }
+{% endschema %}

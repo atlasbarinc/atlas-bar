@@ -1,0 +1,15 @@
+<section class="c-icons">
+  <h2 class="c-icons__heading">{{ section.settings.title }}</h2>
+  <p class="c-icons__description">{{ section.settings.description }}</p>
+  <ul class="c-icons__list">
+    {% for block in section.blocks %}
+      <li class="c-icons__list-item">
+        <img class="c-icons__list-image"
+             srcset="{{ block.settings.image | img_url: 'x240' }} 2x,
+                     {{ block.settings.image | img_url: 'x120' }} 1x"
+             src="{{ block.settings.image | img_url: 'x120' }}"
+             alt="{{ block.settings.title }}">
+      </li>
+    {% endfor %}
+  </ul>
+</section>

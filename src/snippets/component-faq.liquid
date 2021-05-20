@@ -1,0 +1,22 @@
+<section class="c-faq-wrapper">
+    <div class="c-faq__intro">
+        <h3 class="c-faq__title">{{ section.settings.title }}</h3>
+    </div>
+    <div class="c-faq__content">
+        {% for block in section.blocks %}
+        <div class="c-faq__item" data-faq-trigger>
+            <h3 data-faq-icon class="c-faq__item--title"><span class="c-faq__item--title--text">{{ block.settings.item_title }}</span>
+                <svg class="c-faq__item--ch" width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 11.9841V8.30109H11.7757V0.142578H8.27103V8.30109H0V11.9841H8.27103V20.1426H11.7757V11.9841H20Z" fill="#101F2D"/>
+                </svg>
+                <svg class="c-faq__item--ch--close" width="20" height="4" viewBox="0 0 20 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 3.68298V0L11.7757 0L8.27103 0.000305176L0 0L0 3.68298L8.27103 3.68298H11.7757L20 3.68298Z" fill="#FFA200"/>
+                </svg>
+            </h3>
+            <div class="c-faq__item--content" data-faq-slide>
+            {{ block.settings.item_content }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>

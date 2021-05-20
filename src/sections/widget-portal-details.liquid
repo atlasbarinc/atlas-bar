@@ -1,0 +1,140 @@
+<script>
+  var details = {}
+
+  details = {{ section.settings | json }}
+
+  {% for block in section.blocks %}
+    details['{{ block.type }}'] = details['{{ block.type }}'] || []
+    details['{{ block.type }}'].push({{ block.settings | json }})
+  {% endfor %}
+
+  window.Scoutside.portal.details = details
+</script>
+
+{% schema %}
+  {
+    "name": "Portal Details",
+    "settings": [
+      {
+        "type": "header",
+        "content": "General"
+      },
+      {
+        "id": "page_heading",
+        "type": "text",
+        "label": "Page Heading",
+        "default": "{{ page_heading }}"
+      },
+      {
+        "type": "header",
+        "content": "Info"
+      },
+      {
+        "id": "billing_label",
+        "type": "text",
+        "label": "Billing Label",
+        "default": "{{ billing_label }}"
+      },
+      {
+        "id": "billing_edit",
+        "type": "text",
+        "label": "Billing Edit",
+        "default": "{{ billing_edit }}"
+      },
+      {
+        "id": "email_label",
+        "type": "text",
+        "label": "Email Label",
+        "default": "{{ email_label }}"
+      },
+      {
+        "id": "password_label",
+        "type": "text",
+        "label": "Password Label",
+        "default": "{{ password_label }}"
+      },
+      {
+        "id": "password_placeholder",
+        "type": "text",
+        "label": "Password Placeholder",
+        "default": "{{ password_placeholder }}"
+      },
+      {
+        "id": "password_edit",
+        "type": "text",
+        "label": "Password Edit",
+        "default": "{{ password_edit }}"
+      },
+      {
+        "id": "payment_label",
+        "type": "text",
+        "label": "Payment Label",
+        "default": "{{ payment_label }}"
+      },
+      {
+        "id": "payment_placeholder",
+        "type": "text",
+        "label": "Payment Placeholder",
+        "default": "{{ payment_placeholder }}"
+      },
+      {
+        "id": "payment_edit",
+        "type": "text",
+        "label": "Payment Edit",
+        "default": "{{ payment_edit }}"
+      },
+      {
+        "id": "notifications_label",
+        "type": "text",
+        "label": "Notifications Label",
+        "default": "{{ notifications_label }}"
+      },
+      {
+        "id": "notifications_edit",
+        "type": "text",
+        "label": "Notifications Edit",
+        "default": "{{ notifications_edit }}"
+      },
+      {
+        "type": "header",
+        "content": "Plans"
+      },
+      {
+        "id": "plans_heading",
+        "type": "text",
+        "label": "Heading",
+        "default": "{{ plans_heading }}"
+      },
+      {
+        "id": "plans_text_next",
+        "type": "text",
+        "label": "Text Next",
+        "default": "{{ plans_text_next }}"
+      },
+      {
+        "id": "plans_text_last",
+        "type": "text",
+        "label": "Text Last",
+        "default": "{{ plans_text_last }}"
+      },
+      {
+        "id": "plans_text_never",
+        "type": "text",
+        "label": "Text Never",
+        "default": "{{ plans_text_never }}"
+      },
+      {
+        "id": "plans_button_cancel",
+        "type": "text",
+        "label": "Button Cancel",
+        "default": "{{ plans_button_cancel }}"
+      },
+      {
+        "id": "plans_button_activate",
+        "type": "text",
+        "label": "Button Activate",
+        "default": "{{ plans_button_activate }}"
+      }
+    ]
+  }
+{% endschema %}

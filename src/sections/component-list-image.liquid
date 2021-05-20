@@ -1,0 +1,83 @@
+{{ 'component-list-image.css' | asset_url | stylesheet_tag }}
+
+{% render 'component-list-image', extra_padding: true %}
+
+{% schema %}
+  {
+    "name": "Image & List",
+    "settings": [
+      {
+        "type": "select",
+        "id": "type",
+        "label": "When to display?",
+        "options": [
+          {
+            "value": "always",
+            "label": "Always"
+          },
+          {
+            "value": "new",
+            "label": "New Customers"
+          },
+          {
+            "value": "returning",
+            "label": "Returning Customers"
+          }
+        ],
+        "default": "always",
+        "info": "Returning Customers are customers that are logged in and have ordered at least once."
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image",
+        "info": "1200x1200"
+      },
+      {
+        "type": "image_picker",
+        "id": "icon",
+        "label": "Icon"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description"
+      },
+      {
+        "type": "url",
+        "id": "cta_link",
+        "label": "CTA Link",
+        "info": "Leave blank to disable"
+      },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "CTA Text"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "item",
+        "name": "Item",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "category": "Home",
+        "name": "List with Image"
+      }
+    ]
+  }
+{% endschema %}

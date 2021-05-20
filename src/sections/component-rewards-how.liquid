@@ -1,0 +1,41 @@
+{{ 'component-rewards-how.css' | asset_url | stylesheet_tag }}
+
+{% render 'component-rewards-how' %}
+
+{% schema %}
+  {
+    "name": "Rewards How it Works",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "How It Works"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "card",
+        "name": "Card",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Icon",
+            "info": "180x180 maximium"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading"
+          },
+          {
+            "type": "textarea",
+            "id": "description",
+            "label": "Description"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,49 @@
+<section class="c-steps__wrapper" data-steps-container>
+  <div class="c-steps__background">
+    <div class="c-steps">
+      <h2 class="c-steps__heading u-hideDesktopUp">{{ section.settings.title_mobile }}</h2>
+      <h2 class="c-steps__heading u-hideTabletDown">{{ section.settings.title }}</h2>
+      <p class="c-steps__description">{{ section.settings.description }}</p>
+      <div class="c-steps__slider-wrapper">
+        <button class="c-slider__control c-slider__control--prev c-steps__control" data-steps-slider-prev>{% render 'chevron.svg' %}</button>
+        <ul class="c-steps__slider" data-steps-slider data-slider-speed="{{ section.settings.speed | times: 1000 }}">
+          {% for block in section.blocks %}
+            <li class="c-steps__slider-item">
+              <div class="c-steps__slider-item-wrapper">
+                <img class="c-steps__slider-item-image c-steps__slider-item-image--small"
+                     srcset="{{ block.settings.image_mobile | img_url: '566x374', crop: 'center' }} 2x,
+                             {{ block.settings.image_mobile | img_url: '283x187', crop: 'center' }} 1x"
+                     src="{{ block.settings.image_mobile | img_url: '283x187', crop: 'center' }}"
+                     alt="">
+                <img class="c-steps__slider-item-image c-steps__slider-item-image--large"
+                     srcset="{{ block.settings.image | img_url: '1754x950', crop: 'center' }} 2x,
+                             {{ block.settings.image | img_url: '877x475', crop: 'center' }} 1x"
+                     src="{{ block.settings.image | img_url: '877x475', crop: 'center' }}"
+                     alt="">
+                {% if block.type == 'white_slide' %}
+                  <div class="c-steps__slider-item-content c-steps__slider-item-content--large u-hideMobileDown">
+                    <p class="c-steps__slider-item-subheading c-h-subheading">{{ block.settings.subtitle }}</p>
+                    <p class="c-steps__slider-item-heading">{{ block.settings.title }}</p>
+                    <p class="c-steps__slider-item-description">{{ block.settings.description }}</p>
+                  </div>
+                  <div class="c-steps__slider-item-content c-steps__slider-item-content--large u-hideTabletUp">
+                    <p class="c-steps__slider-item-subheading c-h-subheading">{{ block.settings.subtitle }}</p>
+                    <p class="c-steps__slider-item-heading">{{ block.settings.title_mobile }}</p>
+                    <p class="c-steps__slider-item-description">{{ block.settings.description_mobile }}</p>
+                  </div>
+                {% else %}
+                  <div class="c-steps__slider-item-content">
+                    <div class="c-steps__slider-item-step">{{ forloop.index }}</div>
+                    <p class="c-steps__slider-item-subheading c-h-subheading">{{ block.settings.title }}</p>
+                    <p class="c-steps__slider-item-description">{{ block.settings.description }}</p>
+                  </div>
+                {% endif %}
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+        <button class="c-slider__control c-slider__control--next c-steps__control" data-steps-slider-next>{% render 'chevron.svg' %}</button>
+      </div>
+    </div>
+  </div>
+</section>

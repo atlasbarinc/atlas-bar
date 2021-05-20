@@ -1,0 +1,157 @@
+<script>
+  var orders = {}
+
+  orders = {{ section.settings | json }}
+
+  {% for block in section.blocks %}
+    orders['{{ block.type }}'] = orders['{{ block.type }}'] || []
+    orders['{{ block.type }}'].push({{ block.settings | json }})
+  {% endfor %}
+
+  window.Scoutside.portal.orders = orders
+</script>
+
+{% schema %}
+  {
+    "name": "Portal Orders",
+    "settings": [
+      {
+        "type": "header",
+        "content": "General"
+      },
+      {
+        "id": "page_heading",
+        "type": "text",
+        "label": "Page Heading",
+        "default": "{{ page_heading }}"
+      },
+      {
+        "id": "last_heading",
+        "type": "text",
+        "label": "Last Heading",
+        "default": "{{ last_heading }}"
+      },
+      {
+        "id": "previous_heading",
+        "type": "text",
+        "label": "Previous Heading",
+        "default": "{{ previous_heading }}"
+      },
+      {
+        "type": "header",
+        "content": "Empty"
+      },
+      {
+        "id": "empty_preheading",
+        "type": "text",
+        "label": "Preheading",
+        "default": "{{ empty_preheading }}"
+      },
+      {
+        "id": "empty_heading",
+        "type": "text",
+        "label": "Heading",
+        "default": "{{ empty_heading }}"
+      },
+      {
+        "id": "empty_button_text",
+        "type": "text",
+        "label": "Button Text",
+        "default": "{{ empty_button_text }}"
+      },
+      {
+        "id": "empty_button_url",
+        "type": "url",
+        "label": "Button Url"
+      },
+      {
+        "type": "header",
+        "content": "Order"
+      },
+      {
+        "id": "order_name",
+        "type": "text",
+        "label": "Name",
+        "default": "{{ order_name }}"
+      },
+      {
+        "id": "order_processing",
+        "type": "text",
+        "label": "Processing",
+        "default": "{{ order_processing }}"
+      },
+      {
+        "id": "order_transit",
+        "type": "text",
+        "label": "Transit",
+        "default": "{{ order_transit }}"
+      },
+      {
+        "id": "order_track",
+        "type": "text",
+        "label": "Track",
+        "default": "{{ order_track }}"
+      },
+      {
+        "id": "order_delivered",
+        "type": "text",
+        "label": "Delivered",
+        "default": "{{ order_delivered }}"
+      },
+      {
+        "id": "order_billing",
+        "type": "text",
+        "label": "Billing",
+        "default": "{{ order_billing }}"
+      },
+      {
+        "id": "order_payment",
+        "type": "text",
+        "label": "Payment",
+        "default": "{{ order_payment }}"
+      },
+      {
+        "id": "order_paid",
+        "type": "text",
+        "label": "Paid",
+        "default": "{{ order_paid }}"
+      },
+      {
+        "type": "text",
+        "id": "order_ships",
+        "label": "Ships",
+        "default": "{{ order_ships }}"
+      },
+      {
+        "type": "text",
+        "id": "order_subtotal_label",
+        "label": "Subtotal Label",
+        "default": "{{ order_subtotal_label }}"
+      },
+      {
+        "type": "text",
+        "id": "order_discount_label",
+        "label": "Discount Label",
+        "default": "{{ order_discount_label }}"
+      },
+      {
+        "type": "text",
+        "id": "order_shipping_label",
+        "label": "Shipping Label",
+        "default": "{{ order_shipping_label }}"
+      },
+      {
+        "type": "text",
+        "id": "order_tax_label",
+        "label": "Tax Label",
+        "default": "{{ order_tax_label }}"
+      },
+      {
+        "type": "text",
+        "id": "order_total_label",
+        "label": "Total Label",
+        "default": "{{ order_total_label }}"
+      }
+    ]
+  }
+{% endschema %}

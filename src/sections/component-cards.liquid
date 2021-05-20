@@ -1,0 +1,65 @@
+{{ 'component-cards.css' | asset_url | stylesheet_tag }}
+
+{% render 'component-cards' %}
+
+<script src="{{ 'component-cards.js' | asset_url }}"></script>
+
+{% schema %}
+  {
+    "name": "Cards",
+    "max_blocks": 3,
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description"
+      },
+      {
+        "type": "image_picker",
+        "id": "icon",
+        "label": "Icon"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "card",
+        "name": "Card",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "786x548"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon",
+            "info": "104x104"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading"
+          },
+          {
+            "type": "textarea",
+            "id": "description",
+            "label": "Description"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "category": "Home",
+        "name": "Cards"
+      }
+    ]
+  }
+{% endschema %}

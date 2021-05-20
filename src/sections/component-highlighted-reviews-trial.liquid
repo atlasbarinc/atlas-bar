@@ -1,0 +1,58 @@
+{{ 'component-highlighted-reviews.css' | asset_url | stylesheet_tag }}
+
+{% render 'component-highlighted-reviews' %}
+
+<script src="{{ 'component-highlighted-reviews.js' | asset_url }}"></script>
+
+{% schema %}
+  {
+    "name": "Highlighted Reviews",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "quote",
+        "name": "Quote",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "1056x792"
+          },
+          {
+            "type": "image_picker",
+            "id": "Icon",
+            "label": "Icon",
+            "info": "140x140"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "textarea",
+            "id": "quote",
+            "label": "Quote"
+          },
+          {
+            "type": "text",
+            "id": "author",
+            "label": "Author"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

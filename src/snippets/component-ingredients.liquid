@@ -1,0 +1,109 @@
+{% assign first = all_products[section.blocks[0].settings.product] %}
+<section class="c-ingredients">
+  <div class="c-ingredients__background" style="background-color: {{ first.metafields.details.primary_color }}" data-ingredients>
+    <div class="c-ingredients__container">
+      <div class="c-ingredients__images">
+        <div class="c-slider c-ingredients__images-container">
+          <button type="button" class="c-slider__control c-slider__control--isWhite c-slider__control--prev" data-ingredients-image-slider-prev>{% render 'chevron.svg' %}</button> 
+          <div class="c-ingredients__images-slider" data-ingredients-image-slider>
+            {% for block in section.blocks %}
+              {% assign product = all_products[block.settings.product] %}
+              <div class="c-slider__item c-ingredients__image" data-item-color="{{ product.metafields.details.primary_color }}">
+                {% assign desktop_image = product.metafields.images.wrapper_with_background | first %}
+                {% assign mobile_image = product.metafields.images.wrapper | first %}
+                {% assign mobile_image_2 = product.metafields.images.bar | first %}
+                <img srcset="{{ desktop_image.cloudinary_src | append: 'w_826,h_1068,c_fill' }} 2x,
+                            {{ desktop_image.cloudinary_src | append: 'w_413,h_534,c_fill' }} 1x"
+                    src="{{ desktop_image.cloudinary_src | append: 'w_413,h_534,c_fill' }}"
+                    class="c-ingredients__image-background"
+                    alt="{{ desktop_image.alt }}">
+                <img srcset="{{ mobile_image.cloudinary_src | append: 'w_260' }} 2x,
+                            {{ mobile_image.cloudinary_src | append: 'w_130' }} 1x"
+                    src="{{ mobile_image.cloudinary_src | append: 'w_130' }}"
+                    class="c-ingredients__image-wrapper"
+                    alt="{{ mobile_image.alt }}">
+                <img srcset="{{ mobile_image_2.cloudinary_src | append: 'w_208' }} 2x,
+                            {{ mobile_image_2.cloudinary_src | append: 'w_104' }} 1x"
+                    src="{{ mobile_image_2.cloudinary_src | append: 'w_104' }}"
+                    class="c-ingredients__image-bar"
+                    alt="{{ mobile_image_2.alt }}">
+              </div>
+            {% endfor %}
+          </div>
+          <button type="button" class="c-slider__control c-slider__control--isWhite c-slider__control--next" data-ingredients-image-slider-next>{% render 'chevron.svg' %}</button>
+        </div>
+      </div>
+      <div class="c-ingredients__content">
+        <div class="c-ingredients__content-container" data-ingredients-content-slider>
+          {% for block in section.blocks %}
+            {% assign product = all_products[block.settings.product] %}
+            <div class="c-ingredients__details">
+              <h2 class="c-ingredients__heading">{{ product.title }}</h2>
+              <div class="c-ingredients__description">
+                {{ product.description }}
+              </div>
+              <div class="c-ingredients__meta">
+                <div class="c-ingredients__meta-column" data-expand>
+                  <div class="c-ingredients__meta-header">
+                    <h3 class="c-h6 c-ingredients__meta-heading c-ingredients__meta-heading--mobile"><button type="button" data-expand-trigger>Net Carb Count</button></h3>
+                    <h3 class="c-h6 c-ingredients__meta-heading c-ingredients__meta-heading--desktop">Net Carb Calculation</h3>
+                  </div>
+                  <div class="c-ingredients__meta-content" data-expand-content>
+                    <div class="c-ingredients__meta-carb-row">
+                      <span class="c-ingredients__meta-carb-sign"></span>
+                      <span class="c-ingredients__meta-carb-value">{{ product.metafields.details.total_carbs }}</span>
+                      <span class="c-ingredients__meta-carb-title">Total Carbs</span>
+                    </div>
+                    {% for item in product.metafields.details.carb_details %}
+                      {% assign item_details = item | split: ',' %}
+                      <div class="c-ingredients__meta-carb-row">
+                        <span class="c-ingredients__meta-carb-sign">-</span>
+                        <span class="c-ingredients__meta-carb-value">{{ item_details | first }}</span>
+                        <span class="c-ingredients__meta-carb-title">{{ item_details | last }}</span>
+                      </div>
+                    {% endfor %}
+                    <div class="c-ingredients__meta-carb-row">
+                      <span class="c-ingredients__meta-carb-sign">=</span>
+                      <span class="c-ingredients__meta-carb-value">{{ product.metafields.details.net_carbs }}</span>
+                      <span class="c-ingredients__meta-carb-title">Net Carbs</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="c-ingredients__meta-column" data-expand>
+                  <div class="c-ingredients__meta-header">
+                    <h3 class="c-h6 c-ingredients__meta-heading c-ingredients__meta-heading--mobile"><button type="button" data-expand-trigger>View Full Ingredients</h3>
+                    <h3 class="c-h6 c-ingredients__meta-heading c-ingredients__meta-heading--desktop">Ingredients</h3>
+                  </div>
+                  <div class="c-ingredients__meta-content" data-expand-content>
+                    <p class="c-ingredients__meta-ingredients">{{ product.metafields.details.ingredients }}</p>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="c-ingredients__button c-button c-button--isDefault c-button--isWhitePrimary" data-lightbox-trigger="ingredients-{{ product.id }}">View Nutritional Labels</button>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% for block in section.blocks %}
+  {% assign product = all_products[block.settings.product] %}
+  <div class="c-lightbox__container" data-lightbox="ingredients-{{ product.id }}">
+    <div class="c-lightbox">
+      <button type="button" class="c-lightbox__close" data-lightbox-close>{% render 'plus.svg' %}</button>
+      <h2 class="c-lightbox__subheading">Nutritional Info</h2>
+      <h3 class="c-lightbox__heading">{{ product.title }}</h3>
+      <div class="c-lightbox__border">
+        <div class="u-textCenter">
+          {% assign label_image = product.metafields.images.nutrition_label | first %}
+          <img srcset="{{ label_image.cloudinary_src | append: 'w_900' }} 2x,
+                       {{ label_image.cloudinary_src | append: 'w_450' }} 1x"
+                src="{{ label_image.cloudinary_src | append: 'w_450' }}"
+                alt="{{ label_image.alt }}">
+          </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}

@@ -1,0 +1,46 @@
+{{ 'theme-footer-legal.css' | asset_url | stylesheet_tag }}
+
+{% assign copyright_text = "{{ copyright_text }}" %}
+{% assign legal_menu = "{{ legal_menu }}" %}
+
+{% if section.settings.copyright_text != blank %}{% assign copyright_text = section.settings.copyright_text %}{% endif %}
+
+
+<div class="c-footerLegal" data-footer-legal>
+  <div class="c-footerLegal__wrapper o-containerLarge">
+    <div class="c-footerLegal__copyright">
+      ©{{ 'now' | date: '%Y' }} {{ copyright_text }}
+    </div>
+    <nav class="c-footerLegal__navigation">
+      {% if section.settings.legal_menu %}
+        {% for link in linklists[section.settings.legal_menu].links %}
+          <a class="c-footerLegal__navigationLink" href="{{ link.url }}">
+            {{ link.title }}
+          </a>
+        {% endfor %}
+      {% else %}
+        <span class="c-footerLegal__navigationLink">
+          {{ legal_menu }}
+        <span>
+      {% endif %}
+    </nav>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Footer Legal",
+    "settings": [
+      {
+        "id": "copyright_text",
+        "type": "text",
+        "label": "Copyright Text"
+      },
+      {
+        "id": "legal_menu",
+        "type": "link_list",
+        "label": "Legal Menu"
+      }
+    ]
+  }
+{% endschema %}

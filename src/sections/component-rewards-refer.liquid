@@ -1,0 +1,53 @@
+{{ 'component-rewards-refer.css' | asset_url | stylesheet_tag }}
+
+{% render 'component-rewards-refer' %}
+
+{% schema %}
+  {
+    "name": "Rewards Referral",
+    "settings": [
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Subheading"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image",
+        "info": "1000px width"
+      },
+      {
+        "type": "url",
+        "id": "cta_link",
+        "label": "CTA Link"
+      },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "CTA Text",
+        "default": "Your Referral Link"
+      },
+      {
+        "type": "header",
+        "content": "Modal"
+      },
+      {
+        "type": "image_picker",
+        "id": "background",
+        "label": "Modal Background",
+        "info": "1240x520"
+      }
+    ]
+  }
+{% endschema %}

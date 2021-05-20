@@ -1,0 +1,65 @@
+{{ 'component-reviews-slider.css' | asset_url | stylesheet_tag }}
+
+{% render 'component-reviews-slider' %}
+
+<script src="{{ 'component-reviews-slider.js' | asset_url }}"></script>
+
+{% schema %}
+  {
+    "name": "Reviews Slider",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description"
+      },
+      {
+        "type": "url",
+        "id": "link",
+        "label": "Link",
+        "info": "Leave blank to hide button."
+      },
+      {
+        "type": "text",
+        "id": "link_text",
+        "label": "Link Text",
+        "info": "Leave blank to hide button."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "review",
+        "name": "Review",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "580x580"
+          },
+          {
+            "type": "textarea",
+            "id": "quote",
+            "label": "Quote"
+          },
+          {
+            "type": "text",
+            "id": "author",
+            "label": "Author"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "category": "Home",
+        "name": "Reviews Slider"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,50 @@
+{{ 'component-hero.css' | asset_url | stylesheet_tag }}
+
+{% render 'component-hero', type: 'trial' %}
+
+<script src="{{ 'component-hero.js' | asset_url }}"></script>
+
+{% schema %}
+  {
+    "name": "Hero",
+    "settings": [
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Image Background Color",
+        "default": "#5aaad6"
+      },
+      {
+        "type": "color",
+        "id": "alternate_color",
+        "label": "Alternate Font Color",
+        "default": "#0d3355"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text",
+        "default": "Start Your Risk-Free Trial"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "list_item",
+        "name": "List Item",
+        "settings": [
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Text"
+          },
+          {
+            "id": "icon",
+            "type": "image_picker",
+            "label": "Icon",
+            "info": "60x60 transparent PNG"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

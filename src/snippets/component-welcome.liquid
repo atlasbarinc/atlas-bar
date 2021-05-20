@@ -1,0 +1,22 @@
+{{ 'component-welcome.css' | asset_url | stylesheet_tag }}
+
+{% if customer %}
+  {% unless request.page_type contains 'customers' %}
+    <div class="c-welcome">
+      <div class="c-welcome__container o-containerLarge">
+        <div>
+          <p class="c-welcome__heading">Welcome Back{% if customer.first_name %}, {{ customer.first_name }}{% endif %}!</p>
+          <p class="c-welcome__headingPoints"><span data-lion-points="approved">0</span> <a href="/pages/rewards">Atlas Points</a></p>
+        </div>
+        <p class="c-welcome__account"><a href="/account" class="c-welcome__accountLink">View My Account</a></p>
+        <a class="c-welcome__nextCharge u-hide" href="/account" data-welcome-box>
+          <span>Your next box charges:</span>
+          <span class="c-welcome__nextChargeDate" data-welcome-date></span>
+          {% render 'chevron.svg' %}
+        </a>
+      </div>
+    </div>
+  {% endunless %}
+{% endif %}
+
+{{ 'component-welcome.js' | asset_url | script_tag }}

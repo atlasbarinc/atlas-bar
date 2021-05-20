@@ -1,0 +1,22 @@
+{% unless customer %}
+  <section class="c-rewardsHow">
+    <div class="o-containerLarge">
+      <h2 class="c-rewardsHow__heading c-h3 u-textCenter">{{ section.settings.title }}</h2>
+      <div class="c-rewardsHow__cards">
+        {% for block in section.blocks %}
+        <div class="c-rewardsHow__card">
+          <div class="c-rewardsHow__cardImage">
+            <img srcset="{{ block.settings.image | img_url: '180x180' }} 2x,
+                        {{ block.settings.image | img_url: '90x90' }} 1x"
+                src="{{ block.settings.image | img_url: '90x90' }}"
+                alt=""
+            >
+          </div>
+          <h3 class="c-h5 u-textCenter">{{ block.settings.title }}</h3>
+          <p class="u-textCenter">{{ block.settings.description }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endunless %}

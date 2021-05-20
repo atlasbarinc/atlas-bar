@@ -1,0 +1,29 @@
+<script>
+  window.Scoutside = window.Scoutside || {}
+  window.Scoutside.portal = window.Scoutside.portal || {
+    parts: {},
+    sidebars: {},
+    modals: {},
+    shipments: {},
+    details: {},
+    orders: {},
+    products: {}
+  }
+</script>
+
+{% section 'widget-portal-parts' %}
+{% section 'widget-portal-sidebars' %}
+{% section 'widget-portal-modals' %}
+{% section 'widget-portal-shipments' %}
+{% section 'widget-portal-details' %}
+{% section 'widget-portal-orders' %}
+{% section 'widget-portal-products' %}
+
+<v-portal id="v-portal"
+  class="v-widget"
+  data-vue-portal
+>
+</v-portal>
+
+{{ 'widget-portal.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'widget-portal.js' | asset_url }}" defer></script>

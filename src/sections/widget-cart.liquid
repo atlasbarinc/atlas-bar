@@ -1,0 +1,48 @@
+<script>
+  window.Scoutside = window.Scoutside || {}
+  window.Scoutside.cart = window.Scoutside.cart || {}
+  
+  var cart = {{ section.settings | json }}
+  {% assign bloop = 0 %}
+  {% for block in section.blocks %}
+    cart['{{ block.type }}'] = cart['{{ block.type }}'] || []
+    cart['{{ block.type }}'].push({{ block.settings | json }})
+  {% endfor %}
+
+  window.Scoutside.cart = cart
+</script>
+
+{% schema %}
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Header"
+      },
+      {
+        "id": "header_text",
+        "type": "text",
+        "label": "Header Text"
+      },
+      {
+        "id": "header_count",
+        "type": "checkbox",
+        "label": "Header Show Count"
+      },
+      {
+        "type": "header",
+        "content": "Item"
+      },
+      {
+        "id": "item_remove_button",
+        "type": "text",
+        "label": "Item Remove Button"
+      },
+      {
+        "type": "header",
+        "content": "Summary"
+      }
+    ]
+  }
+{% endschema %}

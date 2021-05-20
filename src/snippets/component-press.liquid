@@ -1,0 +1,23 @@
+<section class="c-press__wrapper">
+  <div class="c-press__background {% if reverse %}c-press__background--reverse{% endif %}" style="background-color: {{ section.blocks[0].settings.color }}" data-press>
+    <div class="c-press">
+      <h2 class="c-press__heading">{{ section.settings.title }}</h2>
+      <div class="c-press__stars {% if secondary_stars %}c-press__stars--secondary{% endif %}">{% for i in (1..5) %}{% render 'star.svg' %}{% endfor %}</div>
+      <ul class="c-slider c-press__quotes" data-press-slider>
+        {% for block in section.blocks %}
+          <li class="c-press__quote" data-color="{{ block.settings.color }}">{{ block.settings.quote }}</li>
+        {% endfor %}
+      </ul>
+      <ul class="c-press__icons" data-press-nav>
+        {% for block in section.blocks %}
+          <li class="c-press__icon">
+            <img srcset="{{ block.settings.image | img_url: '188x188', crop: 'center' }} 2x,
+                         {{ block.settings.image | img_url: '94x94', crop: 'center' }} 1x"
+                 src="{{ block.settings.image | img_url: '94x94', crop: 'center' }}"
+                 alt="{{ block.settings.image.alt }}">
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>

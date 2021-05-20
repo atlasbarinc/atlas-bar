@@ -1,0 +1,44 @@
+{{ 'theme-header-bar.css' | asset_url | stylesheet_tag }}
+
+{% assign message = "{{ message }}" %}
+
+{% if section.settings.message != blank %}{% assign message = section.settings.message %}{% endif %}
+
+{% if section.settings.show %}
+  <div class="c-headerBar" data-header-bar>
+    {% if section.settings.url != blank %}
+      <a class="c-headerBar__link" href="{{ section.settings.link }}">
+    {% endif %}
+    <div class="c-headerBar__wrapper o-containerLarge">
+      <div class="c-headerBar__message">
+        {{ message }}
+      </div>
+    </div>
+    {% if section.settings.url != blank %}
+      </a>
+    {% endif %}
+  </div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Header Bar",
+    "settings": [
+      {
+        "id": "show",
+        "type": "checkbox",
+        "label": "Show"
+      },
+      {
+        "id": "link",
+        "type": "url",
+        "label": "Link"
+      },
+      {
+        "id": "message",
+        "type": "text",
+        "label": "Message"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,32 @@
+{% section 'form-title' %}
+<div class="c-grid">
+  <div class="c-gridItem">
+    {% section 'form-login' %}
+    {% section 'form-recover' %}
+    {% section 'form-success' %}
+  </div>
+  <div class="c-gridItem">
+    {% section 'form-register' %}
+  </div>
+</div>
+
+<style>
+  .c-grid {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: 1fr;
+    padding-bottom: 65px;
+  }
+  @media only screen and (min-width: 768px) {
+    .c-grid {
+      display: grid;
+      grid-gap: 0px;
+      grid-template-columns: 1fr 1fr;
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+  }
+</style>
+
+{{ 'template-login.js' | asset_url | script_tag }}
+{{ 'form-custom.js' | asset_url | script_tag }}

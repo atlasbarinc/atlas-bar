@@ -1,0 +1,50 @@
+<script>
+  var prebuilts = [];
+
+  {% for block in section.blocks %}
+    prebuilts.push({
+      {% assign products = block.settings.products | json | remove: '"' | split: '\n' %}
+      title: "{{ block.settings.title }}",
+      items: [
+        {% for product in products %}
+          {% assign product_array = product | split: 'x' %}
+          {
+            id: {{ product_array | first }},
+            qty: {{ product_array | last }}
+          }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    });
+  {% endfor %}
+
+  window.Scoutside.bundle.prebuilts = prebuilts;
+</script>
+
+{% schema %}
+  {
+    "name": "Build A Box - Prebuilts",
+    "blocks": [
+      {
+        "type": "bundle",
+        "name": "Bundle",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "paragraph",
+            "content": "In the following input, add product id followed by 'x' and the quantity. For example: 1234567890x5."
+          },
+          {
+            "type": "textarea",
+            "id": "products",
+            "label": "Included Products",
+            "info": "Use a new line for each product."
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

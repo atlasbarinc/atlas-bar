@@ -1,0 +1,119 @@
+<script>
+  var parts = {}
+
+  parts = {{ section.settings | json }}
+
+  {% for block in section.blocks %}
+    parts['{{ block.type }}'] = parts['{{ block.type }}'] || []
+    parts['{{ block.type }}'].push({{ block.settings | json }})
+  {% endfor %}
+
+  window.Scoutside.portal.parts = parts
+</script>
+
+{% schema %}
+  {
+    "name": "Portal Parts",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Navigation"
+      },
+      {
+        "id": "navigation_label",
+        "type": "text",
+        "label": "Navigation Label",
+        "default": "{{ navigation_label }}"
+      },
+      {
+        "id": "navigation_signout",
+        "type": "text",
+        "label": "Navigation Signout",
+        "default": "{{ navigation_signout }}"
+      },
+      {
+        "id": "navigation_view",
+        "type": "text",
+        "label": "Navigation View",
+        "default": "{{ navigation_view }}"
+      },
+      {
+        "id": "navigation_earn",
+        "type": "text",
+        "label": "Navigation Earn",
+        "default": "{{ navigation_earn }}"
+      },
+      {
+        "id": "navigation_refer",
+        "type": "text",
+        "label": "Navigation Refer",
+        "default": "{{ navigation_refer }}"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "navigation",
+        "name": "Navigation",
+        "settings": [
+          {
+            "id": "text",
+            "type": "text",
+            "label": "Item Text"
+          },
+          {
+            "id": "url",
+            "type": "url",
+            "label": "Item Url (only for external links)"
+          },
+          {
+            "type": "select",
+            "id": "page",
+            "label": "Page",
+            "options": [
+              {
+                "value": "shipment",
+                "label": "Shipment"
+              },
+              {
+                "value": "shipments",
+                "label": "Shipments"
+              },
+              {
+                "value": "details",
+                "label": "Details"
+              },
+              {
+                "value": "orders",
+                "label": "Orders"
+              },
+              {
+                "value": "external",
+                "label": "External"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "visibility",
+            "label": "Visibility",
+            "default": "all_users",
+            "options": [
+              {
+                "value": "all_users",
+                "label": "All Users"
+              },
+              {
+                "value": "shopify_users",
+                "label": "Shopify Users"
+              },
+              {
+                "value": "recharge_users",
+                "label": "Recharge Users"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

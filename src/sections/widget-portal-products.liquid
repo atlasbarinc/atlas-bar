@@ -1,0 +1,217 @@
+<script>
+  var products = {}
+  var catalog = []
+  var inventory = {}
+
+  // Build Up Catalog
+  {% paginate collections[section.settings.catalog].products by 250 %}
+    {% for product in collections[section.settings.catalog].products %}
+      var _product = {{ product | json }};      
+      
+      // Build Base Values
+      var catalogProduct = {
+        id: _product.id.toString(),
+        handle: _product.handle,
+        title: _product.title,
+        defaultPrice: '{{ product.variants[0].price | money_without_currency }}',
+        defaultSubscriptionPrice: '{{ product.variants[0].price | money_without_currency }}',
+        body: _product.description,
+        images: _product.images,
+        tags: _product.tags,
+        options: [],
+        variants: [],
+        metafields: []
+      }
+
+      // Build Up Options
+      {% for product_option in product.options_with_values %}
+        var option = {
+          title: '{{ product_option.name }}',
+          values: []
+        }
+        {% for value in product_option.values %}
+          option.values.push('{{ value }}')
+        {% endfor %}
+        catalogProduct.options.push(option)
+      {% endfor %}
+
+      // Build Up Bundle Metafields
+      {% if product.metafields.details != blank %}
+        {% if product.metafields.details.short_description != blank %}
+          var metafield = {
+            namespace: 'details',
+            key: 'short_description',
+            value: '{{ product.metafields.details.short_description }}'
+          }
+          catalogProduct.metafields.push(metafield)
+        {% endif %}
+        {% if product.metafields.details.primary_color != blank %}
+          var metafield = {
+            namespace: 'details',
+            key: 'primary_color',
+            value: '{{ product.metafields.details.primary_color }}'
+          }
+          catalogProduct.metafields.push(metafield)
+        {% endif %}
+        {% if product.metafields.details.secondary_color != blank %}
+          var metafield = {
+            namespace: 'details',
+            key: 'secondary_color',
+            value: '{{ product.metafields.details.secondary_color }}'
+          }
+          catalogProduct.metafields.push(metafield)
+        {% endif %}
+        {% if product.metafields.details.total_carbs != blank %}
+          var metafield = {
+            namespace: 'details',
+            key: 'total_carbs',
+            value: '{{ product.metafields.details.total_carbs }}'
+          }
+          catalogProduct.metafields.push(metafield)
+        {% endif %}
+        {% if product.metafields.details.carb_details != blank %}
+          var metafield = {
+            namespace: 'details',
+            key: 'carb_details',
+            value: '{{ product.metafields.details.carb_details | json }}'
+          }
+          catalogProduct.metafields.push(metafield)
+        {% endif %}
+        {% if product.metafields.details.net_carbs != blank %}
+          var metafield = {
+            namespace: 'details',
+            key: 'net_carbs',
+            value: '{{ product.metafields.details.net_carbs }}'
+          }
+          catalogProduct.metafields.push(metafield)
+        {% endif %}
+        {% if product.metafields.details.ingredients != blank %}
+          var metafield = {
+            namespace: 'details',
+            key: 'ingredients',
+            value: '{{ product.metafields.details.ingredients }}'
+          }
+          catalogProduct.metafields.push(metafield)
+        {% endif %}
+      {% endif %}
+      {% if product.metafields.images != blank %}
+        {% if product.metafields.images.wrapper != blank %}
+          var metafield = {
+            namespace: 'images',
+            key: 'wrapper',
+            value: '{{ product.metafields.images.wrapper | json }}'
+          }
+          catalogProduct.metafields.push(metafield)
+        {% endif %}
+        {% if product.metafields.images.bar != blank %}
+          var metafield = {
+            namespace: 'images',
+            key: 'bar',
+            value: '{{ product.metafields.images.bar | json }}'
+          }
+          catalogProduct.metafields.push(metafield)
+        {% endif %}
+        {% if product.metafields.images.nutrition_label != blank %}
+          var metafield = {
+            namespace: 'images',
+            key: 'nutrition_label',
+            value: '{{ product.metafields.images.nutrition_label | json }}'
+          }
+          catalogProduct.metafields.push(metafield)
+        {% endif %}
+      {% endif %}
+
+      // Build Up Subscription Fields
+      {% if product.metafields.subscriptions != blank %}
+        {% if product.metafields.subscriptions.discount_product_id != blank %}
+          catalogProduct.subscriptionId = '{{ product.metafields.subscriptions.discount_product_id }}'
+        {% endif %}
+        {% if product.metafields.subscriptions.discount_percentage != blank %}
+          var subscriptionDiscount = '{{ product.metafields.subscriptions.discount_percentage }}'
+          subscriptionDiscount = parseFloat(subscriptionDiscount / 100)
+          catalogProduct.subscriptionDiscount = subscriptionDiscount
+        {% endif %}        
+      {% endif %}
+
+
+      // Build Up Variants
+      {% for variant in product.variants %}
+        var _variant = {{ variant | json }}
+        var catalogVariant = {
+          id: _variant.id.toString(),
+          title: _variant.title,
+          productId: _product.id.toString(),
+          sku: _variant.sku,
+          price: '{{ variant.price | money_without_currency }}',
+          options: {
+            option1: _variant.option1 || '',
+            option2: _variant.option2 || '',
+            option3: _variant.option3 || ''
+          },
+          inventoryManagement: '{{ variant.inventory_management }}',
+          inventoryPolicy: '{{ variant.inventory_policy }}',
+          inventoryQuantity: '{{ variant.inventory_quantity }}'
+        }
+
+        // Build Up Subscription Fields
+        {% if variant.metafields.subscriptions != blank %}
+          {% if variant.metafields.subscriptions.discount_variant_id != blank %}
+            catalogVariant.subscriptionId = '{{ variant.metafields.subscriptions.discount_variant_id }}'
+          {% endif %}
+          {% if variant.metafields.subscriptions.discount_variant_price != blank %}
+            var subscriptionPrice = '{{ variant.metafields.subscriptions.discount_variant_price }}'
+            subscriptionPrice = parseFloat(subscriptionPrice)
+            catalogVariant.subscriptionPrice = subscriptionPrice
+            {% if forloop.first == true %}
+              catalogProduct.defaultSubscriptionPrice = subscriptionPrice
+            {% endif %}
+          {% endif %}
+        {% endif %}
+        
+        catalogProduct.variants.push(catalogVariant)
+      {% endfor %}
+
+      catalog.push(catalogProduct)
+    {% endfor %}
+  {% endpaginate %}
+
+
+  // Build Up Invetory
+  for(let i = 0; i < catalog.length; i++) {
+    var product = catalog[i]
+    var productAvailable = true
+    if(product.inventory_policy == 'deny') {
+      productAvailable = false
+    }
+    var variantInventory = {}
+    for(let c = 0; c < product.variants.length; c++) {
+      var variant = product.variants[c]
+      if(variant.inventoryQuantity > 0) {
+        productAvailable = true
+      }
+      variantInventory[variant.id] = variant.inventoryQuantity
+    }
+    
+    inventory[product.id] = variantInventory
+    inventory[product.id]['available'] = productAvailable
+  }
+
+  window.Scoutside.portal.products = {
+    catalog: catalog,
+    inventory: inventory
+  }
+</script>
+
+{% schema %}
+  {
+    "name": "Portal Products",
+    "settings": [
+      {
+        "type": "collection",
+        "id": "catalog",
+        "label": "Product Catalog",
+        "info": "All products needed in portal"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,142 @@
+{% assign heading = "Register" %}
+{% assign text = "" %}
+{% assign first_name_placeholder = "First Name*" %}
+{% assign last_name_placeholder = "Last Name*" %}
+{% assign email_placeholder = "Email Address*" %}
+{% assign password_placeholder = "Password*" %}
+{% assign submit_button = "Submit" %}
+{% assign account_text = "Already have an account?" %}
+{% assign account_link = "Login" %}
+
+{% if section.settings.heading != blank %}{% assign heading = section.settings.heading %}{% endif %}
+{% if section.settings.text != blank %}{% assign text = section.settings.text %}{% endif %}
+{% if section.settings.first_name_placeholder != blank %}{% assign first_name_placeholder = section.settings.first_name_placeholder %}{% endif %}
+{% if section.settings.last_name_placeholder != blank %}{% assign last_name_placeholder = section.settings.last_name_placeholder %}{% endif %}
+{% if section.settings.email_placeholder != blank %}{% assign email_placeholder = section.settings.email_placeholder %}{% endif %}
+{% if section.settings.password_placeholder != blank %}{% assign password_placeholder = section.settings.password_placeholder %}{% endif %}
+{% if section.settings.account_text != blank %}{% assign account_text = section.settings.account_text %}{% endif %}
+{% if section.settings.account_link != blank %}{% assign account_link = section.settings.account_link %}{% endif %}
+{% if section.settings.submit_button != blank %}{% assign submit_button = section.settings.submit_button %}{% endif %}
+
+<div class="c-formRegister c-form c-form--isNarrow"
+  data-form-register
+>
+  <div class="c-formRegister__container o-pageNarrow">
+    <h1 class="c-formRegister__heading c-h1 c-form__heading u-textCenter">
+      {{ heading }}
+    </h1> 
+    {% if section.settings.text != blank %}
+      <p class="c-formRegister__text c-p3 c-form__text u-textCenter">
+        {{ section.settings.text }}
+      </p>
+    {% endif %}
+    <div class="c-formRegister__content c-form__content">
+      {%- form "create_customer" -%} 
+        {%- if form.errors -%}
+          <div class="c-formRegister__alert c-form__alert c-form__alert--isError">
+            {{ form.errors | default_errors }}
+          </div>
+        {%- endif -%}
+        <div class="c-formRegister__field c-field">
+          <input class="c-formRegister__input c-input c-input--isDefault"
+            type="text" 
+            name="customer[first_name]" 
+            placeholder="{{ first_name_placeholder }}"
+          />
+        </div>
+        <div class="c-formRegister__field c-field">
+          <input class="c-formRegister__input c-input c-input--isDefault"
+            type="text" 
+            name="customer[last_name]" 
+            placeholder="{{ last_name_placeholder }}"
+          />
+        </div>
+        <div class="c-formRegister__field c-field">
+          <input class="c-formRegister__input c-input c-input--isDefault"
+            type="email" 
+            name="customer[email]" 
+            placeholder="{{ email_placeholder }}"
+          />
+        </div>
+        <div class="c-formRegister__field c-field">
+          <input class="c-formRegister__input c-input c-input--isDefault"
+            type="password"
+            name="customer[password]"
+            placeholder="{{ password_placeholder }}"
+          />
+        </div>
+        <button class="c-formRegister__button c-form__submit
+          c-button 
+          c-button--isDefault
+          c-button--isSecondary"
+          type="submit"
+        >
+          {{ submit_button }}
+        </button>
+      {%- endform -%} 
+      <div class="c-formRegister__sub c-form__sub">
+        <p class="c-formRegister__forgot c-p3 c-form__subText">
+          {{ account_text }}
+          <a href="/account/login" class="c-formRegister__forgotLink c-form__subLink"
+            data-form-recover-trigger
+          >
+            {{ account_link }}
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Form Register",
+    "settings": [
+      {
+        "id": "heading",
+        "type": "text",
+        "label": "Heading"
+      },
+      {
+        "id": "text",
+        "type": "text",
+        "label": "Text"
+      },
+      {
+        "id": "first_name_placeholder",
+        "type": "text",
+        "label": "First Name Placeholder"
+      },
+      {
+        "id": "last_name_placeholder",
+        "type": "text",
+        "label": "Last Name Placeholder"
+      },
+      {
+        "id": "email_placeholder",
+        "type": "text",
+        "label": "Email Placeholder"
+      },
+      {
+        "id": "password_placeholder",
+        "type": "text",
+        "label": "Password Placeholder"
+      },
+      {
+        "id": "submit_button",
+        "type": "text",
+        "label": "Submit Button"
+      },
+      {
+        "id": "account_text",
+        "type": "text",
+        "label": "Account Text"
+      },
+      {
+        "id": "account_link",
+        "type": "text",
+        "label": "Account Link"
+      }
+    ]
+  }
+{% endschema %}
